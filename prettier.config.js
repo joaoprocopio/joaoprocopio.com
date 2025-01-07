@@ -4,7 +4,7 @@ export default {
   singleQuote: false,
   bracketSameLine: true,
   trailingComma: "es5",
-  printWidth: 100,
+  printWidth: 80,
   quoteProps: "consistent",
   plugins: ["prettier-plugin-astro"],
 }
