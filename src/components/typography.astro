@@ -1,0 +1,18 @@
+---
+type Props = {
+  variant: Variant
+  class?: string
+}
+type Variant = "h1" | "h2" | "p"
+
+const Element: Variant = Astro.props.variant || "p"
+const Classes: Record<Variant, string> = {
+  h1: "text-5xl font-bold",
+  h2: "text-lg",
+  p: "mb-4",
+}
+---
+
+<Element class:list={[Classes[Element], Astro.props.class]}>
+  <slot />
+</Element>

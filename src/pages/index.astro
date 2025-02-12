@@ -1,10 +1,19 @@
 ---
-import DefaultLayout from "../layouts/default.astro"
+import Typography from "~/components/typography.astro"
+import DefaultLayout from "~/layouts/default.astro"
 ---
 
 <DefaultLayout>
-  <div class="container h-[10000px]">
-    <h1 class="text-3xl font-bold">João Procópio</h1>
-    <h2 class="italic">/ʒuˈɐ̃͡ʊ̃ pɹˌukˈɔpjʊ/</h2>
+  <div class="container">
+    <div class="py-12">
+      <div>
+        <Typography variant="h1">João Procópio</Typography>
+        <Typography variant="h2" class="italic">/ʒuˈɐ̃͡ʊ̃ pɹˌukˈɔpjʊ/</Typography>
+      </div>
+
+      <div>
+        <!--  -->
+      </div>
+    </div>
   </div>
 </DefaultLayout>
