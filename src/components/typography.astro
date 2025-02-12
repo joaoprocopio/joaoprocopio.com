@@ -1,15 +1,20 @@
 ---
 import { twMerge } from "tailwind-merge"
 
-type ValidHTMLElement = keyof HTMLElementTagNameMap
 type Props = {
-  variant: Variant
+  variant: TVariant
+  element?: TElement
   class?: string
 }
-type Variant = "h1" | "h2" | "h3" | "h4" | "small" | "p"
 
-const DefaultVariantElement: ValidHTMLElement = "p"
-const VariantElement: Record<Variant, ValidHTMLElement> = {
+type TElement = keyof HTMLElementTagNameMap
+type TVariant = "h1" | "h2" | "h3" | "h4" | "small" | "p"
+type TVariantElement = Record<TVariant, TElement>
+type TVariantClass = Record<TVariant, string>
+
+const DEFALT_ELEMENT: TElement = "p"
+
+const VARIANT_ELEMENT: TVariantElement = {
   h1: "h1",
   h2: "h2",
   h3: "h3",
@@ -18,8 +23,7 @@ const VariantElement: Record<Variant, ValidHTMLElement> = {
   small: "small",
 }
 
-const Element: Variant = Astro.props.variant || "p"
-const Classes: Record<Variant, string> = {
+const VARIANT_CLASS: TVariantClass = {
   h1: "scroll-m-20 text-4xl font-extrabold tracking-tight lg:text-5xl",
   h2: "scroll-m-20 pb-2 text-3xl font-semibold tracking-tight first:mt-0",
   h3: "scroll-m-20 text-2xl font-semibold tracking-tight",
@@ -27,8 +31,11 @@ const Classes: Record<Variant, string> = {
   small: "text-sm leading-none",
   p: "leading-7 [&:not(:first-child)]:mt-6",
 }
+
+const Element: TElement =
+  Astro.props.element ?? VARIANT_ELEMENT[Astro.props.variant ?? DEFALT_ELEMENT]
 ---
 
-<Element class={twMerge(Classes[Element], Astro.props.class)}>
+<Element class={twMerge(VARIANT_CLASS[Astro.props.variant], Astro.props.class)}>
   <slot />
 </Element>
