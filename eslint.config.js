@@ -5,25 +5,49 @@ import * as compat from "@eslint/compat"
 import js from "@eslint/js"
 import astro from "eslint-plugin-astro"
 import prettier from "eslint-plugin-prettier/recommended"
-import sort from "eslint-plugin-simple-import-sort"
 import tseslint from "typescript-eslint"
 
 const __filename = fileURLToPath(import.meta.url)
 const __dirname = dirname(__filename)
 const __gitignore = resolve(__dirname, ".gitignore")
 
-export default tseslint.config([
+export default tseslint.config(
   compat.includeIgnoreFile(__gitignore),
-  js.configs.recommended,
-  ...astro.configs.recommended,
   {
-    plugins: {
-      "simple-import-sort": sort,
-    },
-    rules: {
-      "simple-import-sort/imports": "error",
-      "simple-import-sort/exports": "error",
+    languageOptions: {
+      parserOptions: {
+        project: "./tsconfig.json",
+        ecmaVersion: "latest",
+        sourceType: "module",
+      },
     },
   },
+  withAstroFiles(js.configs.recommended),
+  withAstroFiles(tseslint.configs.recommended),
+  withAstroFiles(tseslint.configs.strict),
+  astro.configs.recommended,
   prettier,
-])
+)
+
+/**
+ * @typedef   {import("typescript-eslint").ConfigArray} ConfigArray
+ * @param     {ConfigArray | ConfigArray[number]} config
+ * @returns   {ConfigArray | ConfigArray[number]}
+ */
+function withAstroFiles(config) {
+  if (Array.isArray(config)) {
+    config?.forEach((config) => {
+      if (!config.files) return config
+
+      config.files = config.files.concat("**.astro")
+    })
+
+    return config
+  }
+
+  if (!config.files) return config
+
+  config.files = config.files.concat("**.astro")
+
+  return config
+}

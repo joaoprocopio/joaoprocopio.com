@@ -9,6 +9,7 @@
   --color-primary: var(--color-teal-900);
   --color-primary-foreground: var(--color-teal-300);
 
+  --color-secondary: var(--color-slate-200);
   --color-border: var(--color-foreground);
 }
 
@@ -54,6 +55,6 @@
 
 @layer utilities {
   .container {
-    @apply mx-auto max-w-[1280px] px-6;
+    @apply mx-auto max-w-[1280px];
   }
 }

@@ -1,18 +1,34 @@
 ---
+import { twMerge } from "tailwind-merge"
+
+type ValidHTMLElement = keyof HTMLElementTagNameMap
 type Props = {
   variant: Variant
   class?: string
 }
-type Variant = "h1" | "h2" | "p"
+type Variant = "h1" | "h2" | "h3" | "h4" | "small" | "p"
+
+const DefaultVariantElement: ValidHTMLElement = "p"
+const VariantElement: Record<Variant, ValidHTMLElement> = {
+  h1: "h1",
+  h2: "h2",
+  h3: "h3",
+  h4: "h3",
+  p: "p",
+  small: "small",
+}
 
 const Element: Variant = Astro.props.variant || "p"
 const Classes: Record<Variant, string> = {
-  h1: "text-5xl font-bold",
-  h2: "text-lg",
-  p: "mb-4",
+  h1: "scroll-m-20 text-4xl font-extrabold tracking-tight lg:text-5xl",
+  h2: "scroll-m-20 pb-2 text-3xl font-semibold tracking-tight first:mt-0",
+  h3: "scroll-m-20 text-2xl font-semibold tracking-tight",
+  h4: "scroll-m-20 text-xl font-semibold tracking-tight",
+  small: "text-sm leading-none",
+  p: "leading-7 [&:not(:first-child)]:mt-6",
 }
 ---
 
-<Element class:list={[Classes[Element], Astro.props.class]}>
+<Element class={twMerge(Classes[Element], Astro.props.class)}>
   <slot />
 </Element>
