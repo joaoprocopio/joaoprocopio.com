@@ -9,7 +9,7 @@
   --color-primary: var(--color-teal-900);
   --color-primary-foreground: var(--color-teal-300);
 
-  --color-border: inherit;
+  --color-border: var(--color-foreground);
 }
 
 @layer base {
@@ -22,10 +22,15 @@
   }
 
   body {
-    @apply bg-background text-foreground antialiased leading-relaxed overscroll-none;
+    @apply bg-background text-foreground antialiased leading-relaxed overscroll-none selection:text-primary selection:bg-primary-foreground;
 
     font-synthesis-weight: none;
     text-rendering: optimizeLegibility;
+  }
+
+  html,
+  body {
+    @apply min-h-full h-full;
   }
 
   ::-webkit-scrollbar {
@@ -37,18 +42,18 @@
   }
 
   ::-webkit-scrollbar-thumb {
-    background: hsl(var(--border));
+    background: var(--color-border);
     border-radius: 5px;
   }
 
   * {
     scrollbar-width: thin;
-    scrollbar-color: hsl(var(--border)) transparent;
+    scrollbar-color: var(--color-border) transparent;
   }
 }
 
 @layer utilities {
   .container {
-    @apply mx-auto max-w-[1536px] px-4 xl:px-6 2xl:px-4;
+    @apply mx-auto max-w-[1280px] px-6;
   }
 }
