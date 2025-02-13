@@ -1,8 +1,6 @@
 ---
 import { twMerge } from "tailwind-merge"
 
-const DEFAULT_ELEMENT = "div" as const satisfies TElement
-
 type Props<E extends TElement = typeof DEFAULT_ELEMENT> = {
   variant?: TVariant
   element?: E
@@ -23,12 +21,8 @@ type TVariant =
   | "footnote"
 type TVariantClass = Record<TVariant, string>
 
-const {
-  class: classProp,
-  element: elementProp,
-  variant: variantProp = "body",
-  ...astroProps
-} = Astro.props
+const DEFAULT_ELEMENT = "div" as const satisfies TElement
+const DEFAULT_VARIANT = "body" as const satisfies TVariant
 
 // TODO: mover os font-weight pra dentro de outra prop que chama affects, vai ser regular/emphasized
 const VARIANT_CLASS: TVariantClass = {
@@ -38,6 +32,13 @@ const VARIANT_CLASS: TVariantClass = {
   subheadline: "text-[15px]/[20px] -tracking-[0.23px]",
   footnote: "text-[13px]/[18px] -tracking-[0.08px] font-semibold",
 }
+
+const {
+  class: classProp,
+  element: elementProp,
+  variant: variantProp = DEFAULT_VARIANT,
+  ...astroProps
+} = Astro.props
 
 const Element: TElement = elementProp ?? DEFAULT_ELEMENT
 ---
