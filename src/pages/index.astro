@@ -2,37 +2,37 @@
 import Typography from "~/components/typography.astro"
 import DefaultLayout from "~/layouts/default.astro"
 
-type Section = {
-  id: string
-  href: `#${string}`
-  label: string
+type Section<S extends string> = {
+  id: S
+  href: `#${S}`
+  label: Capitalize<S>
 }
 
-const SECTION_ABOUT: Section = {
+const SECTION_ABOUT: Section<"about"> = {
   id: "about",
   href: "#about",
   label: "About",
 }
 
-const SECTION_EXPERIENCE: Section = {
+const SECTION_EXPERIENCE: Section<"experience"> = {
   id: "experience",
   href: "#experience",
   label: "Experience",
 }
 
-const SECTION_PROJECTS: Section = {
+const SECTION_PROJECTS: Section<"projects"> = {
   id: "projects",
   href: "#projects",
   label: "Projects",
 }
 
-const SECTION_CONTACTS: Section = {
+const SECTION_CONTACTS: Section<"contacts"> = {
   id: "contacts",
   href: "#contacts",
   label: "Contacts",
 }
 
-const SECTIONS: Section[] = [
+const SECTIONS: Section<string>[] = [
   SECTION_ABOUT,
   SECTION_EXPERIENCE,
   SECTION_PROJECTS,
