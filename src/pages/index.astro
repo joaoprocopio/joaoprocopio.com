@@ -62,7 +62,7 @@ const SECTIONS: TSection<string>[] = [
           </Typography>
         </section>
 
-        <ol class="mt-16 [&_li+li]:mt-2">
+        <ol class="mt-16 [&>li+li]:mt-2">
           {
             SECTIONS.map((section) => (
               <li>
@@ -112,24 +112,98 @@ const SECTIONS: TSection<string>[] = [
               developer experience:
             </Typography>
 
-            <ol class="mt-3 list-inside list-decimal">
-              <Typography variant="headline" element="li"
-                >Copy the error</Typography
-              >
-              <Typography variant="headline" element="li">
+            <ol class="mt-2 list-inside list-decimal [&>li+li]:mt-0.5">
+              <Typography variant="body" element="li">
+                Copy the error
+              </Typography>
+
+              <Typography variant="body" element="li">
                 Paste it into Google and click the first Stack Overflow result
               </Typography>
-              <Typography variant="headline" element="li"
-                >Jump straight to the answer</Typography
-              >
-              <Typography variant="headline" element="li"
-                >Stare at the code</Typography
-              >
-              <Typography variant="headline" element="li"
-                >Manage to solve it (optional)</Typography
-              >
+
+              <Typography variant="body" element="li">
+                Jump straight to the answer
+              </Typography>
+
+              <Typography variant="body" element="li">
+                Stare at the code
+              </Typography>
+
+              <Typography variant="body" element="li">
+                Manage to solve it (optional)
+              </Typography>
             </ol>
           </div>
+
+          <Typography>
+            In the end, I succeeded. Seeing it work with the message coming
+            through gave me immense satisfaction — it was my first practical
+            contact with code, and it felt like magic.
+          </Typography>
+
+          <Typography>
+            Since then, learning and facing increasingly bigger challenges has
+            become a passion. I enjoy diving into unknown problems and, even
+            without much initial information, reaching a complete solution. Each
+            new learning experience is another piece that expands my vision of
+            what's possible to achieve with technology.
+          </Typography>
+
+          <div>
+            <Typography>
+              Currently, I have experience with these programming languages:
+            </Typography>
+
+            <ol class="mt-2 list-inside list-disc [&>li+li]:mt-0.5">
+              <Typography variant="body" element="li">
+                JavaScript and TypeScript
+              </Typography>
+
+              <Typography variant="body" element="li"> Python </Typography>
+
+              <Typography variant="body" element="li"> Dart </Typography>
+            </ol>
+
+            <Typography class="mt-2">
+              I'm always interested in learning more languages, and I'm
+              currently studying Go and Rust.
+            </Typography>
+          </div>
+
+          <div>
+            <Typography>
+              I've also worked with various frameworks, such as:
+            </Typography>
+
+            <ol class="mt-2 list-inside list-disc [&>li+li]:mt-0.5">
+              <Typography variant="body" element="li"> Vue </Typography>
+
+              <Typography variant="body" element="li"> Nuxt </Typography>
+
+              <Typography variant="body" element="li"> React </Typography>
+
+              <Typography variant="body" element="li"> Django </Typography>
+
+              <Typography variant="body" element="li"> Flutter </Typography>
+            </ol>
+          </div>
+
+          <Typography>
+            Although I like frameworks, I believe each project has its own
+            needs, and often, I prefer the simplicity of working with just the
+            basics, without frameworks, in personal projects.
+          </Typography>
+
+          <Typography>
+            Today, as a Software Engineer, I feel I have the ability to design
+            and develop complete applications, participating in every step of
+            the engineering process.
+          </Typography>
+
+          <Typography>
+            My focus is to always make the maximum possible impact on every
+            product that I work on.
+          </Typography>
         </Section>
       </main>
     </div>

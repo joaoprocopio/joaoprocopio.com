@@ -6,8 +6,6 @@ type Props = astroHTML.JSX.HTMLAttributes
 const { class: classProp, ...astroProps } = Astro.props
 ---
 
-<section
-  class={twMerge("[&>*:not(:first-child)]:mt-6", classProp)}
-  {...astroProps}>
+<section class={twMerge("[&>*+*]:mt-6", classProp)} {...astroProps}>
   <slot />
 </section>
