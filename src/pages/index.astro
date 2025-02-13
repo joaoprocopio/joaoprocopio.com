@@ -1,38 +1,39 @@
 ---
+import Section from "~/components/section.astro"
 import Typography from "~/components/typography.astro"
 import DefaultLayout from "~/layouts/default.astro"
 
-type Section<S extends string> = {
-  id: S
-  href: `#${S}`
-  label: Capitalize<S>
+type TSection<S extends string> = {
+  ID: S
+  HREF: `#${S}`
+  LABEL: Capitalize<S>
 }
 
-const SECTION_ABOUT: Section<"about"> = {
-  id: "about",
-  href: "#about",
-  label: "About",
+const SECTION_ABOUT: TSection<"about"> = {
+  ID: "about",
+  HREF: "#about",
+  LABEL: "About",
 }
 
-const SECTION_EXPERIENCE: Section<"experience"> = {
-  id: "experience",
-  href: "#experience",
-  label: "Experience",
+const SECTION_EXPERIENCE: TSection<"experience"> = {
+  ID: "experience",
+  HREF: "#experience",
+  LABEL: "Experience",
 }
 
-const SECTION_PROJECTS: Section<"projects"> = {
-  id: "projects",
-  href: "#projects",
-  label: "Projects",
+const SECTION_PROJECTS: TSection<"projects"> = {
+  ID: "projects",
+  HREF: "#projects",
+  LABEL: "Projects",
 }
 
-const SECTION_CONTACTS: Section<"contacts"> = {
-  id: "contacts",
-  href: "#contacts",
-  label: "Contacts",
+const SECTION_CONTACTS: TSection<"contacts"> = {
+  ID: "contacts",
+  HREF: "#contacts",
+  LABEL: "Contacts",
 }
 
-const SECTIONS: Section<string>[] = [
+const SECTIONS: TSection<string>[] = [
   SECTION_ABOUT,
   SECTION_EXPERIENCE,
   SECTION_PROJECTS,
@@ -69,8 +70,8 @@ const SECTIONS: Section<string>[] = [
                   variant="footnote"
                   element="a"
                   class="uppercase"
-                  href={section.href}>
-                  {section.label}
+                  href={section.HREF}>
+                  {section.LABEL}
                 </Typography>
               </li>
             ))
@@ -82,186 +83,53 @@ const SECTIONS: Section<string>[] = [
         </footer>
       </aside>
 
-      <main class="col-start-3 col-end-6 py-24 [&_div]:mb-6">
-        <Typography variant="body">
-          Lorem, ipsum dolor sit amet consectetur adipisicing eTypographyt.
-          Mollitia hic dolore, aliquam explicabo atque molestiae tempora? Quis
-          dolores tempore aspernatur tenetur eum unde repudiandae magnam autem
-          expedita. Distinctio, assumenda modi.
-        </Typography>
-        <Typography variant="body">
-          Quasi laboriosam necessitatibus, quam itaque neque obcaecati voluptas
-          totam tempore dolorum, maiores accusamus numquam fugiat? Facere
-          dolore, fugiat possimus a quaerat fugit, sapiente sit, laudantium vero
-          cumque porro numquam. Ipsa.
-        </Typography>
-        <Typography variant="body">
-          Explicabo dignissimos ipsam aspernatur facere nisi suscipit delectus
-          assumenda, cupiditate quo quasi saepe! Dolorem, dolores! Illo
-          consectetur, officia quibusdam, doloremque soluta accusantium ipsum
-          excepturi, voluptatum fuga a aspernatur optio numquam!
-        </Typography>
-        <Typography variant="body">
-          Maxime neque quae cum dolor illo, sit, saepe perferendis velit a omnis
-          nam. Perferendis eaque eum deleniti alias atque obcaecati ut cumque
-          enim voluptatibus repellendus, placeat natus et, suscipit eligendi?
-        </Typography>
-        <Typography variant="body">
-          Debitis suscipit obcaecati est, sapiente dicta recusandae asperiores
-          sit labore mollitia quia optio nihil deserunt dolores, placeat
-          veritatis animi, dignissimos harum soluta nam! Ipsum, officia
-          aspernatur quia vel hic inventore.
-        </Typography>
-        <Typography variant="body">
-          Omnis officiis, nulla amet consectetur quis cumque rem eveniet nobis,
-          dicta culpa a veritatis odit? Eius porro illum quaerat perferendis
-          officiis quas architecto possimus eaque velit voluptatibus? Magnam,
-          porro modi!
-        </Typography>
-        <Typography variant="body">
-          Minus neque mollitia deleniti voluptatibus quam laudantium inventore
-          debitis labore quae assumenda nihil accusantium dolorem dolores
-          voluptatem eos, rem, consectetur reprehenderit ipsam sequi vitae
-          blanditiis! In dolores similique odio doloribus.
-        </Typography>
-        <Typography variant="body">
-          Enim, laudantium quae cum asperiores maxime, nemo aspernatur
-          voluptates temporibus iusto ipsa officiis voluptate similique
-          consectetur inventore nulla vitae libero amet voluptatum deleniti a.
-          Itaque maxime soluta consequatur consectetur cupiditate?
-        </Typography>
-        <Typography variant="body">
-          Suscipit rem aliquid minima necessitatibus soluta, libero,
-          perspiciatis sunt quam nisi dolores laboriosam dignissimos nam autem
-          impedit sapiente! Excepturi harum velit ex maiores dolores iusto quia
-          minus dolorum eum corporis!
-        </Typography>
-        <Typography variant="body">
-          Amet, pariatur vitae sint, maxime, quas debitis consequuntur quod
-          fugiat distinctio numquam aut deserunt consectetur iusto aspernatur
-          totam architecto similique voluptatem facilis perferendis autem.
-          Reiciendis voluptatum debitis facilis explicabo natus.
-        </Typography>
-        <Typography variant="body">
-          Quaerat accusamus reiciendis adipisci iure doloribus sint laborum
-          dolores dicta facere quidem voluptatem, quas error neque minima,
-          corrupti dolor suscipit ipsa dolore repellat magni. Maxime iusto aut
-          aliquid ex quaerat.
-        </Typography>
-        <Typography variant="body">
-          Consequuntur voluptatum, ratione voluptas iure quasi ea saepe beatae
-          accusantium odit consectetur, omnis fuga dolorum tempore fugit enim
-          sapiente perferendis. Porro nisi est voluptatum ad nihil consequatur
-          adipisci quis delectus?
-        </Typography>
-        <Typography variant="body">
-          Voluptatibus numquam, nobis eaque commodi, ea similique at iure
-          facilis deserunt accusamus eos. In laborum dolores recusandae
-          aspernatur eius ducimus voluptate delectus consequuntur magni, nam et,
-          molestias alias, modi maiores?
-        </Typography>
-        <Typography variant="body">
-          Illum vero reiciendis adipisci dicta sequi a recusandae nihil
-          accusamus repudiandae, eos tempore placeat alias accusantium
-          veritatis, eligendi saepe sunt omnis officia. Asperiores nam sapiente
-          repellat aliquam dolores eaque eveniet?
-        </Typography>
-        <Typography variant="body">
-          Nesciunt dicta qui repellat ipsum consequatur quae quasi provident,
-          recusandae commodi accusamus, quaerat veniam sit asperiores
-          reprehenderit eos odit perferendis earum non architecto. Et illo
-          blanditiis voluptates, corrupti praesentium ut!
-        </Typography>
-        <Typography variant="body">
-          Officiis voluptatibus adipisci, nobis pariatur deserunt doloremque
-          facilis minima nisi officia assumenda sequi labore itaque repellat.
-          Nihil officiis deleniti exercitationem praesentium illo amet deserunt
-          nulla molestias, repellat, esse delectus suscipit?
-        </Typography>
-        <Typography variant="body">
-          Neque, similique laboriosam voluptatum magnam vitae laudantium dolorum
-          minima molestias eligendi! Porro nostrum deleniti maxime similique aut
-          quibusdam vel libero, beatae repudiandae at? Pariatur similique quidem
-          corporis distinctio, nemo perspiciatis!
-        </Typography>
-        <Typography variant="body">
-          Dolor quidem voluptatem fugit quis cum fugiat quam praesentium totam
-          consequatur doloremque a dolorem repellendus beatae ut magni, esse
-          quas velit. Magnam ipsam blanditiis eos nesciunt deleniti
-          reprehenderit molestias amet!
-        </Typography>
-        <Typography variant="body">
-          Blanditiis nostrum explicabo in! Alias laudantium reiciendis quasi
-          asperiores sit iure ab rerum! Repellendus tempore nesciunt, hic
-          molestiae laboriosam eveniet, obcaecati ratione corporis aperiam, aut
-          accusamus soluta magnam vero praesentium?
-        </Typography>
-        <Typography variant="body">
-          Itaque neque ipsa ut a! Reprehenderit adipisci, ratione accusamus ea
-          repudiandae ipsa maxime natus asperiores perspiciatis veniam, aliquid
-          quo a distinctio nostrum tempore dolorum animi omnis nulla facere,
-          dolor odio!
-        </Typography>
-        <Typography variant="body">
-          Illum velit accusamus eum voluptatum culpa libero eligendi ducimus
-          totam tempore voluptate aspernatur quidem eveniet repellendus, atque
-          error nam laborum quaerat esse! Natus, doloribus unde. Incidunt
-          deserunt repellat in quae.
-        </Typography>
-        <Typography variant="body">
-          Exercitationem reiciendis accusantium, porro assumenda alias atque?
-          Aliquid magni, perferendis tempora delectus adipisci aperiam
-          voluptates voluptatum quod ipsum, ipsa eligendi laboriosam aliquam
-          est? Expedita inventore consequatur, nobis magni quibusdam ex?
-        </Typography>
-        <Typography variant="body">
-          Pariatur voluptates quis itaque repellat modi, ipsum omnis est odio a
-          earum, quae accusantium quisquam cupiditate voluptatum saepe provident
-          quasi consectetur unde et? Iste, aliquam eum id voluptates ducimus
-          quisquam!
-        </Typography>
-        <Typography variant="body">
-          Labore molestias placeat nihil amet tempora quod beatae voluptate.
-          Dolorem earum, ullam hic, quibusdam ab, cumque cupiditate quia alias
-          officiis sed provident odit quo nisi molestias numquam ad est
-          consequuntur!
-        </Typography>
-        <Typography variant="body">
-          Id assumenda maiores quidem? Deleniti cupiditate amet excepturi
-          commodi praesentium esse unde, iste iure at quam expedita, suscipit
-          pariatur quaerat quod sint, velit facilis natus sunt obcaecati magni.
-          Pariatur, optio.
-        </Typography>
-        <Typography variant="body">
-          Impedit maiores quam autem voluptas minima harum ut saepe ex facilis
-          aliquid magni temporibus dignissimos neque voluptatem delectus nisi
-          exercitationem quod fuga molestiae, dicta suscipit aspernatur! Facere
-          quo fuga laboriosam.
-        </Typography>
-        <Typography variant="body">
-          Itaque neque commodi expedita esse natus. Animi accusantium architecto
-          quibusdam ut totam et quisquam odio delectus, dolor tempore non
-          voluptatibus magni excepturi quam laboriosam! Eligendi nihil impedit
-          provident perspiciatis quasi.
-        </Typography>
-        <Typography variant="body">
-          Dicta optio numquam laborum deserunt eos sed, voluptas provident
-          libero eaque id quaerat delectus recusandae voluptatibus quam? Impedit
-          ex sunt provident harum, ipsum quam aut, quia maxime animi recusandae
-          voluptas.
-        </Typography>
-        <Typography variant="body">
-          Sapiente voluptates quasi qui facilis, culpa expedita quos suscipit ex
-          molestias labore autem, voluptas magni! Distinctio sed reiciendis
-          accusantium deserunt ipsam, voluptatibus cumque, aspernatur, est
-          temporibus hic quam aperiam sapiente.
-        </Typography>
-        <Typography variant="body">
-          Distinctio iusto nemo ea dolorum autem pariatur? Sapiente delectus
-          fugiat consequatur, facilis iure rem nam, praesentium est culpa animi
-          dicta exercitationem nesciunt eveniet? Quos aliquid ad libero
-          voluptate rem unde?
-        </Typography>
+      <main class="col-start-3 col-end-6 py-24">
+        <Section id={SECTION_ABOUT.ID}>
+          <Typography>
+            Always seeking to make an impact in the real world through building
+            software.
+          </Typography>
+
+          <Typography>
+            From a young age, my interests always gravitated toward technology -
+            it's an innate interest that has always been present. However, there
+            was a specific moment when I began to be interested not just in
+            technology itself, but in the process of building it.
+          </Typography>
+
+          <Typography>
+            I watched a video of someone creating a Python service to send
+            WhatsApp messages using the Twilio SDK, and for someone with no
+            programming experience, seeing this brought me enormous excitement
+            and made me want to understand how it worked.
+          </Typography>
+
+          <div>
+            <Typography>
+              I set up the tools on my machine and followed the step-by-step
+              tutorial. After dozens of stack traces and having the canonical
+              developer experience:
+            </Typography>
+
+            <ol class="mt-3 list-inside list-decimal">
+              <Typography variant="headline" element="li"
+                >Copy the error</Typography
+              >
+              <Typography variant="headline" element="li">
+                Paste it into Google and click the first Stack Overflow result
+              </Typography>
+              <Typography variant="headline" element="li"
+                >Jump straight to the answer</Typography
+              >
+              <Typography variant="headline" element="li"
+                >Stare at the code</Typography
+              >
+              <Typography variant="headline" element="li"
+                >Manage to solve it (optional)</Typography
+              >
+            </ol>
+          </div>
+        </Section>
       </main>
     </div>
   </div>

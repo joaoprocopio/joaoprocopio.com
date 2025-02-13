@@ -11,26 +11,34 @@ type TElementHTMLAttributes = astroHTML.JSX.DefinedIntrinsicElements
 type TElement = keyof TElementHTMLAttributes
 type TVariant =
   | "largeTitle"
-  // | "title1"
-  // | "title2"
-  // | "title3"
+  | "title1"
+  | "title2"
+  | "title3"
   | "headline"
   | "body"
-  // | "callout"
+  | "callout"
   | "subheadline"
   | "footnote"
+  | "caption1"
+  | "caption2"
 type TVariantClass = Record<TVariant, string>
 
-const DEFAULT_ELEMENT = "div" as const satisfies TElement
+const DEFAULT_ELEMENT = "p" as const satisfies TElement
 const DEFAULT_VARIANT = "body" as const satisfies TVariant
 
 // TODO: mover os font-weight pra dentro de outra prop que chama affects, vai ser regular/emphasized
 const VARIANT_CLASS: TVariantClass = {
   largeTitle: "text-[34px]/[41px] tracking-[0.4px] font-bold",
+  title1: "text-[28px]/[34px] tracking-[0.38px] font-bold",
+  title2: "text-[22px]/[28px] -tracking-[0.26px] font-bold",
+  title3: "font-[20px]/[25px] -tracking-[0.45px] font-semibold",
   headline: "text-[17px]/[22px] -tracking-[0.43px] font-semibold",
-  body: "text-[17px]/[22px] -tracking-[0.43px]",
-  subheadline: "text-[15px]/[20px] -tracking-[0.23px]",
+  body: "text-[17px]/[22px] -tracking-[0.43px] font-semibold",
+  callout: "text-[16px]/[21px] -tracking-[0.31px] font-semibold",
+  subheadline: "text-[15px]/[20px] -tracking-[0.23px] font-semibold",
   footnote: "text-[13px]/[18px] -tracking-[0.08px] font-semibold",
+  caption1: "text-[12px]/[16px] tracking-normal font-medium",
+  caption2: "text-[11px]/[13px] tracking-[0.6px] font-semibold",
 }
 
 const {
