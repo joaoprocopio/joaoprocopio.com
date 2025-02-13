@@ -2,8 +2,9 @@
 import { twMerge } from "tailwind-merge"
 
 type Props<E extends TElement = typeof DEFAULT_ELEMENT> = {
-  variant?: TVariant
   element?: E
+  variant?: TVariant
+  affect?: TAffect
   class?: string
 } & TElementHTMLAttributes[E]
 
@@ -21,36 +22,83 @@ type TVariant =
   | "footnote"
   | "caption1"
   | "caption2"
+type TAffect = "regular" | "emphasized"
 type TVariantClass = Record<TVariant, string>
+type TVariantAffectClass = Record<TVariant, Partial<Record<TAffect, string>>>
 
 const DEFAULT_ELEMENT = "p" as const satisfies TElement
 const DEFAULT_VARIANT = "body" as const satisfies TVariant
+const DEFAULT_AFFECT = "regular" as const satisfies TAffect
 
 // TODO: mover os font-weight pra dentro de outra prop que chama affects, vai ser regular/emphasized
 const VARIANT_CLASS: TVariantClass = {
-  largeTitle: "text-[34px]/[41px] tracking-[0.4px] font-bold",
-  title1: "text-[28px]/[34px] tracking-[0.38px] font-bold",
-  title2: "text-[22px]/[28px] -tracking-[0.26px] font-bold",
-  title3: "font-[20px]/[25px] -tracking-[0.45px] font-semibold",
-  headline: "text-[17px]/[22px] -tracking-[0.43px] font-semibold",
-  body: "text-[17px]/[22px] -tracking-[0.43px] font-semibold",
-  callout: "text-[16px]/[21px] -tracking-[0.31px] font-semibold",
-  subheadline: "text-[15px]/[20px] -tracking-[0.23px] font-semibold",
-  footnote: "text-[13px]/[18px] -tracking-[0.08px] font-semibold",
-  caption1: "text-[12px]/[16px] tracking-normal font-medium",
-  caption2: "text-[11px]/[13px] tracking-[0.6px] font-semibold",
+  largeTitle: "text-[34px]/[41px] tracking-[0.4px]",
+  title1: "text-[28px]/[34px] tracking-[0.38px]",
+  title2: "text-[22px]/[28px] -tracking-[0.26px]",
+  title3: "font-[20px]/[25px] -tracking-[0.45px]",
+  headline: "text-[17px]/[22px] -tracking-[0.43px]",
+  body: "text-[17px]/[22px] -tracking-[0.43px]",
+  callout: "text-[16px]/[21px] -tracking-[0.31px]",
+  subheadline: "text-[15px]/[20px] -tracking-[0.23px]",
+  footnote: "text-[13px]/[18px] -tracking-[0.08px]",
+  caption1: "text-[12px]/[16px] tracking-norma",
+  caption2: "text-[11px]/[13px] tracking-[0.6px]",
+}
+
+const VARIANT_AFFECT_CLASS: TVariantAffectClass = {
+  largeTitle: {
+    emphasized: "font-bold",
+  },
+  title1: {
+    emphasized: "font-bold",
+  },
+  title2: {
+    emphasized: "font-bold",
+  },
+  title3: {
+    emphasized: "font-semibold",
+  },
+  headline: {
+    regular: "font-semibold",
+    emphasized: "font-semibold",
+  },
+  body: {
+    emphasized: "font-semibold",
+  },
+  callout: {
+    emphasized: "font-semibold",
+  },
+  subheadline: {
+    emphasized: "font-semibold",
+  },
+  footnote: {
+    emphasized: "font-semibold",
+  },
+  caption1: {
+    emphasized: "font-medium",
+  },
+  caption2: {
+    emphasized: "font-semibold",
+  },
 }
 
 const {
   class: classProp,
   element: elementProp,
   variant: variantProp = DEFAULT_VARIANT,
+  affect: affectProp = DEFAULT_AFFECT,
   ...astroProps
 } = Astro.props
 
 const Element: TElement = elementProp ?? DEFAULT_ELEMENT
 ---
 
-<Element class={twMerge(VARIANT_CLASS[variantProp], classProp)} {...astroProps}>
+<Element
+  class={twMerge(
+    VARIANT_CLASS[variantProp],
+    VARIANT_AFFECT_CLASS[variantProp][affectProp],
+    classProp,
+  )}
+  {...astroProps}>
   <slot />
 </Element>
