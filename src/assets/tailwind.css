@@ -3,27 +3,21 @@
 @theme {
   --font-sans: "Inter", "sans-serif";
 
-  --color-background: var(--color-slate-900);
-  --color-foreground: var(--color-slate-400);
+  --color-background-primary: #ffffff;
 
-  --color-primary: var(--color-teal-900);
-  --color-primary-foreground: var(--color-teal-300);
-
-  --color-secondary: var(--color-slate-200);
-  --color-border: var(--color-foreground);
+  --color-foreground-primary: #000000;
+  --color-foreground-secondary: #3c3c4399;
+  --color-foreground-tertiary: #3c3c434d;
+  --color-foreground-quaternary: #3c3c432e;
 }
 
 @layer base {
-  * {
-    @apply border-border;
-  }
-
   html {
     @apply scroll-smooth;
   }
 
   body {
-    @apply bg-background text-foreground antialiased leading-relaxed overscroll-none selection:text-primary selection:bg-primary-foreground;
+    @apply bg-background-primary text-foreground-primary antialiased overscroll-none;
 
     font-synthesis-weight: none;
     text-rendering: optimizeLegibility;
@@ -43,13 +37,11 @@
   }
 
   ::-webkit-scrollbar-thumb {
-    background: var(--color-border);
     border-radius: 5px;
   }
 
   * {
     scrollbar-width: thin;
-    scrollbar-color: var(--color-border) transparent;
   }
 }
 
