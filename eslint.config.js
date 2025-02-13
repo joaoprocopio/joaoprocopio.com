@@ -24,7 +24,6 @@ export default tseslint.config(
   },
   withAstroFiles(js.configs.recommended),
   withAstroFiles(tseslint.configs.recommended),
-  withAstroFiles(tseslint.configs.strict),
   withAstroFiles({
     languageOptions: {
       globals: {

@@ -8,30 +8,40 @@ import DefaultLayout from "~/layouts/default.astro"
 
 type TSection<S extends string> = {
   ID: S
+  LINK_ID: `@${S}`
   HREF: `#${S}`
   LABEL: Capitalize<S>
 }
 
-const SECTION_ABOUT: TSection<"about"> = {
+type TAboutSection = TSection<"about">
+type TExperienceSection = TSection<"experience">
+type TProjectsSection = TSection<"projects">
+type TContactsSection = TSection<"contacts">
+
+const SECTION_ABOUT: TAboutSection = {
   ID: "about",
+  LINK_ID: "@about",
   HREF: "#about",
   LABEL: "About",
 }
 
-const SECTION_EXPERIENCE: TSection<"experience"> = {
+const SECTION_EXPERIENCE: TExperienceSection = {
   ID: "experience",
+  LINK_ID: "@experience",
   HREF: "#experience",
   LABEL: "Experience",
 }
 
-const SECTION_PROJECTS: TSection<"projects"> = {
+const SECTION_PROJECTS: TProjectsSection = {
   ID: "projects",
+  LINK_ID: "@projects",
   HREF: "#projects",
   LABEL: "Projects",
 }
 
-const SECTION_CONTACTS: TSection<"contacts"> = {
+const SECTION_CONTACTS: TContactsSection = {
   ID: "contacts",
+  LINK_ID: "@contacts",
   HREF: "#contacts",
   LABEL: "Contacts",
 }
@@ -76,10 +86,12 @@ const SECTIONS: TSection<string>[] = [
             SECTIONS.map((section) => (
               <li>
                 <Typography
+                  id={section.LINK_ID}
+                  data-active={false}
                   variant="subheadline"
                   affect="emphasized"
                   element="a"
-                  class="uppercase"
+                  class="text-foreground-tertiary [&[data-active=true]]:text-foreground-primary uppercase"
                   href={section.HREF}>
                   {section.LABEL}
                 </Typography>
@@ -112,7 +124,8 @@ const SECTIONS: TSection<string>[] = [
         </nav>
       </aside>
 
-      <main class="col-start-3 col-end-6 py-24">
+      <main
+        class="col-start-3 col-end-6 [&>section]:mt-24 [&>section]:scroll-mt-24 [&>section:last-child]:mb-24">
         <Section id={SECTION_ABOUT.ID}>
           <Typography>
             Always seeking to make an impact in the real world through building
@@ -233,7 +246,59 @@ const SECTIONS: TSection<string>[] = [
             product that I work on.
           </Typography>
         </Section>
+
+        <Section id={SECTION_EXPERIENCE.ID}>
+          <div class="h-[1200px] bg-red-500"></div>
+        </Section>
+
+        <Section id={SECTION_PROJECTS.ID}>
+          <div class="h-[1200px] bg-violet-500"></div>
+        </Section>
+
+        <Section id={SECTION_CONTACTS.ID}>
+          <div class="h-[1200px] bg-blue-500"></div>
+        </Section>
       </main>
     </div>
   </div>
 </DefaultLayout>
+
+<script define:vars={{ SECTIONS }}>
+  const DATA_ACTIVE_KEY = "data-active"
+
+  const sections = {}
+  const links = {}
+
+  for (const SECTION of SECTIONS) {
+    const sectionId = SECTION.ID
+    const linkId = SECTION.LINK_ID
+
+    const sectionEl = document.getElementById(sectionId)
+    const linkEl = document.getElementById(linkId)
+
+    sections[sectionId] = sectionEl
+    links[linkId] = linkEl
+  }
+
+  const observer = new IntersectionObserver((entries) => {
+    for (const entry of entries) {
+      if (!entry.isIntersecting) {
+        continue
+      }
+
+      const linkId = "@".concat(entry.target.id)
+
+      for (const link of Object.values(links)) {
+        if (linkId !== link.id) {
+          link.setAttribute(DATA_ACTIVE_KEY, false)
+        } else {
+          link.setAttribute(DATA_ACTIVE_KEY, true)
+        }
+      }
+    }
+  })
+
+  for (const section of Object.values(sections)) {
+    observer.observe(section)
+  }
+</script>
