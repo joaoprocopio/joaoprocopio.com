@@ -1,33 +1,93 @@
 ---
 import Typography from "~/components/typography.astro"
 import DefaultLayout from "~/layouts/default.astro"
+
+type Section = {
+  id: string
+  href: `#${string}`
+  label: string
+}
+
+const SECTION_ABOUT: Section = {
+  id: "about",
+  href: "#about",
+  label: "About",
+}
+
+const SECTION_EXPERIENCE: Section = {
+  id: "experience",
+  href: "#experience",
+  label: "Experience",
+}
+
+const SECTION_PROJECTS: Section = {
+  id: "projects",
+  href: "#projects",
+  label: "Projects",
+}
+
+const SECTION_CONTACTS: Section = {
+  id: "contacts",
+  href: "#contacts",
+  label: "Contacts",
+}
+
+const SECTIONS: Section[] = [
+  SECTION_ABOUT,
+  SECTION_EXPERIENCE,
+  SECTION_PROJECTS,
+  SECTION_CONTACTS,
+]
 ---
 
 <DefaultLayout>
   <div class="container px-12">
     <div class="grid grid-cols-5 gap-x-4">
-      <div class="sticky inset-y-0 col-start-1 col-end-3 max-h-svh py-24">
-        <Typography variant="largeTitle" element="h1">
-          João Procópio
-        </Typography>
+      <aside
+        class="fixed inset-y-0 col-start-1 col-end-3 grid max-h-svh grid-rows-[auto_auto_1fr] py-24">
+        <section>
+          <Typography variant="largeTitle" element="h1">
+            João Procópio
+          </Typography>
 
-        <Typography variant="headline" element="h2" class="mt-1">
-          Software Engineer
-        </Typography>
+          <Typography variant="headline" element="h2" class="mt-1">
+            Software Engineer
+          </Typography>
 
-        <Typography
-          variant="subheadline"
-          class="text-foreground-secondary mt-6 max-w-2xs">
-          I'll help you turn your product into something special.
-        </Typography>
-      </div>
+          <Typography
+            variant="subheadline"
+            class="text-foreground-secondary mt-6 max-w-2xs">
+            I'll help you turn your product into something special.
+          </Typography>
+        </section>
 
-      <div class="col-start-3 col-end-6 py-24 [&_div]:mb-6">
+        <ol class="mt-16 [&_li+li]:mt-2">
+          {
+            SECTIONS.map((section) => (
+              <li>
+                <Typography
+                  variant="footnote"
+                  element="a"
+                  class="uppercase"
+                  href={section.href}>
+                  {section.label}
+                </Typography>
+              </li>
+            ))
+          }
+        </ol>
+
+        <footer class="place-content-end">
+          <div>github</div>
+        </footer>
+      </aside>
+
+      <main class="col-start-3 col-end-6 py-24 [&_div]:mb-6">
         <Typography variant="body">
-          Lorem, ipsum dolor sit amet consectetur adipisicing elit. Mollitia hic
-          dolore, aliquam explicabo atque molestiae tempora? Quis dolores
-          tempore aspernatur tenetur eum unde repudiandae magnam autem expedita.
-          Distinctio, assumenda modi.
+          Lorem, ipsum dolor sit amet consectetur adipisicing eTypographyt.
+          Mollitia hic dolore, aliquam explicabo atque molestiae tempora? Quis
+          dolores tempore aspernatur tenetur eum unde repudiandae magnam autem
+          expedita. Distinctio, assumenda modi.
         </Typography>
         <Typography variant="body">
           Quasi laboriosam necessitatibus, quam itaque neque obcaecati voluptas
@@ -202,7 +262,7 @@ import DefaultLayout from "~/layouts/default.astro"
           dicta exercitationem nesciunt eveniet? Quos aliquid ad libero
           voluptate rem unde?
         </Typography>
-      </div>
+      </main>
     </div>
   </div>
 </DefaultLayout>

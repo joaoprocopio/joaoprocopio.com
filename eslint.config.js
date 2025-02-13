@@ -25,7 +25,14 @@ export default tseslint.config(
   withAstroFiles(js.configs.recommended),
   withAstroFiles(tseslint.configs.recommended),
   withAstroFiles(tseslint.configs.strict),
-  astro.configs.recommended,
+  withAstroFiles({
+    languageOptions: {
+      globals: {
+        astroHTML: true,
+      },
+    },
+  }),
+  astro.configs["flat/recommended"],
   prettier,
 )
 

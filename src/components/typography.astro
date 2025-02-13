@@ -1,13 +1,16 @@
 ---
 import { twMerge } from "tailwind-merge"
 
-type Props = {
-  variant?: TVariant
-  element?: TElement
-  class?: string
-}
+const DEFAULT_ELEMENT = "div" as const satisfies TElement
 
-type TElement = keyof HTMLElementTagNameMap
+type Props<E extends TElement = typeof DEFAULT_ELEMENT> = {
+  variant?: TVariant
+  element?: E
+  class?: string
+} & TElementHTMLAttributes[E]
+
+type TElementHTMLAttributes = astroHTML.JSX.DefinedIntrinsicElements
+type TElement = keyof TElementHTMLAttributes
 type TVariant =
   | "largeTitle"
   // | "title1"
@@ -17,23 +20,28 @@ type TVariant =
   | "body"
   // | "callout"
   | "subheadline"
-// | "footnote"
+  | "footnote"
 type TVariantClass = Record<TVariant, string>
 
-const variantProp: Props["variant"] = Astro.props.variant ?? "body"
-const elementProp: Props["element"] = Astro.props.element
-const classProp: Props["class"] = Astro.props.class
+const {
+  class: classProp,
+  element: elementProp,
+  variant: variantProp = "body",
+  ...astroProps
+} = Astro.props
 
+// TODO: mover os font-weight pra dentro de outra prop que chama affects, vai ser regular/emphasized
 const VARIANT_CLASS: TVariantClass = {
   largeTitle: "text-[34px]/[41px] tracking-[0.4px] font-bold",
   headline: "text-[17px]/[22px] -tracking-[0.43px] font-semibold",
   body: "text-[17px]/[22px] -tracking-[0.43px]",
   subheadline: "text-[15px]/[20px] -tracking-[0.23px]",
+  footnote: "text-[13px]/[18px] -tracking-[0.08px] font-semibold",
 }
 
-const Element: TElement = elementProp ?? "div"
+const Element: TElement = elementProp ?? DEFAULT_ELEMENT
 ---
 
-<Element class={twMerge(VARIANT_CLASS[variantProp], classProp)}>
+<Element class={twMerge(VARIANT_CLASS[variantProp], classProp)} {...astroProps}>
   <slot />
 </Element>
