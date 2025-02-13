@@ -12,12 +12,16 @@
 }
 
 @layer base {
+  * {
+    @apply transition-all transition-discrete duration-75 ease-in-out;
+  }
+
   html {
     @apply scroll-smooth;
   }
 
   body {
-    @apply bg-background-primary text-foreground-primary antialiased overscroll-none;
+    @apply bg-background-primary text-foreground-primary overscroll-none antialiased;
 
     font-synthesis-weight: none;
     text-rendering: optimizeLegibility;
@@ -25,7 +29,7 @@
 
   html,
   body {
-    @apply min-h-full h-full;
+    @apply h-full min-h-full;
   }
 }
 

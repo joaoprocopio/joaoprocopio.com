@@ -1,4 +1,7 @@
 ---
+import GitHub from "~/components/github.astro"
+import Gmail from "~/components/gmail.astro"
+import LinkedIn from "~/components/linkedin.astro"
 import Section from "~/components/section.astro"
 import Typography from "~/components/typography.astro"
 import DefaultLayout from "~/layouts/default.astro"
@@ -79,9 +82,28 @@ const SECTIONS: TSection<string>[] = [
           }
         </ol>
 
-        <footer class="place-content-end">
-          <div>github</div>
-        </footer>
+        <nav class="place-content-end [&>a+a]:ml-2">
+          <a
+            href="https://github.com/joaoprocopio/"
+            target="_blank"
+            class="text-foreground-secondary hover:text-foreground-primary inline-block">
+            <GitHub class="h-6" />
+          </a>
+
+          <a
+            href="https://linkedin.com/in/joao-procopio"
+            target="_blank"
+            class="text-foreground-secondary hover:text-foreground-primary inline-block">
+            <LinkedIn class="h-6" />
+          </a>
+
+          <a
+            href="mailto:joaovitorcprocopio@gmail.com"
+            target="_blank"
+            class="text-foreground-secondary hover:text-foreground-primary inline-block">
+            <Gmail class="h-6" />
+          </a>
+        </nav>
       </aside>
 
       <main class="col-start-3 col-end-6 py-24">
