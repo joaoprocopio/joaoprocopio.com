@@ -27,22 +27,6 @@
   body {
     @apply min-h-full h-full;
   }
-
-  ::-webkit-scrollbar {
-    width: 5px;
-  }
-
-  ::-webkit-scrollbar-track {
-    background: transparent;
-  }
-
-  ::-webkit-scrollbar-thumb {
-    border-radius: 5px;
-  }
-
-  * {
-    scrollbar-width: thin;
-  }
 }
 
 @layer utilities {

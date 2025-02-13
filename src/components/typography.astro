@@ -2,40 +2,38 @@
 import { twMerge } from "tailwind-merge"
 
 type Props = {
-  variant: TVariant
+  variant?: TVariant
   element?: TElement
   class?: string
 }
 
 type TElement = keyof HTMLElementTagNameMap
-type TVariant = "h1" | "h2" | "h3" | "h4" | "small" | "p"
-type TVariantElement = Record<TVariant, TElement>
+type TVariant =
+  | "largeTitle"
+  // | "title1"
+  // | "title2"
+  // | "title3"
+  | "headline"
+  | "body"
+  // | "callout"
+  | "subheadline"
+// | "footnote"
 type TVariantClass = Record<TVariant, string>
 
-const DEFALT_ELEMENT: TElement = "p"
-
-const VARIANT_ELEMENT: TVariantElement = {
-  h1: "h1",
-  h2: "h2",
-  h3: "h3",
-  h4: "h3",
-  p: "p",
-  small: "small",
-}
+const variantProp: Props["variant"] = Astro.props.variant ?? "body"
+const elementProp: Props["element"] = Astro.props.element
+const classProp: Props["class"] = Astro.props.class
 
 const VARIANT_CLASS: TVariantClass = {
-  h1: "scroll-m-20 text-4xl font-extrabold tracking-tight lg:text-5xl",
-  h2: "scroll-m-20 pb-2 text-3xl font-semibold tracking-tight first:mt-0",
-  h3: "scroll-m-20 text-2xl font-semibold tracking-tight",
-  h4: "scroll-m-20 text-xl font-semibold tracking-tight",
-  small: "text-sm font-medium leading-none",
-  p: "leading-7 [&:not(:first-child)]:mt-6",
+  largeTitle: "text-[34px]/[41px] tracking-[0.4px] font-bold",
+  headline: "text-[17px]/[22px] -tracking-[0.43px] font-semibold",
+  body: "text-[17px]/[22px] -tracking-[0.43px]",
+  subheadline: "text-[15px]/[20px] -tracking-[0.23px]",
 }
 
-const Element: TElement =
-  Astro.props.element ?? VARIANT_ELEMENT[Astro.props.variant ?? DEFALT_ELEMENT]
+const Element: TElement = elementProp ?? "div"
 ---
 
-<Element class={twMerge(VARIANT_CLASS[Astro.props.variant], Astro.props.class)}>
+<Element class={twMerge(VARIANT_CLASS[variantProp], classProp)}>
   <slot />
 </Element>
