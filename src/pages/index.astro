@@ -5,53 +5,13 @@ import LinkedIn from "~/components/linkedin.astro"
 import Section from "~/components/section.astro"
 import Typography from "~/components/typography.astro"
 import DefaultLayout from "~/layouts/default.astro"
-
-type TSection<S extends string> = {
-  ID: S
-  LINK_ID: `@${S}`
-  HREF: `#${S}`
-  LABEL: Capitalize<S>
-}
-
-type TAboutSection = TSection<"about">
-type TExperienceSection = TSection<"experience">
-type TProjectsSection = TSection<"projects">
-type TContactsSection = TSection<"contacts">
-
-const SECTION_ABOUT: TAboutSection = {
-  ID: "about",
-  LINK_ID: "@about",
-  HREF: "#about",
-  LABEL: "About",
-}
-
-const SECTION_EXPERIENCE: TExperienceSection = {
-  ID: "experience",
-  LINK_ID: "@experience",
-  HREF: "#experience",
-  LABEL: "Experience",
-}
-
-const SECTION_PROJECTS: TProjectsSection = {
-  ID: "projects",
-  LINK_ID: "@projects",
-  HREF: "#projects",
-  LABEL: "Projects",
-}
-
-const SECTION_CONTACTS: TContactsSection = {
-  ID: "contacts",
-  LINK_ID: "@contacts",
-  HREF: "#contacts",
-  LABEL: "Contacts",
-}
-
-const SECTIONS: TSection<string>[] = [
+import {
+  SECTIONS,
   SECTION_ABOUT,
+  SECTION_CONTACTS,
   SECTION_EXPERIENCE,
   SECTION_PROJECTS,
-  SECTION_CONTACTS,
-]
+} from "~/constants/sections"
 ---
 
 <DefaultLayout>
@@ -263,42 +223,4 @@ const SECTIONS: TSection<string>[] = [
   </div>
 </DefaultLayout>
 
-<script define:vars={{ SECTIONS }}>
-  const DATA_ACTIVE_KEY = "data-active"
-
-  const sections = {}
-  const links = {}
-
-  for (const SECTION of SECTIONS) {
-    const sectionId = SECTION.ID
-    const linkId = SECTION.LINK_ID
-
-    const sectionEl = document.getElementById(sectionId)
-    const linkEl = document.getElementById(linkId)
-
-    sections[sectionId] = sectionEl
-    links[linkId] = linkEl
-  }
-
-  const observer = new IntersectionObserver((entries) => {
-    for (const entry of entries) {
-      if (!entry.isIntersecting) {
-        continue
-      }
-
-      const linkId = "@".concat(entry.target.id)
-
-      for (const link of Object.values(links)) {
-        if (linkId !== link.id) {
-          link.setAttribute(DATA_ACTIVE_KEY, false)
-        } else {
-          link.setAttribute(DATA_ACTIVE_KEY, true)
-        }
-      }
-    }
-  })
-
-  for (const section of Object.values(sections)) {
-    observer.observe(section)
-  }
-</script>
+<script src="~/scripts/section-observer.ts"></script>
