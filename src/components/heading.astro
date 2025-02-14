@@ -1,0 +1,74 @@
+---
+import GitHub from "~/components/github.astro"
+import Gmail from "~/components/gmail.astro"
+import LinkedIn from "~/components/linkedin.astro"
+import Typography from "~/components/typography.astro"
+import { SECTIONS } from "~/constants/sections"
+---
+
+<header
+  class="fixed inset-y-0 col-start-1 col-end-3 grid max-h-svh grid-rows-[auto_auto_1fr] py-24">
+  <section>
+    <Typography variant="largeTitle" affect="emphasized" element="h1">
+      João Procópio
+    </Typography>
+
+    <Typography
+      variant="headline"
+      affect="emphasized"
+      element="h2"
+      class="mt-1">
+      Software Engineer
+    </Typography>
+
+    <Typography
+      variant="title3"
+      affect="regular"
+      element="h3"
+      class="text-foreground-secondary mt-6 max-w-2xs">
+      I'll help you turn your product into something special.
+    </Typography>
+  </section>
+
+  <ol class="mt-16 [&>li+li]:mt-2">
+    {
+      SECTIONS.map((section) => (
+        <li>
+          <Typography
+            id={section.LINK_ID}
+            data-active="false"
+            variant="subheadline"
+            affect="emphasized"
+            element="a"
+            class="text-foreground-tertiary [&[data-active=true]]:text-foreground-primary uppercase"
+            href={section.HREF}>
+            {section.LABEL}
+          </Typography>
+        </li>
+      ))
+    }
+  </ol>
+
+  <nav class="place-content-end [&>a+a]:ml-3">
+    <a
+      href="https://github.com/joaoprocopio/"
+      target="_blank"
+      class="text-foreground-secondary hover:text-foreground-primary inline-block">
+      <GitHub class="h-6" />
+    </a>
+
+    <a
+      href="https://linkedin.com/in/joao-procopio"
+      target="_blank"
+      class="text-foreground-secondary hover:text-foreground-primary inline-block">
+      <LinkedIn class="h-6" />
+    </a>
+
+    <a
+      href="mailto:joaovitorcprocopio@gmail.com"
+      target="_blank"
+      class="text-foreground-secondary hover:text-foreground-primary inline-block">
+      <Gmail class="h-6" />
+    </a>
+  </nav>
+</header>

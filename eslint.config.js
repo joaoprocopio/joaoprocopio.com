@@ -31,7 +31,7 @@ export default tseslint.config(
       },
     },
   }),
-  astro.configs["flat/recommended"],
+  astro.configs.recommended,
   prettier,
 )
 

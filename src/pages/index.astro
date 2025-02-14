@@ -1,226 +1,26 @@
 ---
-import GitHub from "~/components/github.astro"
-import Gmail from "~/components/gmail.astro"
-import LinkedIn from "~/components/linkedin.astro"
-import Section from "~/components/section.astro"
-import Typography from "~/components/typography.astro"
+import About from "~/components/about.astro"
+import Contacts from "~/components/contacts.astro"
+import Experience from "~/components/experience.astro"
+import Heading from "~/components/heading.astro"
+import Projects from "~/components/projects.astro"
 import DefaultLayout from "~/layouts/default.astro"
-import {
-  SECTIONS,
-  SECTION_ABOUT,
-  SECTION_CONTACTS,
-  SECTION_EXPERIENCE,
-  SECTION_PROJECTS,
-} from "~/constants/sections"
 ---
 
 <DefaultLayout>
   <div class="container px-12">
     <div class="grid grid-cols-5 gap-x-4">
-      <aside
-        class="fixed inset-y-0 col-start-1 col-end-3 grid max-h-svh grid-rows-[auto_auto_1fr] py-24">
-        <section>
-          <Typography variant="largeTitle" affect="emphasized" element="h1">
-            João Procópio
-          </Typography>
-
-          <Typography
-            variant="headline"
-            affect="emphasized"
-            element="h2"
-            class="mt-1">
-            Software Engineer
-          </Typography>
-
-          <Typography
-            variant="title3"
-            affect="regular"
-            element="h3"
-            class="text-foreground-secondary mt-6 max-w-2xs">
-            I'll help you turn your product into something special.
-          </Typography>
-        </section>
-
-        <ol class="mt-16 [&>li+li]:mt-2">
-          {
-            SECTIONS.map((section) => (
-              <li>
-                <Typography
-                  id={section.LINK_ID}
-                  data-active={false}
-                  variant="subheadline"
-                  affect="emphasized"
-                  element="a"
-                  class="text-foreground-tertiary [&[data-active=true]]:text-foreground-primary uppercase"
-                  href={section.HREF}>
-                  {section.LABEL}
-                </Typography>
-              </li>
-            ))
-          }
-        </ol>
-
-        <nav class="place-content-end [&>a+a]:ml-3">
-          <a
-            href="https://github.com/joaoprocopio/"
-            target="_blank"
-            class="text-foreground-secondary hover:text-foreground-primary inline-block">
-            <GitHub class="h-6" />
-          </a>
-
-          <a
-            href="https://linkedin.com/in/joao-procopio"
-            target="_blank"
-            class="text-foreground-secondary hover:text-foreground-primary inline-block">
-            <LinkedIn class="h-6" />
-          </a>
-
-          <a
-            href="mailto:joaovitorcprocopio@gmail.com"
-            target="_blank"
-            class="text-foreground-secondary hover:text-foreground-primary inline-block">
-            <Gmail class="h-6" />
-          </a>
-        </nav>
-      </aside>
+      <Heading />
 
       <main
-        class="col-start-3 col-end-6 [&>section]:mt-24 [&>section]:scroll-mt-24 [&>section:last-child]:mb-24">
-        <Section id={SECTION_ABOUT.ID}>
-          <Typography>
-            Always seeking to make an impact in the real world through building
-            software.
-          </Typography>
-
-          <Typography>
-            From a young age, my interests always gravitated toward technology -
-            it's an innate interest that has always been present. However, there
-            was a specific moment when I began to be interested not just in
-            technology itself, but in the process of building it.
-          </Typography>
-
-          <Typography>
-            I watched a video of someone creating a Python service to send
-            WhatsApp messages using the Twilio SDK, and for someone with no
-            programming experience, seeing this brought me enormous excitement
-            and made me want to understand how it worked.
-          </Typography>
-
-          <div>
-            <Typography>
-              I set up the tools on my machine and followed the step-by-step
-              tutorial. After dozens of stack traces and having the canonical
-              developer experience:
-            </Typography>
-
-            <ol class="mt-2 list-inside list-decimal [&>li+li]:mt-0.5">
-              <Typography variant="body" element="li">
-                Copy the error
-              </Typography>
-
-              <Typography variant="body" element="li">
-                Paste it into Google and click the first Stack Overflow result
-              </Typography>
-
-              <Typography variant="body" element="li">
-                Jump straight to the answer
-              </Typography>
-
-              <Typography variant="body" element="li">
-                Stare at the code
-              </Typography>
-
-              <Typography variant="body" element="li">
-                Manage to solve it (optional)
-              </Typography>
-            </ol>
-          </div>
-
-          <Typography>
-            In the end, I succeeded. Seeing it work with the message coming
-            through gave me immense satisfaction — it was my first practical
-            contact with code, and it felt like magic.
-          </Typography>
-
-          <Typography>
-            Since then, learning and facing increasingly bigger challenges has
-            become a passion. I enjoy diving into unknown problems and, even
-            without much initial information, reaching a complete solution. Each
-            new learning experience is another piece that expands my vision of
-            what's possible to achieve with technology.
-          </Typography>
-
-          <div>
-            <Typography>
-              Currently, I have experience with these programming languages:
-            </Typography>
-
-            <ol class="mt-2 list-inside list-disc [&>li+li]:mt-0.5">
-              <Typography variant="body" element="li">
-                JavaScript and TypeScript
-              </Typography>
-
-              <Typography variant="body" element="li"> Python </Typography>
-
-              <Typography variant="body" element="li"> Dart </Typography>
-            </ol>
-
-            <Typography class="mt-2">
-              I'm always interested in learning more languages, and I'm
-              currently studying Go and Rust.
-            </Typography>
-          </div>
-
-          <div>
-            <Typography>
-              I've also worked with various frameworks, such as:
-            </Typography>
-
-            <ol class="mt-2 list-inside list-disc [&>li+li]:mt-0.5">
-              <Typography variant="body" element="li"> Vue </Typography>
-
-              <Typography variant="body" element="li"> Nuxt </Typography>
-
-              <Typography variant="body" element="li"> React </Typography>
-
-              <Typography variant="body" element="li"> Django </Typography>
-
-              <Typography variant="body" element="li"> Flutter </Typography>
-            </ol>
-          </div>
-
-          <Typography>
-            Although I like frameworks, I believe each project has its own
-            needs, and often, I prefer the simplicity of working with just the
-            basics, without frameworks, in personal projects.
-          </Typography>
-
-          <Typography>
-            Today, as a Software Engineer, I feel I have the ability to design
-            and develop complete applications, participating in every step of
-            the engineering process.
-          </Typography>
-
-          <Typography>
-            My focus is to always make the maximum possible impact on every
-            product that I work on.
-          </Typography>
-        </Section>
-
-        <Section id={SECTION_EXPERIENCE.ID}>
-          <div class="h-[1200px] bg-red-500"></div>
-        </Section>
-
-        <Section id={SECTION_PROJECTS.ID}>
-          <div class="h-[1200px] bg-violet-500"></div>
-        </Section>
-
-        <Section id={SECTION_CONTACTS.ID}>
-          <div class="h-[1200px] bg-blue-500"></div>
-        </Section>
+        class="col-start-3 col-end-6 py-24 [&>section]:scroll-mt-24 [&>section:not(:first-child)]:mt-24">
+        <About />
+        <Experience />
+        <Projects />
+        <Contacts />
       </main>
     </div>
   </div>
 </DefaultLayout>
 
-<script src="~/scripts/section-observer.ts"></script>
+<script src="~/scripts/observer.ts"></script>

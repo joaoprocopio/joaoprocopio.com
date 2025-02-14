@@ -31,6 +31,10 @@
   body {
     @apply h-full min-h-full;
   }
+
+  /* TODO: melhorar o ring quando aperta tab */
+  /* TODO: customizar a barra de rolagem */
+  /* TODO: customizar a seleção */
 }
 
 @layer utilities {
