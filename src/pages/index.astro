@@ -10,7 +10,9 @@ import DefaultLayout from "~/layouts/default.astro"
 <DefaultLayout>
   <div class="container px-12">
     <div class="grid grid-cols-5 gap-x-4">
-      <Heading />
+      <Heading
+        class="fixed inset-y-0 col-start-1 col-end-3 grid max-h-svh grid-rows-[auto_auto_1fr] py-24"
+      />
 
       <main
         class="col-start-3 col-end-6 py-24 [&>section]:scroll-mt-24 [&>section:not(:first-child)]:mt-24">

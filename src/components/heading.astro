@@ -4,10 +4,13 @@ import Gmail from "~/components/gmail.astro"
 import LinkedIn from "~/components/linkedin.astro"
 import Typography from "~/components/typography.astro"
 import { SECTIONS } from "~/constants/sections"
+
+type Props = astroHTML.JSX.HTMLAttributes
+
+const props = Astro.props
 ---
 
-<header
-  class="fixed inset-y-0 col-start-1 col-end-3 grid max-h-svh grid-rows-[auto_auto_1fr] py-24">
+<header {...props}>
   <section>
     <Typography variant="largeTitle" affect="emphasized" element="h1">
       João Procópio
