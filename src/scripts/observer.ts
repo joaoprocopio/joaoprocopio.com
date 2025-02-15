@@ -2,38 +2,36 @@ import { SECTIONS } from "~/constants/sections"
 
 const DATA_ACTIVE_KEY = "data-active"
 
-const sections: Record<string, HTMLElement> = {}
-const links: Record<string, HTMLAnchorElement> = {}
+let lastLinkEl: HTMLAnchorElement | undefined = undefined
 
 for (const SECTION of SECTIONS) {
-  const sectionId = SECTION.ID
-  const linkId = SECTION.LINK_ID
+  const sectionEl = document.getElementById(SECTION.ID) as HTMLElement
+  const linkEl = document.getElementById(SECTION.LINK_ID) as HTMLAnchorElement
 
-  const sectionEl = document.getElementById(sectionId) as HTMLElement
-  const linkEl = document.getElementById(linkId) as HTMLAnchorElement
+  const sectionHeight = sectionEl.clientHeight
+  const viewportHeight = window.innerHeight
+  const observerThreshold = Math.min(1, viewportHeight / sectionHeight)
 
-  sections[sectionId] = sectionEl
-  links[linkId] = linkEl
-}
+  const sectionObserver = new IntersectionObserver(
+    (entries) => {
+      for (const entry of entries) {
+        const isIntersecting = entry.isIntersecting
 
-const observer = new IntersectionObserver((entries) => {
-  for (const entry of entries) {
-    if (!entry.isIntersecting) {
-      continue
-    }
+        if (!isIntersecting) {
+          continue
+        }
 
-    const linkId = "@".concat(entry.target.id)
+        if (lastLinkEl) {
+          lastLinkEl.setAttribute(DATA_ACTIVE_KEY, String(!isIntersecting))
+        }
 
-    for (const link of Object.values(links)) {
-      if (linkId !== link.id) {
-        link.setAttribute(DATA_ACTIVE_KEY, "false")
-      } else {
-        link.setAttribute(DATA_ACTIVE_KEY, "true")
+        linkEl.setAttribute(DATA_ACTIVE_KEY, String(isIntersecting))
+
+        lastLinkEl = linkEl
       }
-    }
-  }
-})
+    },
+    { threshold: observerThreshold },
+  )
 
-for (const section of Object.values(sections)) {
-  observer.observe(section)
+  sectionObserver.observe(sectionEl)
 }
