@@ -9,26 +9,13 @@ for (let sectionIndex = 0; sectionIndex < SECTIONS.length; sectionIndex++) {
 
   const linkEl: HTMLElement = document.getElementById(section.LINK_ID)!
   const sectionEl: HTMLElement = document.getElementById(section.ID)!
-  const containerEl: HTMLElement = sectionEl.parentElement!
 
-  const containerStyle: CSSStyleDeclaration =
-    window.getComputedStyle(containerEl)
+  const viewportHeight: number = window.innerHeight
+  const sectionPaddedHeight: number = sectionEl.clientHeight
 
-  const containerPaddingTop: number = Number.parseInt(
-    containerStyle.getPropertyValue("padding-top").replace("px", ""),
-  )
-  const containerPaddingBottom: number = Number.parseInt(
-    containerStyle.getPropertyValue("padding-bottom").replace("px", ""),
-  )
-
-  const containerPadding: number = containerPaddingTop + containerPaddingBottom
-
-  const viewportHeight = window.innerHeight
-  const sectionPaddedHeight = sectionEl.clientHeight + containerPadding
-
-  const observerThreshold: number = Math.abs(
-    (viewportHeight / sectionPaddedHeight / 2) % 1,
-  )
+  let observerThreshold: number = viewportHeight / sectionPaddedHeight / 2
+  observerThreshold = Math.abs(observerThreshold % 1)
+  observerThreshold = Number.parseFloat(observerThreshold.toFixed(2))
 
   const sectionObserver = new IntersectionObserver(
     (entries) => {
