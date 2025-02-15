@@ -35,7 +35,7 @@ for (let sectionIndex = 0; sectionIndex < SECTIONS.length; sectionIndex++) {
 
       lastLinkEl = linkEl
     },
-    { threshold: observerThreshold },
+    { threshold: observerThreshold, rootMargin: "-10% 0px" },
   )
 
   sectionObserver.observe(sectionEl)
