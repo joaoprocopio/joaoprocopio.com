@@ -4,9 +4,10 @@ const DATA_ACTIVE_KEY = "data-active"
 
 let lastLinkEl: HTMLAnchorElement | undefined = undefined
 
-for (const SECTION of SECTIONS) {
-  const sectionEl = document.getElementById(SECTION.ID) as HTMLElement
-  const linkEl = document.getElementById(SECTION.LINK_ID) as HTMLAnchorElement
+for (let sectionIndex = 0; sectionIndex < SECTIONS.length; sectionIndex++) {
+  const section = SECTIONS[sectionIndex]
+  const sectionEl = document.getElementById(section.ID) as HTMLElement
+  const linkEl = document.getElementById(section.LINK_ID) as HTMLAnchorElement
 
   const sectionHeight = sectionEl.clientHeight
   const viewportHeight = window.innerHeight
@@ -14,7 +15,7 @@ for (const SECTION of SECTIONS) {
 
   const sectionObserver = new IntersectionObserver(
     (entries) => {
-      const entry = entries.at(0)!
+      const entry = entries[0]
 
       const isIntersecting = entry.isIntersecting
 
