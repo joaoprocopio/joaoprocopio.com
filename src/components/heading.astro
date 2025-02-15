@@ -1,9 +1,7 @@
 ---
-import GitHub from "~/components/github.astro"
-import Gmail from "~/components/gmail.astro"
-import LinkedIn from "~/components/linkedin.astro"
 import Typography from "~/components/typography.astro"
 import { SECTIONS } from "~/constants/sections"
+import { LINKS } from "~/constants/links"
 
 type Props = astroHTML.JSX.HTMLAttributes
 
@@ -46,7 +44,7 @@ const props = Astro.props
             class:list={[
               ["text-foreground-tertiary uppercase"],
               [
-                "[&[data-active=true]]:text-foreground-primary hover:text-foreground-primary",
+                "[&[data-active=true]]:text-foreground-primary hover:text-foreground-primary focus-visible:text-foreground-primary",
               ],
             ]}
             href={section.HREF}>
@@ -58,25 +56,18 @@ const props = Astro.props
   </ol>
 
   <nav class="place-content-end [&>a+a]:ml-3">
-    <a
-      href="https://github.com/joaoprocopio/"
-      target="_blank"
-      class="text-foreground-secondary hover:text-foreground-primary inline-block">
-      <GitHub class="h-6" />
-    </a>
-
-    <a
-      href="https://linkedin.com/in/joao-procopio"
-      target="_blank"
-      class="text-foreground-secondary hover:text-foreground-primary inline-block">
-      <LinkedIn class="h-6" />
-    </a>
-
-    <a
-      href="mailto:joaovitorcprocopio@gmail.com"
-      target="_blank"
-      class="text-foreground-secondary hover:text-foreground-primary inline-block">
-      <Gmail class="h-6" />
-    </a>
+    {
+      LINKS.map((link) => (
+        <a
+          href={link.HREF}
+          target="_blank"
+          class:list={[
+            "text-foreground-secondary inline-block",
+            "hover:text-foreground-primary focus-visible:text-foreground-primary",
+          ]}>
+          <link.ICON class="h-6" />
+        </a>
+      ))
+    }
   </nav>
 </header>
