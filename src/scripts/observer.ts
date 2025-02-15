@@ -2,21 +2,16 @@ import { SECTIONS } from "~/constants/sections"
 
 const DATA_ACTIVE_KEY = "data-active"
 
-let lastLinkEl: HTMLAnchorElement | undefined = undefined
+let lastLinkEl: HTMLElement | undefined = undefined
 
 for (let sectionIndex = 0; sectionIndex < SECTIONS.length; sectionIndex++) {
   const section = SECTIONS[sectionIndex]
 
-  const sectionEl: HTMLElement = document.getElementById(
-    section.ID,
-  ) as HTMLElement
-  const linkEl: HTMLAnchorElement = document.getElementById(
-    section.LINK_ID,
-  ) as HTMLAnchorElement
+  const sectionEl: HTMLElement = document.getElementById(section.ID)!
+  const linkEl: HTMLElement = document.getElementById(section.LINK_ID)!
 
-  const sectionHeight: number = sectionEl.clientHeight
   const viewportHeight: number = window.innerHeight
-
+  const sectionHeight: number = sectionEl.clientHeight
   const observerThreshold: number = Number(
     (((sectionHeight - viewportHeight) / viewportHeight) % 1).toFixed(2),
   )
