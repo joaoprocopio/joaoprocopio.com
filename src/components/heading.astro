@@ -34,19 +34,15 @@ const props = Astro.props
   <ol class="mt-16 [&>li+li]:mt-2">
     {
       SECTIONS.map((section) => (
-        <li>
+        <li
+          id={section.LINK_ID}
+          data-active="false"
+          class="text-foreground-tertiary [&[data-active=true]]:text-foreground-primary [&[data-active=true]]:list-disc">
           <Typography
-            id={section.LINK_ID}
-            data-active="false"
             variant="subheadline"
             affect="emphasized"
             element="a"
-            class:list={[
-              ["text-foreground-tertiary uppercase"],
-              [
-                "[&[data-active=true]]:text-foreground-primary hover:text-foreground-primary focus-visible:text-foreground-primary",
-              ],
-            ]}
+            class="hover:text-foreground-primary focus-visible:text-foreground-primary uppercase"
             href={section.HREF}>
             {section.LABEL}
           </Typography>
