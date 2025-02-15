@@ -1,11 +1,9 @@
 ---
+import tailwindURL from "~/styles/tailwind.css?url"
 import "@fontsource/inter/400.css"
 import "@fontsource/inter/500.css"
 import "@fontsource/inter/600.css"
 import "@fontsource/inter/700.css"
-import "@fontsource/inter/800.css"
-import "@fontsource/inter/900.css"
-import "~/styles/tailwind.css"
 ---
 
 <!doctype html>
@@ -13,8 +11,13 @@ import "~/styles/tailwind.css"
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="generator" content={Astro.generator} />
+
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+
+    <link rel="preload" as="style" href={tailwindURL} />
+    <link rel="stylesheet" href={tailwindURL} />
+
     <title>João Procópio</title>
   </head>
 
