@@ -11,11 +11,11 @@ for (let sectionIndex = 0; sectionIndex < SECTIONS.length; sectionIndex++) {
   const sectionEl: HTMLElement = document.getElementById(section.ID)!
 
   const viewportHeight: number = window.innerHeight
-  const sectionPaddedHeight: number = sectionEl.clientHeight
+  const sectionHeight: number = sectionEl.clientHeight
 
-  let observerThreshold: number = viewportHeight / sectionPaddedHeight / 2
-  observerThreshold = Math.abs(observerThreshold % 1)
-  observerThreshold = Number.parseFloat(observerThreshold.toFixed(2))
+  const observerThreshold: number = Math.abs(
+    (viewportHeight / sectionHeight / Math.E) % 1,
+  )
 
   const sectionObserver = new IntersectionObserver(
     (entries) => {
