@@ -7,13 +7,23 @@ let lastLinkEl: HTMLElement | undefined = undefined
 for (let sectionIndex = 0; sectionIndex < SECTIONS.length; sectionIndex++) {
   const section = SECTIONS[sectionIndex]
 
-  const sectionEl: HTMLElement = document.getElementById(section.ID)!
   const linkEl: HTMLElement = document.getElementById(section.LINK_ID)!
+  const sectionEl: HTMLElement = document.getElementById(section.ID)!
+  const containerEl: HTMLElement = sectionEl.parentElement!
+
+  const containerPadding: number =
+    parseInt(
+      window
+        .getComputedStyle(containerEl)
+        .getPropertyValue("padding-top")
+        .replace("px", ""),
+    ) * 2
 
   const viewportHeight: number = window.innerHeight
-  const sectionHeight: number = sectionEl.clientHeight
-  const observerThreshold: number = Number(
-    (((sectionHeight - viewportHeight) / viewportHeight) % 1).toFixed(2),
+  const sectionHeight: number = sectionEl.clientHeight + containerPadding
+  const observerThreshold: number = Math.max(
+    0,
+    Math.abs(viewportHeight / sectionHeight) / 2,
   )
 
   const sectionObserver = new IntersectionObserver(
