@@ -11,22 +11,23 @@ for (let sectionIndex = 0; sectionIndex < SECTIONS.length; sectionIndex++) {
   const sectionEl: HTMLElement = document.getElementById(section.ID)!
   const containerEl: HTMLElement = sectionEl.parentElement!
 
-  const observerThreshold: number = Math.max(
-    0,
-    Number.parseFloat(
-      (
-        Math.abs(
-          window.innerHeight / sectionEl.clientHeight +
-            parseInt(
-              window
-                .getComputedStyle(containerEl)
-                .getPropertyValue("padding-top")
-                .replace("px", ""),
-            ) *
-              2,
-        ) / 2
-      ).toFixed(2),
-    ),
+  const containerStyle: CSSStyleDeclaration =
+    window.getComputedStyle(containerEl)
+
+  const containerPaddingTop: number = Number.parseInt(
+    containerStyle.getPropertyValue("padding-top").replace("px", ""),
+  )
+  const containerPaddingBottom: number = Number.parseInt(
+    containerStyle.getPropertyValue("padding-bottom").replace("px", ""),
+  )
+
+  const containerPadding: number = containerPaddingTop + containerPaddingBottom
+
+  const viewportHeight = window.innerHeight
+  const sectionPaddedHeight = sectionEl.clientHeight + containerPadding
+
+  const observerThreshold: number = Math.abs(
+    (viewportHeight / sectionPaddedHeight / 2) % 1,
   )
 
   const sectionObserver = new IntersectionObserver(
