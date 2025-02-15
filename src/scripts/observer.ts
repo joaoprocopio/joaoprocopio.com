@@ -17,10 +17,9 @@ for (let sectionIndex = 0; sectionIndex < SECTIONS.length; sectionIndex++) {
   const sectionHeight: number = sectionEl.clientHeight
   const viewportHeight: number = window.innerHeight
 
-  let observerThreshold: number =
-    ((sectionHeight - viewportHeight) / viewportHeight) % 1
-
-  observerThreshold = Number(observerThreshold.toFixed(2))
+  const observerThreshold: number = Number(
+    (((sectionHeight - viewportHeight) / viewportHeight) % 1).toFixed(2),
+  )
 
   const sectionObserver = new IntersectionObserver(
     (entries) => {
