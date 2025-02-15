@@ -14,21 +14,21 @@ for (const SECTION of SECTIONS) {
 
   const sectionObserver = new IntersectionObserver(
     (entries) => {
-      for (const entry of entries) {
-        const isIntersecting = entry.isIntersecting
+      const entry = entries.at(0)!
 
-        if (!isIntersecting) {
-          continue
-        }
+      const isIntersecting = entry.isIntersecting
 
-        if (lastLinkEl) {
-          lastLinkEl.setAttribute(DATA_ACTIVE_KEY, String(!isIntersecting))
-        }
-
-        linkEl.setAttribute(DATA_ACTIVE_KEY, String(isIntersecting))
-
-        lastLinkEl = linkEl
+      if (!isIntersecting) {
+        return undefined
       }
+
+      if (lastLinkEl) {
+        lastLinkEl.setAttribute(DATA_ACTIVE_KEY, String(!isIntersecting))
+      }
+
+      linkEl.setAttribute(DATA_ACTIVE_KEY, String(isIntersecting))
+
+      lastLinkEl = linkEl
     },
     { threshold: observerThreshold },
   )
