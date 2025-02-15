@@ -7,13 +7,20 @@ let lastLinkEl: HTMLAnchorElement | undefined = undefined
 for (let sectionIndex = 0; sectionIndex < SECTIONS.length; sectionIndex++) {
   const section = SECTIONS[sectionIndex]
 
-  const sectionEl = document.getElementById(section.ID) as HTMLElement
-  const linkEl = document.getElementById(section.LINK_ID) as HTMLAnchorElement
+  const sectionEl: HTMLElement = document.getElementById(
+    section.ID,
+  ) as HTMLElement
+  const linkEl: HTMLAnchorElement = document.getElementById(
+    section.LINK_ID,
+  ) as HTMLAnchorElement
 
-  const sectionHeight = sectionEl.clientHeight
-  const viewportHeight = window.innerHeight
-  const observerThreshold =
+  const sectionHeight: number = sectionEl.clientHeight
+  const viewportHeight: number = window.innerHeight
+
+  let observerThreshold: number =
     ((sectionHeight - viewportHeight) / viewportHeight) % 1
+
+  observerThreshold = Number(observerThreshold.toFixed(2))
 
   const sectionObserver = new IntersectionObserver(
     (entries) => {
@@ -33,7 +40,7 @@ for (let sectionIndex = 0; sectionIndex < SECTIONS.length; sectionIndex++) {
 
       lastLinkEl = linkEl
     },
-    { threshold: observerThreshold, rootMargin: "-10% 0px" },
+    { threshold: observerThreshold },
   )
 
   sectionObserver.observe(sectionEl)
