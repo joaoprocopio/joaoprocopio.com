@@ -6,12 +6,14 @@ let lastLinkEl: HTMLAnchorElement | undefined = undefined
 
 for (let sectionIndex = 0; sectionIndex < SECTIONS.length; sectionIndex++) {
   const section = SECTIONS[sectionIndex]
+
   const sectionEl = document.getElementById(section.ID) as HTMLElement
   const linkEl = document.getElementById(section.LINK_ID) as HTMLAnchorElement
 
   const sectionHeight = sectionEl.clientHeight
   const viewportHeight = window.innerHeight
-  const observerThreshold = Math.min(1, viewportHeight / sectionHeight)
+  const observerThreshold =
+    ((sectionHeight - viewportHeight) / viewportHeight) % 1
 
   const sectionObserver = new IntersectionObserver(
     (entries) => {
@@ -31,8 +33,10 @@ for (let sectionIndex = 0; sectionIndex < SECTIONS.length; sectionIndex++) {
 
       lastLinkEl = linkEl
     },
-    { threshold: observerThreshold },
+    { threshold: observerThreshold, rootMargin: "-10% 0px" },
   )
 
   sectionObserver.observe(sectionEl)
 }
+
+// TODO: consertar ao fazer o resize da tela
