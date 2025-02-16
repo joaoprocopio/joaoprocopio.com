@@ -1,6 +1,10 @@
 ---
 import Typography from "~/components/typography.astro"
 
+const linkProps: astroHTML.JSX.AnchorHTMLAttributes = {
+  class: "text-link underline",
+  target: "_blank",
+}
 const props = Astro.props
 ---
 
@@ -10,46 +14,36 @@ const props = Astro.props
     variant="footnote"
     affect="regular">
     <span set:text="This portfolio is built with" />
-    <a
-      class="text-link underline"
-      target="_blank"
-      href="https://astro.build"
-      set:text="Astro"
-    />
+    <a {...linkProps} href="https://astro.build" set:text="Astro" />
     <span set:text="and" />
     <a
-      class="text-link underline"
-      target="_blank"
+      {...linkProps}
       href="https://tailwindcss.com"
       set:text="TailwindCSS"
     /><span set:text="." />
 
     <span set:text="Design and contents are heavily inspired by" />
     <a
-      class="text-link underline"
-      target="_blank"
+      {...linkProps}
       href="https://brittanychiang.com"
       set:text="Brittany Chiang"
     />
     <span set:text="and" />
     <a
-      class="text-link underline"
-      target="_blank"
+      {...linkProps}
       href="https://watracz.com"
       set:text="Damian Watracz"
     /><span set:text="." />
 
     <span set:text="Typesystem is derived from" />
     <a
-      class="text-link underline"
-      target="_blank"
-      href="https://astro.build"
-      set:text="Apple Human Interface Guidelines"
+      {...linkProps}
+      href="https://developer.apple.com/design/human-interface-guidelines/typography"
+      set:text="Apple Human Interface Guidelines Typography"
     />
     <span set:text="and rendered with" />
     <a
-      class="text-link underline"
-      target="_blank"
+      {...linkProps}
       href="https://fontsource.org/fonts/inter"
       set:text="Inter"
     />
@@ -57,8 +51,7 @@ const props = Astro.props
 
     <span set:text="Source code is available on" />
     <a
-      class="text-link underline"
-      target="_blank"
+      {...linkProps}
       href="https://github.com/joaoprocopio/joaoprocopio.com.br"
       set:text="GitHub"
     /><span set:text="." />
