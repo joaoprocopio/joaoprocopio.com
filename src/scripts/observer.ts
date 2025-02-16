@@ -1,44 +1,65 @@
 import { SECTIONS } from "~/constants/sections"
+import { debounce } from "~/utils/debounce"
 
 const DATA_ACTIVE_KEY = "data-active"
+const LISTENER_WAIT_MS = 150
 
-let lastLinkEl: HTMLElement | undefined = undefined
+let observers: IntersectionObserver[] = []
 
-for (let sectionIndex = 0; sectionIndex < SECTIONS.length; sectionIndex++) {
-  const section = SECTIONS[sectionIndex]
+function observe() {
+  if (observers.length) {
+    for (const observer of observers) {
+      observer.disconnect()
+    }
 
-  const linkEl: HTMLElement = document.getElementById(section.LINK_ID)!
-  const sectionEl: HTMLElement = document.getElementById(section.ID)!
+    observers = []
+  }
 
-  const viewportHeight: number = window.innerHeight
-  const sectionHeight: number = sectionEl.clientHeight
+  let lastLinkEl: HTMLElement | undefined = undefined
 
-  const observerThreshold: number = Math.abs(
-    (viewportHeight / sectionHeight / Math.E) % 1,
-  )
+  for (let sectionIndex = 0; sectionIndex < SECTIONS.length; sectionIndex++) {
+    const section = SECTIONS[sectionIndex]
 
-  const sectionObserver = new IntersectionObserver(
-    (entries) => {
-      const entry = entries[0]
+    const linkEl: HTMLElement = document.getElementById(section.LINK_ID)!
+    const sectionEl: HTMLElement = document.getElementById(section.ID)!
 
-      const isIntersecting = entry.isIntersecting
+    const viewportHeight: number = window.innerHeight
+    const sectionHeight: number = sectionEl.clientHeight
 
-      if (!isIntersecting) {
-        return undefined
-      }
+    const observerThreshold: number = Math.abs(
+      (viewportHeight / sectionHeight / Math.E) % 1,
+    )
 
-      if (lastLinkEl) {
-        lastLinkEl.setAttribute(DATA_ACTIVE_KEY, String(!isIntersecting))
-      }
+    const sectionObserver = new IntersectionObserver(
+      (entries) => {
+        const entry = entries[0]
 
-      linkEl.setAttribute(DATA_ACTIVE_KEY, String(isIntersecting))
+        const isIntersecting = entry.isIntersecting
 
-      lastLinkEl = linkEl
-    },
-    { threshold: observerThreshold, rootMargin: "-10% 0px" },
-  )
+        if (!isIntersecting) {
+          return undefined
+        }
 
-  sectionObserver.observe(sectionEl)
+        if (lastLinkEl) {
+          lastLinkEl.setAttribute(DATA_ACTIVE_KEY, String(!isIntersecting))
+        }
+
+        linkEl.setAttribute(DATA_ACTIVE_KEY, String(isIntersecting))
+
+        lastLinkEl = linkEl
+      },
+      { threshold: observerThreshold, rootMargin: "-10% 0px" },
+    )
+
+    sectionObserver.observe(sectionEl)
+    observers.push(sectionObserver)
+  }
 }
 
-// TODO: consertar ao fazer o resize da tela
+window.addEventListener("load", () => {
+  debounce(observe, LISTENER_WAIT_MS)()
+})
+
+window.addEventListener("resize", () => {
+  debounce(observe, LISTENER_WAIT_MS)()
+})
