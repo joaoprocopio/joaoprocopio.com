@@ -1,1 +1,66 @@
-<footer>foot</footer>
+---
+import Typography from "~/components/typography.astro"
+
+const props = Astro.props
+---
+
+<footer {...props}>
+  <Typography
+    class="text-foreground-secondary"
+    variant="footnote"
+    affect="regular">
+    <span set:text="This portfolio is built with" />
+    <a
+      class="text-link underline"
+      target="_blank"
+      href="https://astro.build"
+      set:text="Astro"
+    />
+    <span set:text="and" />
+    <a
+      class="text-link underline"
+      target="_blank"
+      href="https://tailwindcss.com"
+      set:text="TailwindCSS"
+    /><span set:text="." />
+
+    <span set:text="Design and contents are heavily inspired by" />
+    <a
+      class="text-link underline"
+      target="_blank"
+      href="https://brittanychiang.com"
+      set:text="Brittany Chiang"
+    />
+    <span set:text="and" />
+    <a
+      class="text-link underline"
+      target="_blank"
+      href="https://watracz.com"
+      set:text="Damian Watracz"
+    /><span set:text="." />
+
+    <span set:text="Typesystem is derived from" />
+    <a
+      class="text-link underline"
+      target="_blank"
+      href="https://astro.build"
+      set:text="Apple Human Interface Guidelines"
+    />
+    <span set:text="and rendered with" />
+    <a
+      class="text-link underline"
+      target="_blank"
+      href="https://fontsource.org/fonts/inter"
+      set:text="Inter"
+    />
+    <span set:text="typeface." />
+
+    <span set:text="Source code is available on" />
+    <a
+      class="text-link underline"
+      target="_blank"
+      href="https://github.com/joaoprocopio/joaoprocopio.com.br"
+      set:text="GitHub"
+    /><span set:text="." />
+  </Typography>
+</footer>

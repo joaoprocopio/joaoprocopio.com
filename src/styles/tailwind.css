@@ -9,6 +9,8 @@
   --color-foreground-secondary: #3c3c4399;
   --color-foreground-tertiary: #3c3c434d;
   --color-foreground-quaternary: #3c3c432e;
+
+  --color-link: #007aff;
 }
 
 @layer base {
