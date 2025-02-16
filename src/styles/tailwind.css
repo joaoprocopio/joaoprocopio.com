@@ -3,12 +3,12 @@
 @theme {
   --font-sans: "Inter", "sans-serif";
 
-  --color-background-primary: #ffffff;
+  --color-background-primary: oklch(100% 0 0);
 
-  --color-foreground-primary: #000000;
-  --color-foreground-secondary: #3c3c4399;
-  --color-foreground-tertiary: #3c3c434d;
-  --color-foreground-quaternary: #3c3c432e;
+  --color-foreground-primary: oklch(0% 0 0);
+  --color-foreground-secondary: oklch(35.88% 0.012 285.78 / 60%);
+  --color-foreground-tertiary: oklch(35.88% 0.012 285.78 / 30.2%);
+  --color-foreground-quaternary: oklch(35.88% 0.012 285.78 / 18.04%);
 
   --color-link: #007aff;
 }
