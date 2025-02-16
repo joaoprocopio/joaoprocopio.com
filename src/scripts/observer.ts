@@ -1,12 +1,11 @@
 import { SECTIONS } from "~/constants/sections"
 import { debounce } from "~/utils/debounce"
 
-const DATA_ACTIVE_KEY = "data-active"
-const LISTENER_WAIT_MS = 150
+const DATA_ACTIVE = "data-active"
 
 let observers: IntersectionObserver[] = []
 
-function observe() {
+const observe = () => {
   if (observers.length) {
     for (const observer of observers) {
       observer.disconnect()
@@ -15,7 +14,7 @@ function observe() {
     observers = []
   }
 
-  let lastLinkEl: HTMLElement | undefined = undefined
+  let prevLinkEl: HTMLElement | undefined = undefined
 
   for (let sectionIndex = 0; sectionIndex < SECTIONS.length; sectionIndex++) {
     const section = SECTIONS[sectionIndex]
@@ -40,26 +39,24 @@ function observe() {
           return undefined
         }
 
-        if (lastLinkEl) {
-          lastLinkEl.setAttribute(DATA_ACTIVE_KEY, String(!isIntersecting))
+        if (prevLinkEl) {
+          prevLinkEl.setAttribute(DATA_ACTIVE, String(!isIntersecting))
         }
 
-        linkEl.setAttribute(DATA_ACTIVE_KEY, String(isIntersecting))
+        linkEl.setAttribute(DATA_ACTIVE, String(isIntersecting))
 
-        lastLinkEl = linkEl
+        prevLinkEl = linkEl
       },
       { threshold: observerThreshold, rootMargin: "-10% 0px" },
     )
 
     sectionObserver.observe(sectionEl)
+
     observers.push(sectionObserver)
   }
 }
 
-window.addEventListener("load", () => {
-  debounce(observe, LISTENER_WAIT_MS)()
-})
+const debouncedObserve = debounce(observe, 100)
 
-window.addEventListener("resize", () => {
-  debounce(observe, LISTENER_WAIT_MS)()
-})
+window.addEventListener("load", debouncedObserve)
+window.addEventListener("resize", debouncedObserve)
