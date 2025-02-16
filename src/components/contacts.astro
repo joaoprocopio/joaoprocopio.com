@@ -1,8 +1,7 @@
 ---
-import Section from "~/components/section.astro"
-import { SECTION_CONTACTS } from "~/constants/sections"
+const props = Astro.props
 ---
 
-<Section id={SECTION_CONTACTS.ID}>
+<section {...props}>
   <div class="h-[8000px] bg-blue-500"></div>
-</Section>
+</section>

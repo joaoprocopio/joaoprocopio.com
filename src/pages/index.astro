@@ -2,8 +2,15 @@
 import About from "~/components/about.astro"
 import Contacts from "~/components/contacts.astro"
 import Experience from "~/components/experience.astro"
+import Footer from "~/components/footer.astro"
 import Heading from "~/components/heading.astro"
 import Projects from "~/components/projects.astro"
+import {
+  SECTION_ABOUT,
+  SECTION_CONTACTS,
+  SECTION_EXPERIENCE,
+  SECTION_PROJECTS,
+} from "~/constants/sections"
 import DefaultLayout from "~/layouts/default.astro"
 ---
 
@@ -17,11 +24,12 @@ import DefaultLayout from "~/layouts/default.astro"
       />
 
       <main
-        class="col-start-3 col-end-6 py-24 [&>section]:scroll-mt-24 [&>section:not(:first-child)]:mt-24">
-        <About />
-        <Experience />
-        <Projects />
-        <Contacts />
+        class="col-start-3 col-end-6 py-24 [&>*]:scroll-mt-24 [&>*:not(:first-child)]:mt-24">
+        <About id={SECTION_ABOUT.ID} class="[&>*+*]:mt-6" />
+        <Experience id={SECTION_EXPERIENCE.ID} class="[&>*+*]:mt-6" />
+        <Projects id={SECTION_PROJECTS.ID} class="[&>*+*]:mt-6" />
+        <Contacts id={SECTION_CONTACTS.ID} class="[&>*+*]:mt-6" />
+        <Footer class="[&>*+*]:mt-6" />
       </main>
     </div>
   </div>
