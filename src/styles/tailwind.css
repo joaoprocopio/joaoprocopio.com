@@ -10,7 +10,7 @@
   --color-foreground-tertiary: oklch(35.88% 0.012 285.78 / 30.2%);
   --color-foreground-quaternary: oklch(35.88% 0.012 285.78 / 18.04%);
 
-  --color-link: #007aff;
+  --color-link: oklch(60.28% 0.2177 257.42);
 }
 
 @layer base {
