@@ -10,9 +10,11 @@ export type TExperience = {
   to?: Date
 }
 
-export type TExperienceGrouped = {
+export type TExperienceGrouped<
+  CompanyKey extends keyof TExperience = "company",
+> = {
   company: string
-  experiences: Omit<TExperience, "company">[]
+  experiences: Omit<TExperience, CompanyKey>[]
 }
 
 const MORAY_EXPERIENCE = {
