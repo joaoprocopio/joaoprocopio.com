@@ -7,20 +7,20 @@ export type TLink = {
   ICON: (props: astroHTML.JSX.SVGAttributes) => astroHTML.JSX.Element
 }
 
-export const GITHUB_LINK: TLink = {
+export const GITHUB_LINK = {
   HREF: "https://github.com/joaoprocopio",
   ICON: GitHub,
-}
+} as const satisfies TLink
 
-export const LINKEDIN_LINK: TLink = {
+export const LINKEDIN_LINK = {
   HREF: "https://linkedin.com/in/joao-procopio",
   ICON: LinkedIn,
-}
+} as const satisfies TLink
 
-export const EMAIL_LINK: TLink = {
+export const EMAIL_LINK = {
   HREF: "mailto:joaovitorcprocopio@gmail.com",
   ICON: Gmail,
-}
+} as const satisfies TLink
 
 export const LINKS = [
   GITHUB_LINK,
