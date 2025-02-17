@@ -6,10 +6,12 @@ import "@fontsource/inter/500.css"
 import "@fontsource/inter/600.css"
 import "@fontsource/inter/700.css"
 
-import inter400Woff2 from "@fontsource/inter/files/inter-latin-400-normal.woff2"
-import inter500Woff2 from "@fontsource/inter/files/inter-latin-500-normal.woff2"
-import inter600Woff2 from "@fontsource/inter/files/inter-latin-600-normal.woff2"
-import inter700Woff2 from "@fontsource/inter/files/inter-latin-700-normal.woff2"
+import inter400Woff2Url from "@fontsource/inter/files/inter-latin-400-normal.woff2?url"
+import inter500Woff2Url from "@fontsource/inter/files/inter-latin-500-normal.woff2?url"
+import inter600Woff2Url from "@fontsource/inter/files/inter-latin-600-normal.woff2?url"
+import inter700Woff2Url from "@fontsource/inter/files/inter-latin-700-normal.woff2?url"
+
+import faviconUrl from "~/icons/favicon.svg?url"
 ---
 
 <!doctype html>
@@ -19,34 +21,34 @@ import inter700Woff2 from "@fontsource/inter/files/inter-latin-700-normal.woff2"
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="generator" content={Astro.generator} />
 
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="icon" type="image/svg+xml" href={faviconUrl} />
 
     <link
       rel="preload"
       as="font"
       type="font/woff2"
-      href={inter400Woff2}
+      href={inter400Woff2Url}
       crossorigin="anonymous"
     />
     <link
       rel="preload"
       as="font"
       type="font/woff2"
-      href={inter500Woff2}
+      href={inter500Woff2Url}
       crossorigin="anonymous"
     />
     <link
       rel="preload"
       as="font"
       type="font/woff2"
-      href={inter600Woff2}
+      href={inter600Woff2Url}
       crossorigin="anonymous"
     />
     <link
       rel="preload"
       as="font"
       type="font/woff2"
-      href={inter700Woff2}
+      href={inter700Woff2Url}
       crossorigin="anonymous"
     />
 
