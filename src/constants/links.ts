@@ -1,6 +1,6 @@
-import GitHub from "~/components/github.astro"
-import Gmail from "~/components/gmail.astro"
-import LinkedIn from "~/components/linkedin.astro"
+import GitHub from "~/icons/github.astro"
+import Gmail from "~/icons/gmail.astro"
+import LinkedIn from "~/icons/linkedin.astro"
 
 export type TLink = {
   HREF: string
