@@ -7,12 +7,7 @@ import Footer from "~/components/footer.astro"
 import Heading from "~/components/heading.astro"
 import Projects from "~/components/projects.astro"
 import Section from "~/components/section.astro"
-import {
-  SECTION_ABOUT,
-  SECTION_CONTACTS,
-  SECTION_EXPERIENCE,
-  SECTION_PROJECTS,
-} from "~/constants/sections"
+import { SECTIONS } from "~/constants/sections"
 import DefaultLayout from "~/layouts/default.astro"
 ---
 
@@ -27,31 +22,35 @@ import DefaultLayout from "~/layouts/default.astro"
 
       <main class="pt-12 sm:pt-16 md:pt-24 lg:col-start-3 lg:col-end-6 lg:pt-0">
         <!-- TODO: consertar o scroll margin top -->
-        <div
-          class="[&>*:not(:first-child)]:mt-12 sm:[&>*:not(:first-child)]:mt-16 md:[&>*:not(:first-child)]:mt-24">
-          <Entitled id={SECTION_ABOUT.ID} title={SECTION_ABOUT.TITLE}>
-            <Section>
-              <About />
-            </Section>
-          </Entitled>
+        <div class="[&>*+*]:mt-12 sm:[&>*+*]:mt-16 md:[&>*+*]:mt-24">
+          {
+            SECTIONS.map((SECTION) => {
+              let SectionContent: astroHTML.JSX.Element
 
-          <Entitled id={SECTION_EXPERIENCE.ID} title={SECTION_EXPERIENCE.TITLE}>
-            <Section>
-              <Experience />
-            </Section>
-          </Entitled>
+              switch (SECTION.ID) {
+                case "about":
+                  SectionContent = About
+                  break
+                case "experience":
+                  SectionContent = Experience
+                  break
+                case "projects":
+                  SectionContent = Projects
+                  break
+                case "contacts":
+                  SectionContent = Contacts
+                  break
+              }
 
-          <Entitled id={SECTION_PROJECTS.ID} title={SECTION_PROJECTS.TITLE}>
-            <Section>
-              <Projects />
-            </Section>
-          </Entitled>
-
-          <Entitled id={SECTION_CONTACTS.ID} title={SECTION_CONTACTS.TITLE}>
-            <Section>
-              <Contacts />
-            </Section>
-          </Entitled>
+              return (
+                <Entitled id={SECTION.ID} title={SECTION.TITLE}>
+                  <Section>
+                    <SectionContent />
+                  </Section>
+                </Entitled>
+              )
+            })
+          }
 
           <Footer />
         </div>
