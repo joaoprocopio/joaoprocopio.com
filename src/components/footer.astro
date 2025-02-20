@@ -1,8 +1,6 @@
 ---
 import Typography from "~/components/typography.astro"
 
-const props = Astro.props
-
 type Content =
   | {
       type: "text"
@@ -54,7 +52,7 @@ const contents: Content[] = [
 ]
 ---
 
-<footer {...props}>
+<footer>
   <Typography
     class="text-foreground-secondary"
     variant="footnote"
