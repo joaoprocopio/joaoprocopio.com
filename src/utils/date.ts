@@ -13,5 +13,7 @@ export const MONTH = {
   DECEMBER: 11,
 } as const
 
+export const PRESENT = Symbol("present")
+
 export const date = (year: number, month: (typeof MONTH)[keyof typeof MONTH]) =>
   new Date(year, month)

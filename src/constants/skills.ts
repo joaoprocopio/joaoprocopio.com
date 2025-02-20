@@ -10,6 +10,16 @@ export const HARD_SKILLS = {
   // Frontend Libraries
   MAPBOX: "Mapbox",
 
+  // General Purpose Languages
+  PYTHON: "Python",
+
+  // Data
+  DBT: "DBT (Data Build Tool)",
+  DATABRICKS: "Databricks",
+  AIRFLOW: "Airflow",
+  METABASE: "Metabase",
+  SQL: "SQL",
+
   // DevOps
   AWS: "AWS (Amazon Web Services)",
   DOCKER: "Docker",
