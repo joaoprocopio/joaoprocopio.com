@@ -2,6 +2,9 @@
 import Typography from "~/components/typography.astro"
 import { SECTIONS } from "~/constants/sections"
 import { LINKS } from "~/constants/links"
+import GitHub from "~/icons/github.astro"
+import Gmail from "~/icons/gmail.astro"
+import LinkedIn from "~/icons/linkedin.astro"
 
 type Props = astroHTML.JSX.HTMLAttributes
 
@@ -55,17 +58,30 @@ const props = Astro.props
 
   <nav class="mt-6 place-content-end lg:mt-0 [&>a+a]:ml-3">
     {
-      LINKS.map((link) => (
-        <a
-          href={link.HREF}
-          target="_blank"
-          class:list={[
-            "text-foreground-secondary inline-block",
-            "hover:text-foreground-primary focus-visible:text-foreground-primary",
-          ]}>
-          <link.ICON class="h-6" />
-        </a>
-      ))
+      LINKS.map((LINK) => {
+        let Icon: astroHTML.JSX.Element
+
+        switch (LINK.ID) {
+          case "github":
+            Icon = GitHub
+            break
+          case "gmail":
+            Icon = Gmail
+            break
+          case "linkedin":
+            Icon = LinkedIn
+            break
+        }
+
+        return (
+          <a
+            href={LINK.HREF}
+            target="_blank"
+            class="text-foreground-secondary hover:text-foreground-primary focus-visible:text-foreground-primary inline-block">
+            <Icon class="h-6" />
+          </a>
+        )
+      })
     }
   </nav>
 </header>

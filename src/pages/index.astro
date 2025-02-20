@@ -25,27 +25,27 @@ import DefaultLayout from "~/layouts/default.astro"
         <div class="[&>*+*]:mt-12 sm:[&>*+*]:mt-16 md:[&>*+*]:mt-24">
           {
             SECTIONS.map((SECTION) => {
-              let SectionContent: astroHTML.JSX.Element
+              let Content: astroHTML.JSX.Element
 
               switch (SECTION.ID) {
                 case "about":
-                  SectionContent = About
+                  Content = About
                   break
                 case "experience":
-                  SectionContent = Experience
+                  Content = Experience
                   break
                 case "projects":
-                  SectionContent = Projects
+                  Content = Projects
                   break
                 case "contacts":
-                  SectionContent = Contacts
+                  Content = Contacts
                   break
               }
 
               return (
                 <Entitled id={SECTION.ID} title={SECTION.TITLE}>
                   <Section>
-                    <SectionContent />
+                    <Content />
                   </Section>
                 </Entitled>
               )
