@@ -1,18 +1,21 @@
 ---
+import { twMerge } from "tailwind-merge"
 import Typography from "~/components/typography.astro"
 
 type Props = {
   title: string
-}
+} & astroHTML.JSX.HTMLAttributes
 
-const props = Astro.props
+const { title: titleProp, class: classProp, ...props } = Astro.props
 ---
 
-<div>
+<div
+  class={twMerge(classProp, "scroll-mt-12 sm:scroll-mt-16 md:scroll-mt-24")}
+  {...props}>
   <div
-    class="bg-background-primary/75 sticky top-0 -mx-6 px-6 py-4 backdrop-blur sm:-mx-8 sm:px-8 sm:py-5 md:-mx-12 md:px-12 lg:sr-only">
+    class="bg-background-primary/75 sticky top-0 -mx-6 flex h-12 items-center px-6 backdrop-blur sm:-mx-8 sm:h-14 sm:px-8 md:-mx-12 md:px-12 lg:sr-only">
     <Typography variant="headline" affect="emphasized" class="uppercase">
-      {props.title}
+      {titleProp}
     </Typography>
   </div>
 
