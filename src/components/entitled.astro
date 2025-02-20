@@ -1,0 +1,20 @@
+---
+import Typography from "~/components/typography.astro"
+
+type Props = {
+  title: string
+}
+
+const props = Astro.props
+---
+
+<div>
+  <div
+    class="sticky top-0 -mx-6 px-6 py-4 backdrop-blur-lg sm:-mx-8 sm:px-8 sm:py-5 md:-mx-12 md:px-12 lg:sr-only">
+    <Typography variant="headline" affect="emphasized" class="uppercase">
+      {props.title}
+    </Typography>
+  </div>
+
+  <slot />
+</div>

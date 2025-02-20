@@ -1,6 +1,7 @@
 ---
 import About from "~/components/about.astro"
 import Contacts from "~/components/contacts.astro"
+import Entitled from "~/components/entitled.astro"
 import Experience from "~/components/experience.astro"
 import Footer from "~/components/footer.astro"
 import Heading from "~/components/heading.astro"
@@ -25,22 +26,33 @@ import DefaultLayout from "~/layouts/default.astro"
 
       <main
         class="pt-12 sm:pt-16 md:pt-24 lg:col-start-3 lg:col-end-6 lg:pt-0 [&>*]:scroll-mt-12 sm:[&>*]:scroll-mt-16 md:[&>*]:scroll-mt-24 [&>*:not(:first-child)]:mt-12 sm:[&>*:not(:first-child)]:mt-16 md:[&>*:not(:first-child)]:mt-24">
-        <About
-          id={SECTION_ABOUT.ID}
-          class="[&>*+*]:mt-4 sm:[&>*+*]:mt-5 md:[&>*+*]:mt-6"
-        />
-        <Experience
-          id={SECTION_EXPERIENCE.ID}
-          class="[&>*+*]:mt-4 sm:[&>*+*]:mt-5 md:[&>*+*]:mt-6"
-        />
-        <Projects
-          id={SECTION_PROJECTS.ID}
-          class="[&>*+*]:mt-4 sm:[&>*+*]:mt-5 md:[&>*+*]:mt-6"
-        />
-        <Contacts
-          id={SECTION_CONTACTS.ID}
-          class="[&>*+*]:mt-4 sm:[&>*+*]:mt-5 md:[&>*+*]:mt-6"
-        />
+        <Entitled title={SECTION_ABOUT.TITLE}>
+          <About
+            id={SECTION_ABOUT.ID}
+            class="[&>*+*]:mt-4 sm:[&>*+*]:mt-5 md:[&>*+*]:mt-6"
+          />
+        </Entitled>
+
+        <Entitled title={SECTION_EXPERIENCE.TITLE}>
+          <Experience
+            id={SECTION_EXPERIENCE.ID}
+            class="[&>*+*]:mt-4 sm:[&>*+*]:mt-5 md:[&>*+*]:mt-6"
+          />
+        </Entitled>
+
+        <Entitled title={SECTION_PROJECTS.TITLE}>
+          <Projects
+            id={SECTION_PROJECTS.ID}
+            class="[&>*+*]:mt-4 sm:[&>*+*]:mt-5 md:[&>*+*]:mt-6"
+          />
+        </Entitled>
+
+        <Entitled title={SECTION_CONTACTS.TITLE}>
+          <Contacts
+            id={SECTION_CONTACTS.ID}
+            class="[&>*+*]:mt-4 sm:[&>*+*]:mt-5 md:[&>*+*]:mt-6"
+          />
+        </Entitled>
 
         <Footer />
       </main>
