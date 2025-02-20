@@ -1,59 +1,81 @@
 ---
 import Typography from "~/components/typography.astro"
 
-const linkProps: astroHTML.JSX.AnchorHTMLAttributes = {
-  class: "text-link underline",
-  target: "_blank",
-}
 const props = Astro.props
+
+type Content =
+  | {
+      type: "text"
+      text: string
+    }
+  | {
+      type: "link"
+      href: string
+      text: string
+    }
+
+function text(text: string): Content {
+  return {
+    type: "text",
+    text: text,
+  }
+}
+
+function link(text: string, href: string): Content {
+  return {
+    type: "link",
+    href: href,
+    text: text,
+  }
+}
+
+const contents: Content[] = [
+  text("This portfolio was developed using "),
+  link("Astro", "https://astro.build"),
+  text(" and "),
+  link("TailwindCSS", "https://tailwindcss.com"),
+  text(", "),
+  text("featuring a design and content approach inspired by the work of "),
+  link("Brittany Chiang", "https://brittanychiang.com"),
+  text(" and "),
+  link("Damian Watracz", "https://watracz.com"),
+  text(". "),
+  text("The typographic system is derived from the "),
+  link(
+    "Apple Human Interface Guidelines Typography",
+    "https://developer.apple.com/design/human-interface-guidelines/typography",
+  ),
+  text(" and rendered using the "),
+  link("Inter", "https://fontsource.org/fonts/inter"),
+  text(" typeface. "),
+  text("Source code is fully available on "),
+  link("GitHub", "https://github.com/joaoprocopio/joaoprocopio.com.br"),
+  text("."),
+]
 ---
 
+<!-- This portfolio was meticulously developed using Astro and TailwindCSS, featuring a design and content approach inspired by the work of Brittany Chiang and Damian Watracz. The typographic system is based on the Apple Human Interface Guidelines and rendered using the Inter typeface. The complete source code is available on GitHub. -->
 <footer {...props}>
   <Typography
     class="text-foreground-secondary"
     variant="footnote"
     affect="regular">
-    <span set:text="This portfolio is built with" />
-    <a {...linkProps} href="https://astro.build" set:text="Astro" />
-    <span set:text="and" />
-    <a
-      {...linkProps}
-      href="https://tailwindcss.com"
-      set:text="TailwindCSS"
-    /><span set:text="." />
-
-    <span set:text="Design and contents are heavily inspired by" />
-    <a
-      {...linkProps}
-      href="https://brittanychiang.com"
-      set:text="Brittany Chiang"
-    />
-    <span set:text="and" />
-    <a
-      {...linkProps}
-      href="https://watracz.com"
-      set:text="Damian Watracz"
-    /><span set:text="." />
-
-    <span set:text="Typesystem is derived from" />
-    <a
-      {...linkProps}
-      href="https://developer.apple.com/design/human-interface-guidelines/typography"
-      set:text="Apple Human Interface Guidelines Typography"
-    />
-    <span set:text="and rendered with" />
-    <a
-      {...linkProps}
-      href="https://fontsource.org/fonts/inter"
-      set:text="Inter"
-    />
-    <span set:text="typeface." />
-
-    <span set:text="Source code is available on" />
-    <a
-      {...linkProps}
-      href="https://github.com/joaoprocopio/joaoprocopio.com.br"
-      set:text="GitHub"
-    /><span set:text="." />
+    {
+      contents.map((content) => {
+        switch (content.type) {
+          case "text":
+            return <span set:text={content.text} />
+          case "link":
+            return (
+              <a
+                class="text-link underline"
+                target="_blank"
+                href={content.href}
+                set:text={content.text}
+              />
+            )
+        }
+      })
+    }
   </Typography>
 </footer>
