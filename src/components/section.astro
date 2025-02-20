@@ -1,0 +1,7 @@
+---
+const props = Astro.props
+---
+
+<section {...props} class="[&>*+*]:mt-4 sm:[&>*+*]:mt-5 md:[&>*+*]:mt-6">
+  <slot />
+</section>
