@@ -25,33 +25,35 @@ import DefaultLayout from "~/layouts/default.astro"
         class="lg:fixed lg:inset-y-0 lg:col-start-1 lg:col-end-3 lg:grid lg:max-h-svh lg:grid-rows-[auto_auto_1fr] lg:py-24"
       />
 
-      <main
-        class="pt-12 sm:pt-16 md:pt-24 lg:col-start-3 lg:col-end-6 lg:pt-0 [&>*]:scroll-mt-12 sm:[&>*]:scroll-mt-16 md:[&>*]:scroll-mt-24 [&>*:not(:first-child)]:mt-12 sm:[&>*:not(:first-child)]:mt-16 md:[&>*:not(:first-child)]:mt-24">
-        <Entitled title={SECTION_ABOUT.TITLE}>
-          <Section id={SECTION_ABOUT.ID}>
-            <About />
-          </Section>
-        </Entitled>
+      <main class="pt-12 sm:pt-16 md:pt-24 lg:col-start-3 lg:col-end-6 lg:pt-0">
+        <div
+          class="[&>*:not(:first-child)]:mt-12 sm:[&>*:not(:first-child)]:mt-16 md:[&>*:not(:first-child)]:mt-24">
+          <Entitled title={SECTION_ABOUT.TITLE}>
+            <Section id={SECTION_ABOUT.ID}>
+              <About />
+            </Section>
+          </Entitled>
 
-        <Entitled title={SECTION_EXPERIENCE.TITLE}>
-          <Section id={SECTION_EXPERIENCE.ID}>
-            <Experience />
-          </Section>
-        </Entitled>
+          <Entitled title={SECTION_EXPERIENCE.TITLE}>
+            <Section id={SECTION_EXPERIENCE.ID}>
+              <Experience />
+            </Section>
+          </Entitled>
 
-        <Entitled title={SECTION_PROJECTS.TITLE}>
-          <Section id={SECTION_PROJECTS.ID}>
-            <Projects />
-          </Section>
-        </Entitled>
+          <Entitled title={SECTION_PROJECTS.TITLE}>
+            <Section id={SECTION_PROJECTS.ID}>
+              <Projects />
+            </Section>
+          </Entitled>
 
-        <Entitled title={SECTION_CONTACTS.TITLE}>
-          <Section id={SECTION_CONTACTS.ID}>
-            <Contacts />
-          </Section>
-        </Entitled>
+          <Entitled title={SECTION_CONTACTS.TITLE}>
+            <Section id={SECTION_CONTACTS.ID}>
+              <Contacts />
+            </Section>
+          </Entitled>
 
-        <Footer />
+          <Footer />
+        </div>
       </main>
     </div>
   </div>
