@@ -10,8 +10,8 @@ type Content =
     }
   | {
       type: "link"
-      href: string
       text: string
+      href: string
     }
 
 function text(text: string): Content {
@@ -54,7 +54,6 @@ const contents: Content[] = [
 ]
 ---
 
-<!-- This portfolio was meticulously developed using Astro and TailwindCSS, featuring a design and content approach inspired by the work of Brittany Chiang and Damian Watracz. The typographic system is based on the Apple Human Interface Guidelines and rendered using the Inter typeface. The complete source code is available on GitHub. -->
 <footer {...props}>
   <Typography
     class="text-foreground-secondary"
