@@ -33,17 +33,15 @@ const observe = () => {
       (entries) => {
         const entry = entries[0]
 
-        const isIntersecting = entry.isIntersecting
-
-        if (!isIntersecting) {
+        if (!entry.isIntersecting) {
           return undefined
         }
 
         if (prevLinkEl) {
-          prevLinkEl.setAttribute(DATA_ACTIVE, String(!isIntersecting))
+          prevLinkEl.setAttribute(DATA_ACTIVE, String(!entry.isIntersecting))
         }
 
-        linkEl.setAttribute(DATA_ACTIVE, String(isIntersecting))
+        linkEl.setAttribute(DATA_ACTIVE, String(entry.isIntersecting))
 
         prevLinkEl = linkEl
       },
