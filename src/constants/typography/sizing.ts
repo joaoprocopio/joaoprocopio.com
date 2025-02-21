@@ -1,6 +1,6 @@
 import type { TSizing } from "~/constants/typography/types"
 
-export const SIZING = {
+export const VARIANT_SIZING = {
   largeTitle: {
     lg: { size: 34, leading: 41 },
     md: { size: 33, leading: 40 },

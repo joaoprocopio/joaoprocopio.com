@@ -18,20 +18,6 @@ const DEFAULT_ELEMENT = "p" as const satisfies TElement
 const DEFAULT_VARIANT = "body" as const satisfies TVariant
 const DEFAULT_AFFECT = "regular" as const satisfies TAffect
 
-const VARIANT_CLASS = {
-  largeTitle: "text-[34px]/[41px] tracking-[0.4px]",
-  title1: "text-[28px]/[34px] tracking-[0.38px]",
-  title2: "text-[22px]/[28px] -tracking-[0.26px]",
-  title3: "font-[20px]/[25px] -tracking-[0.45px]",
-  headline: "text-[17px]/[22px] -tracking-[0.43px]",
-  body: "text-[17px]/[22px] -tracking-[0.43px]",
-  callout: "text-[16px]/[21px] -tracking-[0.31px]",
-  subheadline: "text-[15px]/[20px] -tracking-[0.23px]",
-  footnote: "text-[13px]/[18px] -tracking-[0.08px]",
-  caption1: "text-[12px]/[16px] tracking-norma",
-  caption2: "text-[11px]/[13px] tracking-[0.6px]",
-}
-
 const VARIANT_AFFECT_CLASS = Object.fromEntries(
   Object.entries(VARIANT_AFFECT).map(([variantKey, affectObject]) => [
     variantKey,
@@ -67,11 +53,7 @@ const Element: TElement = elementProp ?? DEFAULT_ELEMENT
 ---
 
 <Element
-  class={twMerge(
-    VARIANT_CLASS[variantProp],
-    VARIANT_AFFECT_CLASS[variantProp][affectProp],
-    classProp,
-  )}
+  class={twMerge(VARIANT_AFFECT_CLASS[variantProp][affectProp], classProp)}
   {...astroProps}>
   <slot />
 </Element>
