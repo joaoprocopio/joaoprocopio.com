@@ -1,5 +1,6 @@
 export type TSize = number
 export type TTracking = number
+export type TLeading = number
 // https://developer.apple.com/design/human-interface-guidelines/typography#macOS-tracking-values
 export type TSizeTracking = Record<TSize, TTracking>
 // https://developer.apple.com/design/human-interface-guidelines/typography#iOS-iPadOS-Dynamic-Type-sizes
@@ -19,3 +20,7 @@ export type TVariant =
 export type TAffect = "regular" | "emphasized"
 export type TWeight = "bold" | "semibold" | "medium"
 export type TVariantAffect = Record<TVariant, Partial<Record<TAffect, TWeight>>>
+export type TSizing = Record<
+  TVariant,
+  Record<TDynamicTypeSize, { size: TSize; leading: TLeading }>
+>
