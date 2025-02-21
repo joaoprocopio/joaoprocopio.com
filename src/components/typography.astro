@@ -30,6 +30,33 @@ const VARIANT_AFFECT_CLASS = Object.fromEntries(
   ]),
 )
 
+function variantToClass(variant: TVariant): string {
+  switch (variant) {
+    case "largeTitle":
+      return "text-large-title"
+    case "title1":
+      return "text-title-1"
+    case "title2":
+      return "text-title-2"
+    case "title3":
+      return "text-title-3"
+    case "headline":
+      return "text-headline"
+    case "body":
+      return "text-body"
+    case "callout":
+      return "text-callout"
+    case "subheadline":
+      return "text-subheadline"
+    case "footnote":
+      return "text-footnote"
+    case "caption1":
+      return "text-caption-1"
+    case "caption2":
+      return "text-caption-2"
+  }
+}
+
 function weightToClass(weight: TWeight): `font-${TWeight}` {
   switch (weight) {
     case "bold":
@@ -53,7 +80,11 @@ const Element: TElement = elementProp ?? DEFAULT_ELEMENT
 ---
 
 <Element
-  class={twMerge(VARIANT_AFFECT_CLASS[variantProp][affectProp], classProp)}
+  class={twMerge(
+    variantToClass(variantProp),
+    VARIANT_AFFECT_CLASS[variantProp][affectProp],
+    classProp,
+  )}
   {...astroProps}>
   <slot />
 </Element>
