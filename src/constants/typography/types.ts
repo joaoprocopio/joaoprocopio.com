@@ -1,5 +1,6 @@
 export type TSize = number
 export type TTracking = number
+// https://developer.apple.com/design/human-interface-guidelines/typography#macOS-tracking-values
 export type TSizeTracking = Record<TSize, TTracking>
 // https://developer.apple.com/design/human-interface-guidelines/typography#iOS-iPadOS-Dynamic-Type-sizes
 export type TDynamicTypeSize = "small" | "medium" | "large"
