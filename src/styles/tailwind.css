@@ -16,7 +16,7 @@
 
 @layer base {
   body {
-    @apply bg-background-primary text-foreground-primary overscroll-none antialiased;
+    @apply bg-background-primary text-foreground-primary antialiased;
 
     font-synthesis-weight: none;
     text-rendering: optimizeLegibility;
