@@ -1,6 +1,7 @@
 import type { TSizeTracking } from "~/constants/typography/types"
 
-export const Tracking = {
+// https://developer.apple.com/design/human-interface-guidelines/typography#macOS-tracking-values
+export const TRACKING = {
   6: 0.24,
   7: 0.23,
   8: 0.21,
