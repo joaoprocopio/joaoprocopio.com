@@ -3,7 +3,7 @@ export type TTracking = number
 // https://developer.apple.com/design/human-interface-guidelines/typography#macOS-tracking-values
 export type TSizeTracking = Record<TSize, TTracking>
 // https://developer.apple.com/design/human-interface-guidelines/typography#iOS-iPadOS-Dynamic-Type-sizes
-export type TDynamicTypeSize = "small" | "medium" | "large"
+export type TDynamicTypeSize = "sm" | "md" | "lg"
 export type TVariant =
   | "largeTitle"
   | "title1"
@@ -17,5 +17,5 @@ export type TVariant =
   | "caption1"
   | "caption2"
 export type TAffect = "regular" | "emphasized"
-export type TWeight = "bold" | "semibold" | "medium" | "regular"
+export type TWeight = "bold" | "semibold" | "medium"
 export type TVariantAffect = Record<TVariant, Partial<Record<TAffect, TWeight>>>
