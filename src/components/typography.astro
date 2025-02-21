@@ -2,7 +2,7 @@
 import { twMerge } from "tailwind-merge"
 
 import type { TVariant, TAffect, TWeight } from "~/constants/typography/types"
-import { VARIANT_AFFECT } from "~/constants/typography/affect"
+import { VARIANT_AFFECT_WEIGHT } from "~/constants/typography/affect"
 
 type Props<E extends TElement = typeof DEFAULT_ELEMENT> = {
   element?: E
@@ -17,18 +17,6 @@ type TElement = keyof TElementHTMLAttributes
 const DEFAULT_ELEMENT = "p" as const satisfies TElement
 const DEFAULT_VARIANT = "body" as const satisfies TVariant
 const DEFAULT_AFFECT = "regular" as const satisfies TAffect
-
-const VARIANT_AFFECT_CLASS = Object.fromEntries(
-  Object.entries(VARIANT_AFFECT).map(([variantKey, affectObject]) => [
-    variantKey,
-    Object.fromEntries(
-      Object.entries(affectObject).map(([affectKey, affectWeight]) => [
-        affectKey,
-        weightToClass(affectWeight),
-      ]),
-    ),
-  ]),
-)
 
 function variantToClass(variant: TVariant): string {
   switch (variant) {
@@ -57,7 +45,10 @@ function variantToClass(variant: TVariant): string {
   }
 }
 
-function weightToClass(weight: TWeight): `font-${TWeight}` {
+function weightToClass(variantProp: TVariant, affectProp: TAffect): string {
+  const affect = VARIANT_AFFECT_WEIGHT[variantProp] as Record<TAffect, TWeight>
+  const weight = affect[affectProp]
+
   switch (weight) {
     case "bold":
       return "font-bold"
@@ -65,6 +56,8 @@ function weightToClass(weight: TWeight): `font-${TWeight}` {
       return "font-semibold"
     case "medium":
       return "font-medium"
+    default:
+      return "font-normal"
   }
 }
 
@@ -82,7 +75,7 @@ const Element: TElement = elementProp ?? DEFAULT_ELEMENT
 <Element
   class={twMerge(
     variantToClass(variantProp),
-    VARIANT_AFFECT_CLASS[variantProp][affectProp],
+    weightToClass(variantProp, affectProp),
     classProp,
   )}
   {...astroProps}>

@@ -1,6 +1,6 @@
 import type { TVariantAffect } from "~/constants/typography/types"
 
-export const VARIANT_AFFECT = {
+export const VARIANT_AFFECT_WEIGHT = {
   largeTitle: {
     emphasized: "bold",
   },
