@@ -1,8 +1,6 @@
 ---
-import { twMerge } from "tailwind-merge"
-
-import type { TVariant, TAffect, TWeight } from "~/constants/typography/types"
 import { VARIANT_AFFECT_WEIGHT } from "~/constants/typography/affect"
+import type { TAffect, TVariant, TWeight } from "~/constants/typography/types"
 
 type Props<E extends TElement = typeof DEFAULT_ELEMENT> = {
   element?: E
@@ -73,11 +71,11 @@ const Element: TElement = elementProp ?? DEFAULT_ELEMENT
 ---
 
 <Element
-  class={twMerge(
+  class:list={[
     variantToClass(variantProp),
     weightToClass(variantProp, affectProp),
     classProp,
-  )}
+  ]}
   {...astroProps}>
   <slot />
 </Element>

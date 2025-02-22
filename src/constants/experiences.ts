@@ -17,8 +17,8 @@ export type TExperienceGrouped<
   experiences: Omit<TExperience, CompanyKey>[]
 }
 
-const MORAY_EXPERIENCE = {
-  company: "moray.ai",
+export const MORAY_EXPERIENCE = {
+  company: "Moray",
   title: "Frontend Software Engineer",
   description:
     "Spearheaded frontend innovation at Moray by modernizing interfaces, slashing load times by 40%, cutting costs with Docker optimizations (~96% smaller), and driving cross-functional collaboration to deliver scalable AI solutions for agriculture, while elevating team talent and code reliability through strategic leadership and performance-first practices.",
@@ -36,7 +36,7 @@ const MORAY_EXPERIENCE = {
   from: date(2023, MONTH.JUNE),
 } as const satisfies TExperience
 
-const BUSER_EXPERIENCE = {
+export const BUSER_EXPERIENCE = {
   company: "Buser Brasil",
   experiences: [
     {

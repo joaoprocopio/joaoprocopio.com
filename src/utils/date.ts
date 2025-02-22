@@ -17,3 +17,16 @@ export const PRESENT = Symbol("present")
 
 export const date = (year: number, month: (typeof MONTH)[keyof typeof MONTH]) =>
   new Date(year, month)
+
+export const formatDate = (date: Date | typeof PRESENT) => {
+  if (date === PRESENT) {
+    return "Present"
+  }
+
+  const formatter = Intl.DateTimeFormat("en", {
+    month: "short",
+    year: "numeric",
+  })
+
+  return formatter.format(date)
+}

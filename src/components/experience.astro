@@ -1,1 +1,39 @@
-<div class="h-[400px] bg-red-500"></div>
+---
+import Typography from "~/components/typography.astro"
+import { MORAY_EXPERIENCE } from "~/constants/experiences"
+import { formatDate } from "~/utils/date"
+---
+
+<div class="[&>*+*]:mt-2">
+  <div>
+    <Typography variant="headline" affect="emphasized">
+      {MORAY_EXPERIENCE.title}
+    </Typography>
+
+    <Typography variant="subheadline" class="text-foreground-secondary">
+      <span>{MORAY_EXPERIENCE.company}</span>
+      <span>·</span>
+      <span>{formatDate(MORAY_EXPERIENCE.from)}</span>
+      <span>—</span>
+      <span>{formatDate(MORAY_EXPERIENCE.to)}</span>
+    </Typography>
+  </div>
+
+  <Typography variant="callout">
+    {MORAY_EXPERIENCE.description}
+  </Typography>
+
+  <div>
+    {
+      MORAY_EXPERIENCE.skills.map((skill) => (
+        <Typography
+          element="span"
+          variant="caption1"
+          affect="emphasized"
+          class="bg-foreground-quaternary/20 mt-2 mr-2 inline-block rounded-full px-2.5 py-1.5">
+          {skill}
+        </Typography>
+      ))
+    }
+  </div>
+</div>
