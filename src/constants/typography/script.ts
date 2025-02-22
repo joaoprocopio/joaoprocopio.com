@@ -28,7 +28,7 @@ const appendTextVariables = (
   })
   node.append({
     prop: `--text-${variant}--letter-spacing`,
-    value: `${letterSpacing}px`,
+    value: `${letterSpacing}em`,
   })
 }
 
