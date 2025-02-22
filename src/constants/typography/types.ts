@@ -2,7 +2,6 @@ export type TSize = number
 export type TTracking = number
 export type TLeading = number
 export type TSizeTracking = Record<TSize, TTracking>
-export type TBreakpoint = "sm" | "md" | "lg"
 export type TVariant =
   | "largeTitle"
   | "title1"
@@ -18,7 +17,4 @@ export type TVariant =
 export type TAffect = "regular" | "emphasized"
 export type TWeight = "bold" | "semibold" | "medium"
 export type TVariantAffect = Record<TVariant, Partial<Record<TAffect, TWeight>>>
-export type TSizing = Record<
-  TVariant,
-  Record<TBreakpoint, { size: TSize; leading: TLeading }>
->
+export type TSizing = Record<TVariant, { size: TSize; leading: TLeading }>
