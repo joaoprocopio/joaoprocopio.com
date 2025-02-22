@@ -9,6 +9,19 @@ import Projects from "~/components/projects.astro"
 import Section from "~/components/section.astro"
 import { SECTIONS } from "~/constants/sections"
 import DefaultLayout from "~/layouts/default.astro"
+
+function idToContent(id: (typeof SECTIONS)[number]["ID"]) {
+  switch (id) {
+    case "about":
+      return About
+    case "experience":
+      return Experience
+    case "projects":
+      return Projects
+    case "contacts":
+      return Contacts
+  }
+}
 ---
 
 <DefaultLayout>
@@ -21,26 +34,10 @@ import DefaultLayout from "~/layouts/default.astro"
       />
 
       <main class="pt-12 sm:pt-16 md:pt-24 lg:col-start-3 lg:col-end-6 lg:pt-0">
-        <!-- TODO: consertar o scroll margin top -->
         <div class="[&>*+*]:mt-12 sm:[&>*+*]:mt-16 md:[&>*+*]:mt-24">
           {
             SECTIONS.map((SECTION) => {
-              let Content: astroHTML.JSX.Element
-
-              switch (SECTION.ID) {
-                case "about":
-                  Content = About
-                  break
-                case "experience":
-                  Content = Experience
-                  break
-                case "projects":
-                  Content = Projects
-                  break
-                case "contacts":
-                  Content = Contacts
-                  break
-              }
+              const Content = idToContent(SECTION.ID)
 
               return (
                 <Entitled id={SECTION.ID} title={SECTION.TITLE}>
