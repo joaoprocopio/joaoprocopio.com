@@ -70,7 +70,7 @@ for (const variant in VARIANT_SIZING) {
     const sizing = breakpointSizing[breakpoint as TBreakpoint]
     const fontSize = sizing.size
     const lineHeight = sizing.leading
-    const letterSpacing = TRACKING[fontSize * 16]
+    const letterSpacing = TRACKING[(fontSize * 16) as keyof typeof TRACKING]
 
     if (breakpoint === "sm") {
       appendTextVariables(
