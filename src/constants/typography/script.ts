@@ -20,11 +20,11 @@ const appendTextVariables = (
 ) => {
   node.append({
     prop: `--text-${variant}`,
-    value: `${fontSize}px`,
+    value: `${fontSize}rem`,
   })
   node.append({
     prop: `--text-${variant}--line-height`,
-    value: `${lineHeight}px `,
+    value: `${lineHeight}rem`,
   })
   node.append({
     prop: `--text-${variant}--letter-spacing`,
@@ -70,7 +70,7 @@ for (const variant in VARIANT_SIZING) {
     const sizing = breakpointSizing[breakpoint as TBreakpoint]
     const fontSize = sizing.size
     const lineHeight = sizing.leading
-    const letterSpacing = TRACKING[fontSize]
+    const letterSpacing = TRACKING[fontSize * 16]
 
     if (breakpoint === "sm") {
       appendTextVariables(
