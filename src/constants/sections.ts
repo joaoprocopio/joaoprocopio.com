@@ -19,13 +19,6 @@ export const SECTION_EXPERIENCE = {
   TITLE: "Experience",
 } as const satisfies TSection<"experience">
 
-export const SECTION_PROJECTS = {
-  ID: "projects",
-  LINK_ID: "@projects",
-  HREF: "#projects",
-  TITLE: "Projects",
-} as const satisfies TSection<"projects">
-
 export const SECTION_CONTACTS = {
   ID: "contacts",
   LINK_ID: "@contacts",
@@ -36,6 +29,5 @@ export const SECTION_CONTACTS = {
 export const SECTIONS = [
   SECTION_ABOUT,
   SECTION_EXPERIENCE,
-  SECTION_PROJECTS,
   SECTION_CONTACTS,
 ] as const satisfies TSection<string>[]

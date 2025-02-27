@@ -5,7 +5,6 @@ import Entitled from "~/components/entitled.astro"
 import Experience from "~/components/experience.astro"
 import Footer from "~/components/footer.astro"
 import Heading from "~/components/heading.astro"
-import Projects from "~/components/projects.astro"
 import Section from "~/components/section.astro"
 import { SECTIONS } from "~/constants/sections"
 import DefaultLayout from "~/layouts/default.astro"
@@ -16,8 +15,6 @@ function idToContent(id: (typeof SECTIONS)[number]["ID"]) {
       return About
     case "experience":
       return Experience
-    case "projects":
-      return Projects
     case "contacts":
       return Contacts
   }
