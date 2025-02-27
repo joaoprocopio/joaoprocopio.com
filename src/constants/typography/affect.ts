@@ -14,7 +14,7 @@ export const VARIANT_AFFECT_WEIGHT = {
     emphasized: "semibold",
   },
   headline: {
-    regular: "semibold",
+    regular: "medium",
     emphasized: "semibold",
   },
   body: {

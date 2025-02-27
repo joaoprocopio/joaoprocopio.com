@@ -4,13 +4,16 @@ import { MORAY_EXPERIENCE } from "~/constants/experiences"
 import { formatDate } from "~/utils/date"
 ---
 
-<div class="[&>*+*]:mt-2">
+<div>
   <div>
-    <Typography variant="headline" affect="emphasized">
+    <Typography variant="title3" affect="emphasized">
       {MORAY_EXPERIENCE.title}
     </Typography>
 
-    <Typography variant="subheadline" class="text-foreground-secondary">
+    <Typography
+      variant="headline"
+      affect="regular"
+      class="text-foreground-secondary mt-0.5">
       <span>{MORAY_EXPERIENCE.company}</span>
       <span>·</span>
       <span>{formatDate(MORAY_EXPERIENCE.from)}</span>
@@ -19,16 +22,16 @@ import { formatDate } from "~/utils/date"
     </Typography>
   </div>
 
-  <Typography variant="callout">
+  <Typography class="mt-4" variant="body">
     {MORAY_EXPERIENCE.description}
   </Typography>
 
-  <div>
+  <div class="mt-3.5">
     {
       MORAY_EXPERIENCE.skills.map((skill) => (
         <Typography
           element="span"
-          variant="caption1"
+          variant="subheadline"
           affect="emphasized"
           class="bg-foreground-quaternary/20 mt-2 mr-2 inline-block rounded-full px-2.5 py-1.5">
           {skill}
