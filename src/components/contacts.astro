@@ -1,1 +1,23 @@
-<div class="h-[8000px] bg-blue-500"></div>
+---
+import Typography from "~/components/typography.astro"
+import { EMAIL_LINK } from "~/constants/links"
+---
+
+<div>
+  <Typography
+    variant="callout"
+    affect="regular"
+    class="text-foreground-secondary">
+    Do you need a Software Engineer?
+  </Typography>
+
+  <Typography
+    class="text-link mt-0.5 block"
+    variant="largeTitle"
+    affect="emphasized"
+    element="a"
+    target="_blank"
+    href={EMAIL_LINK.HREF}>
+    Send me a mail!
+  </Typography>
+</div>
