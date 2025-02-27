@@ -1,23 +1,24 @@
 ---
 import Typography from "~/components/typography.astro"
+import type { TExperience } from "~/constants/experiences"
 import { EXPERIENCES } from "~/constants/experiences"
 import { formatDate } from "~/utils/date"
 
 type Props = {
-  experiences: typeof EXPERIENCES
-  company: string
+  experiences?: TExperience[]
+  company?: string
 }
 
-const { experiences, company } = Astro.props
+const props = Astro.props
 ---
 
 <div class="[&>*+*]:mt-8">
   {
-    (experiences ?? EXPERIENCES).map((experience) =>
+    (props.experiences ?? EXPERIENCES).map((experience) =>
       "experiences" in experience ? (
         <Astro.self
           company={experience.company}
-          experiences={experience.experiences}
+          experiences={experience.experiences as unknown as TExperience[]}
         />
       ) : (
         <div>
@@ -30,11 +31,11 @@ const { experiences, company } = Astro.props
               variant="headline"
               affect="regular"
               class="text-foreground-secondary mt-0.5">
-              <span>{company ?? experience.company}</span>
+              <span>{props.company ?? experience.company}</span>
               <span> · </span>
               <span>{formatDate(experience.from)}</span>
               <span> — </span>
-              <span>{formatDate(experience.to)}</span>
+              <span>{formatDate(experience.to!)}</span>
             </Typography>
           </div>
 
