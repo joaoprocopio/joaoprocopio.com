@@ -5,7 +5,6 @@ import Entitled from "~/components/entitled.astro"
 import Experience from "~/components/experience.astro"
 import Footer from "~/components/footer.astro"
 import Heading from "~/components/heading.astro"
-import Section from "~/components/section.astro"
 import { SECTIONS } from "~/constants/sections"
 import DefaultLayout from "~/layouts/default.astro"
 
@@ -38,9 +37,9 @@ function idToContent(id: (typeof SECTIONS)[number]["ID"]) {
 
               return (
                 <Entitled id={SECTION.ID} title={SECTION.TITLE}>
-                  <Section>
+                  <section class="[&>*+*]:mt-4">
                     <Content />
-                  </Section>
+                  </section>
                 </Entitled>
               )
             })
