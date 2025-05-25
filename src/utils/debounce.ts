@@ -12,8 +12,7 @@ export const debounce = <Fn extends (...args: Parameters<Fn>) => void>(
     const nextAnimationFrame = (nextFrameId: number) => {
       if (nextFrameId - now < wait) {
         frameId = requestAnimationFrame(nextAnimationFrame)
-
-        return
+        return undefined
       }
 
       fn(...args)

@@ -1,18 +1,21 @@
 import { SECTIONS } from "~/constants/sections"
 import { debounce } from "~/utils/debounce"
 
-const DATA_ACTIVE = "data-active"
+const EL_DATA_ACTIVE = "data-active"
 
 let observers: IntersectionObserver[] = []
 
 const observe = () => {
-  if (observers.length) {
-    for (const observer of observers) {
-      observer.disconnect()
-    }
-
-    observers = []
+  for (
+    let observerIndex = 0;
+    observerIndex < observers.length;
+    observerIndex++
+  ) {
+    const observer = observers[observerIndex]
+    observer.disconnect()
   }
+
+  observers = []
 
   let prevLinkEl: HTMLElement | undefined = undefined
 
@@ -25,9 +28,8 @@ const observe = () => {
     const viewportHeight: number = window.innerHeight
     const sectionHeight: number = sectionEl.clientHeight
 
-    const observerThreshold: number = Math.abs(
-      (viewportHeight / sectionHeight / Math.E) % 1,
-    )
+    const observerThreshold: number =
+      Math.log1p(viewportHeight / sectionHeight) % 1
 
     const sectionObserver = new IntersectionObserver(
       (entries) => {
@@ -38,14 +40,16 @@ const observe = () => {
         }
 
         if (prevLinkEl) {
-          prevLinkEl.setAttribute(DATA_ACTIVE, String(!entry.isIntersecting))
+          prevLinkEl.setAttribute(EL_DATA_ACTIVE, String(!entry.isIntersecting))
         }
 
-        linkEl.setAttribute(DATA_ACTIVE, String(entry.isIntersecting))
+        linkEl.setAttribute(EL_DATA_ACTIVE, String(entry.isIntersecting))
 
         prevLinkEl = linkEl
       },
-      { threshold: observerThreshold, rootMargin: "-10% 0px" },
+      {
+        threshold: observerThreshold,
+      },
     )
 
     sectionObserver.observe(sectionEl)
