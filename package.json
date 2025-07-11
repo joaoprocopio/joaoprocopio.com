@@ -1,13 +1,15 @@
 {
-  "name": "joaoprocopio-com-br",
+  "private": true,
+  "name": "joaoprocopio.com.br",
   "type": "module",
   "version": "0.0.1",
-  "packageManager": "pnpm@9.15.1",
+  "packageManager": "pnpm@10.13.1",
   "engines": {
-    "node": ">=20.9.0"
+    "node": ">=22.11.0"
   },
   "scripts": {
-    "clean": "git clean -xdf .astro node_modules",
+    "clean": "git clean -xdf .astro node_modules dist",
+    "reinstall": "pnpm store prune --force && pnpm clean && pnpm install",
     "dev": "astro dev",
     "build": "astro build",
     "preview": "astro preview"
