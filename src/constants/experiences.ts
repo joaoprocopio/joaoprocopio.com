@@ -17,6 +17,15 @@ export type TExperienceGrouped<
   experiences: Omit<TExperience, CompanyKey>[]
 }
 
+export const GOLABS_EXPERIENCE = {
+  company: "Golabs",
+  title: "Fullstack Software Engineer",
+  description: "",
+  skills: [],
+  to: PRESENT,
+  from: date(2025, MONTH.MARCH),
+} as const satisfies TExperience
+
 export const MORAY_EXPERIENCE = {
   company: "Moray",
   title: "Frontend Software Engineer",
@@ -32,7 +41,7 @@ export const MORAY_EXPERIENCE = {
     HARD_SKILLS.DOCKER,
     HARD_SKILLS.CI_CD,
   ],
-  to: PRESENT,
+  to: date(2025, MONTH.MARCH),
   from: date(2023, MONTH.JUNE),
 } as const satisfies TExperience
 
@@ -104,4 +113,8 @@ export const BUSER_EXPERIENCE = {
   ],
 } as const satisfies TExperienceGrouped
 
-export const EXPERIENCES = [MORAY_EXPERIENCE, BUSER_EXPERIENCE]
+export const EXPERIENCES = [
+  GOLABS_EXPERIENCE,
+  MORAY_EXPERIENCE,
+  BUSER_EXPERIENCE,
+]
