@@ -1,6 +1,5 @@
 #!/usr/bin/env -S npx tsx
 
-// ./src/constants/typography/script.ts
 import fs from "node:fs"
 import path from "node:path"
 import postcss from "postcss"
