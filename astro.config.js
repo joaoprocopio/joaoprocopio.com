@@ -5,6 +5,15 @@ import { fileURLToPath, URL } from "node:url"
 export default defineConfig({
   vite: {
     plugins: [tailwindcss()],
+    build: {
+      assetsInlineLimit: (filePath, content) => {
+        if (filePath.endsWith(".svg")) {
+          return false
+        }
+
+        return content.length < 4096
+      },
+    },
     resolve: {
       alias: {
         "~": fileURLToPath(new URL("./src", import.meta.url)),
