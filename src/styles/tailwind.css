@@ -1,8 +1,9 @@
 @import "tailwindcss";
+@import "@fontsource-variable/inter";
 @import "~/constants/typography/typography.css";
 
 @theme {
-  --font-sans: "Inter", "sans-serif";
+  --font-sans: "Inter Variable";
 
   --color-background-primary: oklch(100% 0 0);
 
