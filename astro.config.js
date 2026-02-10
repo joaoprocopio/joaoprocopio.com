@@ -6,8 +6,8 @@ export default defineConfig({
   vite: {
     plugins: [tailwindcss()],
     build: {
-      assetsInlineLimit: (filePath, content) => {
-        if (filePath.endsWith(".svg")) {
+      assetsInlineLimit: (path, content) => {
+        if (path.endsWith(".svg")) {
           return false
         }
 
