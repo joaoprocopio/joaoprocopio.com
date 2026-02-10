@@ -1,7 +1,8 @@
 ---
-import "~/styles/tailwind.css"
-import "@fontsource-variable/inter"
-import faviconUrl from "~/icons/favicon.svg?url"
+import Preload from "~/components/preload.astro"
+import tailwindURL from "~/styles/tailwind.css?url"
+import fontsourceURL from "@fontsource-variable/inter?url"
+import faviconURL from "~/icons/favicon.svg?url"
 ---
 
 <!doctype html>
@@ -9,7 +10,9 @@ import faviconUrl from "~/icons/favicon.svg?url"
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="icon" type="image/svg+xml" href={faviconUrl} />
+    <link rel="icon" type="image/svg+xml" href={faviconURL} />
+    <Preload href={tailwindURL} as="style" rel="stylesheet" />
+    <Preload href={fontsourceURL} as="style" rel="stylesheet" />
     <title>João Procópio</title>
   </head>
 

@@ -2,7 +2,7 @@
 import { VARIANT_AFFECT_WEIGHT } from "~/constants/typography/affect"
 import type { TAffect, TVariant, TWeight } from "~/constants/typography/types"
 
-type Props<E extends TElement = typeof DEFAULT_ELEMENT> = {
+export type Props<E extends TElement = typeof DEFAULT_ELEMENT> = {
   element?: E
   variant?: TVariant
   affect?: TAffect
