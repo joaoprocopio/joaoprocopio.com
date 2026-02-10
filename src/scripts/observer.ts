@@ -2,25 +2,19 @@ import { SECTIONS } from "~/constants/sections"
 import { debounce } from "~/utils/debounce"
 
 const EL_DATA_ACTIVE = "data-active"
+
 let observers: IntersectionObserver[] = []
 
 const observe = () => {
-  for (
-    let observerIndex = 0;
-    observerIndex < observers.length;
-    observerIndex++
-  ) {
-    const observer = observers[observerIndex]
+  observers.forEach((observer) => {
     observer.disconnect()
-  }
+  })
 
   observers = []
 
   let prevLinkEl: HTMLElement | undefined = undefined
 
-  for (let sectionIndex = 0; sectionIndex < SECTIONS.length; sectionIndex++) {
-    const section = SECTIONS[sectionIndex]
-
+  SECTIONS.forEach((section) => {
     const linkEl: HTMLElement = document.getElementById(section.LINK_ID)!
     const sectionEl: HTMLElement = document.getElementById(section.ID)!
 
@@ -34,7 +28,7 @@ const observe = () => {
       (entries) => {
         const entry = entries[0]
 
-        if (!entry.isIntersecting) {
+        if (!entry?.isIntersecting) {
           return undefined
         }
 
@@ -50,9 +44,8 @@ const observe = () => {
     )
 
     sectionObserver.observe(sectionEl)
-
     observers.push(sectionObserver)
-  }
+  })
 }
 
 observe()
