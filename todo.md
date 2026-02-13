@@ -1,0 +1,1 @@
+- animar os treco com motion: https://motion.dev/docs/quick-start

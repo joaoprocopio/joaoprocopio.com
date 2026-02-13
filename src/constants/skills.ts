@@ -39,4 +39,5 @@ export const HARD_SKILLS = {
 
   // Other
   PWA: "PWA (Progressive Web App)",
+  FIREBASE: "Firebase",
 } as const
