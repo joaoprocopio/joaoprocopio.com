@@ -8,11 +8,9 @@ type Props = {
 const { title: titleProp, class: classProp, ...props } = Astro.props
 ---
 
-<div
-  class:list={["scroll-mt-12 sm:scroll-mt-16 md:scroll-mt-24", classProp]}
-  {...props}>
+<div class:list={["scroll-mt-y-container", classProp]} {...props}>
   <div
-    class="-mx-container px-container sticky top-0 flex h-14 items-center backdrop-blur lg:sr-only">
+    class="-mx-x-container px-x-container sticky top-0 flex h-14 items-center backdrop-blur lg:sr-only">
     <Typography
       variant="subheadline"
       affect="emphasized"
