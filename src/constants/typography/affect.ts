@@ -2,7 +2,7 @@ import type { TVariantAffect } from "~/constants/typography/types"
 
 export const VARIANT_AFFECT_WEIGHT = {
   largeTitle: {
-    emphasized: "bold",
+    emphasized: "semibold",
   },
   title1: {
     emphasized: "bold",
@@ -14,7 +14,6 @@ export const VARIANT_AFFECT_WEIGHT = {
     emphasized: "semibold",
   },
   headline: {
-    regular: "medium",
     emphasized: "semibold",
   },
   body: {

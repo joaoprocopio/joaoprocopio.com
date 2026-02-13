@@ -26,7 +26,8 @@ import Typography from "~/components/typography.astro"
     After dozens of stack traces and having the canonical developer experience:
   </Typography>
 
-  <ol class="mt-2 list-inside list-decimal [&>li+li]:mt-0.5">
+  <ol
+    class="marker:text-accent-foreground mt-2 list-inside list-decimal [&>li+li]:mt-0.5">
     <Typography variant="body" element="li"> Copy the error </Typography>
 
     <Typography variant="body" element="li">
@@ -40,9 +41,7 @@ import Typography from "~/components/typography.astro"
     <Typography variant="body" element="li"> Stare at the code </Typography>
 
     <Typography variant="body" element="li">
-      Manage to solve it <span class="text-secondary-foreground"
-        >(optional)</span
-      >
+      Manage to solve it <span class="text-accent-foreground">(optional)</span>
     </Typography>
   </ol>
 </div>
