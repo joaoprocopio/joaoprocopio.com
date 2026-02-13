@@ -1,5 +1,4 @@
 @import "tailwindcss";
-
 @import "@fontsource-variable/geist/index.css";
 
 @import "~/styles/purge.css";
@@ -36,11 +35,5 @@
   * {
     scrollbar-width: thin;
     scrollbar-color: var(--color-border) transparent;
-  }
-}
-
-@layer utilities {
-  .container {
-    @apply mx-auto;
   }
 }
