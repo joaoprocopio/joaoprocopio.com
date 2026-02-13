@@ -2,25 +2,77 @@
 @import "@fontsource-variable/inter/index.css";
 @import "~/constants/typography/typography.css";
 
+/* All colors are `@radix-ui/color` dark mode */
 @theme {
   --font-sans:
     "Inter Variable", "Inter", system-ui, -apple-system, BlinkMacSystemFont,
     "Segoe UI", "Roboto", "Helvetica Neue", Arial, "Noto Sans", sans-serif;
 
-  --color-background-primary: oklch(100% 0 0);
+  --color-white-a1: rgba(255, 255, 255, 0.05);
+  --color-white-a2: rgba(255, 255, 255, 0.1);
+  --color-white-a3: rgba(255, 255, 255, 0.15);
+  --color-white-a4: rgba(255, 255, 255, 0.2);
+  --color-white-a5: rgba(255, 255, 255, 0.3);
+  --color-white-a6: rgba(255, 255, 255, 0.4);
+  --color-white-a7: rgba(255, 255, 255, 0.5);
+  --color-white-a8: rgba(255, 255, 255, 0.6);
+  --color-white-a9: rgba(255, 255, 255, 0.7);
+  --color-white-a10: rgba(255, 255, 255, 0.8);
+  --color-white-a11: rgba(255, 255, 255, 0.9);
+  --color-white-a12: rgba(255, 255, 255, 0.95);
 
-  --color-foreground-primary: oklch(0% 0 0);
-  --color-foreground-secondary: oklch(35.88% 0.012 285.78 / 60%);
-  --color-foreground-tertiary: oklch(35.88% 0.012 285.78 / 30.2%);
-  --color-foreground-quaternary: oklch(35.88% 0.012 285.78 / 18.04%);
+  --color-black-a1: rgba(0, 0, 0, 0.05);
+  --color-black-a2: rgba(0, 0, 0, 0.1);
+  --color-black-a3: rgba(0, 0, 0, 0.15);
+  --color-black-a4: rgba(0, 0, 0, 0.2);
+  --color-black-a5: rgba(0, 0, 0, 0.3);
+  --color-black-a6: rgba(0, 0, 0, 0.4);
+  --color-black-a7: rgba(0, 0, 0, 0.5);
+  --color-black-a8: rgba(0, 0, 0, 0.6);
+  --color-black-a9: rgba(0, 0, 0, 0.7);
+  --color-black-a10: rgba(0, 0, 0, 0.8);
+  --color-black-a11: rgba(0, 0, 0, 0.9);
+  --color-black-a12: rgba(0, 0, 0, 0.95);
 
-  --color-link: oklch(60.28% 0.2177 257.42);
+  --color-blue-a1: #004df211;
+  --color-blue-a2: #1166fb18;
+  --color-blue-a3: #0077ff3a;
+  --color-blue-a4: #0075ff57;
+  --color-blue-a5: #0081fd6b;
+  --color-blue-a6: #0f89fd7f;
+  --color-blue-a7: #2a91fe98;
+  --color-blue-a8: #3094feb9;
+  --color-blue-a9: #0090ff;
+  --color-blue-a10: #3b9eff;
+  --color-blue-a11: #70b8ff;
+  --color-blue-a12: #c2e6ff;
+
+  --color-gray-a1: #00000000;
+  --color-gray-a2: #ffffff09;
+  --color-gray-a3: #ffffff12;
+  --color-gray-a4: #ffffff1b;
+  --color-gray-a5: #ffffff22;
+  --color-gray-a6: #ffffff2c;
+  --color-gray-a7: #ffffff3b;
+  --color-gray-a8: #ffffff55;
+  --color-gray-a9: #ffffff64;
+  --color-gray-a10: #ffffff72;
+  --color-gray-a11: #ffffffaf;
+  --color-gray-a12: #ffffffed;
+
+  --color-background-primary: var(--color-black-a12);
+
+  --color-foreground-primary: var(--color-white-a11);
+  --color-foreground-secondary: var(--color-white-a10);
+  --color-foreground-tertiary: var(--color-white-a9);
+  --color-foreground-quaternary: var(--color-white-a8);
+
+  --color-link: var(--color-blue-a11);
 }
 
 @layer base {
   body {
     @apply bg-background-primary text-foreground-primary antialiased;
-
     font-synthesis-weight: none;
     text-rendering: optimizeLegibility;
   }
@@ -37,6 +89,6 @@
 
 @layer utilities {
   .container {
-    @apply mx-auto max-w-[var(--breakpoint-xl)];
+    @apply mx-auto max-w-(--breakpoint-xl);
   }
 }
