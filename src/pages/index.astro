@@ -26,15 +26,15 @@ function idToContent(id: (typeof SECTIONS)[number]["ID"]) {
         class="lg:py-y-container lg:fixed lg:inset-y-0 lg:grid lg:grid-rows-[auto_auto_1fr]"
       />
 
-      <main class="pt-12 sm:pt-16 md:pt-24 lg:col-start-3 lg:col-end-6 lg:pt-0">
-        <div class="[&>*+*]:mt-12 sm:[&>*+*]:mt-16 md:[&>*+*]:mt-24">
+      <main class="pt-y-container lg:col-start-3 lg:col-end-6 lg:pt-0">
+        <div class="[&>*+*]:mt-y-container">
           {
             SECTIONS.map((SECTION) => {
               const Content = idToContent(SECTION.ID)
 
               return (
                 <Entitled id={SECTION.ID} title={SECTION.TITLE}>
-                  <section class="[&>*+*]:mt-4">
+                  <section class="[&>*+*]:mt-6">
                     <Content />
                   </section>
                 </Entitled>
