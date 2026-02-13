@@ -39,12 +39,12 @@
   --x-container: calc(var(--spacing) * 6);
   --y-container: calc(var(--spacing) * 12);
 
-  @media (min-width: var(--breakpoint-sm)) {
+  @media (width >= 40rem /* var(--breakpoint-sm) */) {
     --x-container: calc(var(--spacing) * 8);
     --y-container: calc(var(--spacing) * 16);
   }
 
-  @media (min-width: var(--breakpoint-md)) {
+  @media (width >= 48rem /* var(--breakpoint-md) */) {
     --x-container: calc(var(--spacing) * 12);
     --y-container: calc(var(--spacing) * 24);
   }
