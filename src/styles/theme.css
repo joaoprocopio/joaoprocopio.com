@@ -131,13 +131,13 @@
   --foreground: var(--white-a10);
 
   --secondary: var(--gray-3);
-  --secondary-foreground: var(--white-a8);
+  --secondary-foreground: var(--white-a9);
 
   --accent: var(--gray-2);
-  --accent-foreground: var(--white-a7);
+  --accent-foreground: var(--white-a8);
 
   --muted: var(--gray-1);
-  --muted-foreground: var(--white-a6);
+  --muted-foreground: var(--white-a7);
 
   --link: var(--blue-8);
   --border: var(--gray-a3);
