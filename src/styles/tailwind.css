@@ -1,12 +1,15 @@
 @import "tailwindcss";
-@import "@fontsource-variable/inter/index.css";
+@import "@fontsource-variable/geist/index.css";
+@import "@fontsource-variable/geist-mono/index.css";
 @import "~/constants/typography/typography.css";
 
 /* All colors are `@radix-ui/color` dark mode */
 @theme {
   --font-sans:
-    "Inter Variable", "Inter", system-ui, -apple-system, BlinkMacSystemFont,
+    "Geist Variable", "Geist", system-ui, -apple-system, BlinkMacSystemFont,
     "Segoe UI", "Roboto", "Helvetica Neue", Arial, "Noto Sans", sans-serif;
+  --font-mono:
+    "Geist Mono Variable", "Geist Mono", Consolas, "Courier New", monospace;
 
   /* Black Alpha */
   --color-black-a1: oklch(0% 0 none / 0.05);
