@@ -20,11 +20,10 @@ function idToContent(id: (typeof SECTIONS)[number]["ID"]) {
 <DefaultLayout>
   <script src="~/scripts/observer.ts"></script>
 
-  <div
-    class="mx-auto px-6 py-12 sm:px-8 sm:py-16 md:px-12 md:py-24 lg:container">
+  <div class="p-container mx-auto lg:container">
     <div class="lg:grid lg:grid-cols-5 lg:gap-x-4">
       <Heading
-        class="lg:fixed lg:inset-y-0 lg:grid lg:grid-rows-[auto_auto_1fr] lg:py-24"
+        class="lg:py-container lg:fixed lg:inset-y-0 lg:grid lg:grid-rows-[auto_auto_1fr]"
       />
 
       <main class="pt-12 sm:pt-16 md:pt-24 lg:col-start-3 lg:col-end-6 lg:pt-0">
