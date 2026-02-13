@@ -1,53 +1,36 @@
 import { SECTIONS } from "~/constants/sections"
-import { debounce } from "~/utils/debounce"
 
 const EL_DATA_ACTIVE = "data-active"
 
-let observers: IntersectionObserver[] = []
+const linkElBySection = new Map<HTMLElement, HTMLElement>(
+  SECTIONS.map((section) => {
+    const sectionEl = document.getElementById(section.ID)
+    const linkEl = document.getElementById(section.LINK_ID)
 
-const observe = () => {
-  observers.forEach((observer) => {
-    observer.disconnect()
-  })
+    if (!linkEl || !sectionEl) {
+      throw new Error(`Missing element for section ${section}`)
+    }
 
-  observers = []
+    return [sectionEl, linkEl]
+  }),
+)
 
-  let prevLinkEl: HTMLElement | undefined = undefined
+const observer = new IntersectionObserver((entries) => {
+  for (const entry of entries) {
+    if (!(entry.target instanceof HTMLElement)) {
+      continue
+    }
 
-  SECTIONS.forEach((section) => {
-    const linkEl: HTMLElement = document.getElementById(section.LINK_ID)!
-    const sectionEl: HTMLElement = document.getElementById(section.ID)!
+    const linkEl = linkElBySection.get(entry.target)
 
-    const viewportHeight: number = window.innerHeight
-    const sectionHeight: number = sectionEl.clientHeight
+    if (!linkEl) {
+      throw new Error(`Missing link element for section ${entry.target.id}`)
+    }
 
-    const observerThreshold: number =
-      Math.log1p(viewportHeight / sectionHeight) % 1
+    linkEl.setAttribute(EL_DATA_ACTIVE, String(entry.isIntersecting))
+  }
+})
 
-    const sectionObserver = new IntersectionObserver(
-      (entries) => {
-        const entry = entries[0]
-
-        if (!entry?.isIntersecting) {
-          return undefined
-        }
-
-        if (prevLinkEl) {
-          prevLinkEl.setAttribute(EL_DATA_ACTIVE, String(!entry.isIntersecting))
-        }
-
-        linkEl.setAttribute(EL_DATA_ACTIVE, String(entry.isIntersecting))
-
-        prevLinkEl = linkEl
-      },
-      { threshold: observerThreshold },
-    )
-
-    sectionObserver.observe(sectionEl)
-    observers.push(sectionObserver)
-  })
+for (const sectionEl of linkElBySection.keys()) {
+  observer.observe(sectionEl)
 }
-
-observe()
-
-window.addEventListener("resize", debounce(observe, 100))
