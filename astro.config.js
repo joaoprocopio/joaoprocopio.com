@@ -5,7 +5,10 @@ import sitemap from "@astrojs/sitemap"
 
 export default defineConfig({
   site: "https://joaoprocopio.com",
-  integrations: [sitemap()],
+  integrations: [
+    // TODO: integrar o sitemap com o blog
+    sitemap(),
+  ],
   vite: {
     plugins: [tailwindcss()],
     build: {
