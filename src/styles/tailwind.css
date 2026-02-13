@@ -8,6 +8,21 @@
     "Inter Variable", "Inter", system-ui, -apple-system, BlinkMacSystemFont,
     "Segoe UI", "Roboto", "Helvetica Neue", Arial, "Noto Sans", sans-serif;
 
+  /* Black Alpha */
+  --color-black-a1: rgba(0, 0, 0, 0.05);
+  --color-black-a2: rgba(0, 0, 0, 0.1);
+  --color-black-a3: rgba(0, 0, 0, 0.15);
+  --color-black-a4: rgba(0, 0, 0, 0.2);
+  --color-black-a5: rgba(0, 0, 0, 0.3);
+  --color-black-a6: rgba(0, 0, 0, 0.4);
+  --color-black-a7: rgba(0, 0, 0, 0.5);
+  --color-black-a8: rgba(0, 0, 0, 0.6);
+  --color-black-a9: rgba(0, 0, 0, 0.7);
+  --color-black-a10: rgba(0, 0, 0, 0.8);
+  --color-black-a11: rgba(0, 0, 0, 0.9);
+  --color-black-a12: rgba(0, 0, 0, 1);
+
+  /* White Alpha */
   --color-white-a1: rgba(255, 255, 255, 0.05);
   --color-white-a2: rgba(255, 255, 255, 0.1);
   --color-white-a3: rgba(255, 255, 255, 0.15);
@@ -21,58 +36,57 @@
   --color-white-a11: rgba(255, 255, 255, 0.9);
   --color-white-a12: rgba(255, 255, 255, 0.95);
 
-  --color-black-a1: rgba(0, 0, 0, 0.05);
-  --color-black-a2: rgba(0, 0, 0, 0.1);
-  --color-black-a3: rgba(0, 0, 0, 0.15);
-  --color-black-a4: rgba(0, 0, 0, 0.2);
-  --color-black-a5: rgba(0, 0, 0, 0.3);
-  --color-black-a6: rgba(0, 0, 0, 0.4);
-  --color-black-a7: rgba(0, 0, 0, 0.5);
-  --color-black-a8: rgba(0, 0, 0, 0.6);
-  --color-black-a9: rgba(0, 0, 0, 0.7);
-  --color-black-a10: rgba(0, 0, 0, 0.8);
-  --color-black-a11: rgba(0, 0, 0, 0.9);
-  --color-black-a12: rgba(0, 0, 0, 0.95);
+  /* Blue Dark */
+  --color-blue-1: #0d1520;
+  --color-blue-2: #111927;
+  --color-blue-3: #0d2847;
+  --color-blue-4: #003362;
+  --color-blue-5: #004074;
+  --color-blue-6: #104d87;
+  --color-blue-7: #205d9e;
+  --color-blue-8: #2870bd;
+  --color-blue-9: #0090ff;
+  --color-blue-10: #3b9eff;
+  --color-blue-11: #70b8ff;
+  --color-blue-12: #c2e6ff;
 
-  --color-blue-a1: #004df211;
-  --color-blue-a2: #1166fb18;
-  --color-blue-a3: #0077ff3a;
-  --color-blue-a4: #0075ff57;
-  --color-blue-a5: #0081fd6b;
-  --color-blue-a6: #0f89fd7f;
-  --color-blue-a7: #2a91fe98;
-  --color-blue-a8: #3094feb9;
-  --color-blue-a9: #0090ff;
-  --color-blue-a10: #3b9eff;
-  --color-blue-a11: #70b8ff;
-  --color-blue-a12: #c2e6ff;
+  /* Gray Dark */
+  --color-gray-1: #111111;
+  --color-gray-2: #191919;
+  --color-gray-3: #222222;
+  --color-gray-4: #2a2a2a;
+  --color-gray-5: #313131;
+  --color-gray-6: #3a3a3a;
+  --color-gray-7: #484848;
+  --color-gray-8: #606060;
+  --color-gray-9: #6e6e6e;
+  --color-gray-10: #7b7b7b;
+  --color-gray-11: #b4b4b4;
+  --color-gray-12: #eeeeee;
 
-  --color-gray-a1: #00000000;
-  --color-gray-a2: #ffffff09;
-  --color-gray-a3: #ffffff12;
-  --color-gray-a4: #ffffff1b;
-  --color-gray-a5: #ffffff22;
-  --color-gray-a6: #ffffff2c;
-  --color-gray-a7: #ffffff3b;
-  --color-gray-a8: #ffffff55;
-  --color-gray-a9: #ffffff64;
-  --color-gray-a10: #ffffff72;
-  --color-gray-a11: #ffffffaf;
-  --color-gray-a12: #ffffffed;
+  /* Primary */
+  --color-background: var(--color-black-a12);
+  --color-foreground: var(--color-gray-12);
 
-  --color-background-primary: var(--color-black-a12);
+  /* Secondary*/
+  --color-secondary: var(--color-gray-a4);
+  --color-secondary-foreground: var(--color-gray-a12);
 
-  --color-foreground-primary: var(--color-white-a11);
-  --color-foreground-secondary: var(--color-white-a10);
-  --color-foreground-tertiary: var(--color-white-a9);
-  --color-foreground-quaternary: var(--color-white-a8);
+  /* Tertiary */
+  --color-accent: var(--color-gray-a5);
+  --color-accent-foreground: var(--color-gray-a11);
 
-  --color-link: var(--color-blue-a11);
+  /* Quaternary */
+  --color-muted: var(--color-white-a4);
+  --color-muted-foreground: var(--color-white-a10);
+
+  /* Semantic Coloring */
+  --color-link: var(--color-blue-10);
 }
 
 @layer base {
   body {
-    @apply bg-background-primary text-foreground-primary antialiased;
+    @apply bg-background text-foreground antialiased;
     font-synthesis-weight: none;
     text-rendering: optimizeLegibility;
   }
