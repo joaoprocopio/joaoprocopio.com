@@ -30,7 +30,7 @@ const props = Astro.props
             <Typography
               variant="headline"
               affect="regular"
-              class="text-secondary-foreground mt-0.5">
+              class="text-accent-foreground mt-0.5">
               <span>{props.company ?? experience.company}</span>
               <span> · </span>
               <span>{formatDate(experience.from)}</span>
@@ -49,7 +49,7 @@ const props = Astro.props
                 element="span"
                 variant="caption1"
                 affect="emphasized"
-                class="bg-muted text-muted-foreground mt-2 mr-2 inline-block rounded-full px-2.5 py-1.5">
+                class="bg-accent text-accent-foreground mt-2 mr-2 inline-block rounded-full px-2.5 py-1.5">
                 {skill}
               </Typography>
             ))}

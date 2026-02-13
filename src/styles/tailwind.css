@@ -97,15 +97,15 @@
   --color-foreground: var(--color-white-a10);
 
   /* 2nd */
-  --color-secondary: var(--color-gray-4);
+  --color-secondary: var(--color-gray-3);
   --color-secondary-foreground: var(--color-white-a8);
 
   /* 3rd */
-  --color-accent: var(--color-gray-5);
+  --color-accent: var(--color-gray-2);
   --color-accent-foreground: var(--color-white-a7);
 
   /* 4th */
-  --color-muted: var(--color-gray-2);
+  --color-muted: var(--color-gray-1);
   --color-muted-foreground: var(--color-white-a5);
 
   /* Nth */
