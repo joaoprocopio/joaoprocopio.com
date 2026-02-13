@@ -6,6 +6,7 @@ import { LINKS } from "~/constants/links"
 import GitHub from "~/icons/github.astro"
 import Gmail from "~/icons/gmail.astro"
 import LinkedIn from "~/icons/linkedin.astro"
+import { AUTHOR, JOB_TITLE } from "~/constants/seo"
 
 type Props = astroHTML.JSX.HTMLAttributes
 
@@ -20,7 +21,7 @@ const props = Astro.props
         affect="emphasized"
         element="a"
         href={env.getCanonicalUrl(Astro.site!, Astro.request.url)}>
-        João Procópio
+        {AUTHOR}
       </Typography>
     </h1>
 
@@ -29,7 +30,7 @@ const props = Astro.props
       affect="emphasized"
       element="h2"
       class="mt-1">
-      Software Engineer
+      {JOB_TITLE}
     </Typography>
 
     <Typography

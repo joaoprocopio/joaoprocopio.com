@@ -1,27 +1,53 @@
 ---
 import tailwindURL from "~/styles/tailwind.css?url"
 import faviconURL from "~/icons/favicon.svg?url"
+import { AUTHOR, JOB_TITLE, DESCRIPTION } from "~/constants/seo"
+import { LINKS } from "~/constants/links"
 import { env } from "~/env"
+
+const CANONICAL_URL = env.getCanonicalUrl(Astro.site!, Astro.request.url)
 ---
 
 <!doctype html>
 <html lang="en">
   <head>
-    <title>João Procópio</title>
+    <title>{AUTHOR}</title>
 
     <link rel="sitemap" href="/sitemap-index.xml" />
-    <link
-      rel="canonical"
-      href={env.getCanonicalUrl(Astro.site!, Astro.request.url)}
-    />
+    <link rel="canonical" href={CANONICAL_URL} />
+    <meta name="robots" content="index, follow" />
 
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta
-      name="description"
-      content="Building scalable, high-performance products end-to-end"
+    <meta name="description" content={DESCRIPTION} />
+    <meta name="author" content={AUTHOR} />
+    <meta name="theme-color" content="#ffffff" />
+
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content={AUTHOR} />
+    <meta property="og:description" content={DESCRIPTION} />
+    <meta property="og:url" content={CANONICAL_URL} />
+    <meta property="og:site_name" content={AUTHOR} />
+    <meta property="og:locale" content="en_US" />
+    <!-- TODO: og:image -->
+
+    <!-- Structured Data -->
+    <script
+      type="application/ld+json"
+      is:inline
+      set:html={JSON.stringify({
+        "@context": "https://schema.org",
+        "@type": "Person",
+        "url": CANONICAL_URL,
+        "name": AUTHOR,
+        "jobTitle": JOB_TITLE,
+        "sameAs": LINKS.filter((link) => link.HREF.startsWith("https://")).map(
+          (link) => link.HREF,
+        ),
+      })}
     />
 
+    <!-- Assets -->
     <link rel="icon" type="image/svg+xml" href={faviconURL} />
     <link rel="preload" as="style" href={tailwindURL} />
     <link rel="stylesheet" href={tailwindURL} />
