@@ -1,3 +1,14 @@
+:root {
+  /* Spacing */
+  --container-x: calc(var(--spacing) * 6);
+  --container-y: calc(var(--spacing) * 6);
+}
+
+@theme inline {
+  --spacing-container-x: var(--container-x);
+  --spacing-container-y: var(--container-y);
+}
+
 @theme {
   /* Breakpoints */
   --breakpoint-xs: 30rem;
@@ -28,28 +39,4 @@
   --radius: 0.5rem;
   --radius-sm: calc(var(--radius) - 4px);
   --radius-md: var(--radius);
-}
-
-@utility px-container {
-  @apply px-6 sm:px-8 md:px-12;
-}
-
-@utility py-container {
-  @apply py-12 sm:py-16 md:py-24;
-}
-
-@utility p-container {
-  @apply px-container py-container;
-}
-
-@utility -mx-container {
-  @apply -mx-6 sm:-mx-8 md:-mx-12;
-}
-
-@utility -my-container {
-  @apply -my-12 sm:-my-16 md:-my-24;
-}
-
-@utility -m-container {
-  @apply -mx-container -my-container;
 }
