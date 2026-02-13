@@ -106,7 +106,7 @@
 
   /* 4th */
   --color-muted: var(--color-gray-2);
-  --color-muted-foreground: var(--color-white-a6);
+  --color-muted-foreground: var(--color-white-a5);
 
   /* Nth */
   --color-link: var(--color-blue-8);
