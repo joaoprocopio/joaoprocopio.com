@@ -48,14 +48,7 @@
     --x-container: calc(var(--spacing) * 12);
     --y-container: calc(var(--spacing) * 24);
   }
-}
 
-@theme inline {
-  --spacing-x-container: var(--x-container);
-  --spacing-y-container: var(--y-container);
-}
-
-:root {
   --black-a1: oklch(0% 0 none / 0.05);
   --black-a2: oklch(0% 0 none / 0.1);
   --black-a3: oklch(0% 0 none / 0.15);
@@ -153,6 +146,9 @@
 }
 
 @theme inline {
+  --spacing-x-container: var(--x-container);
+  --spacing-y-container: var(--y-container);
+
   --color-black-a1: var(--black-a1);
   --color-black-a2: var(--black-a2);
   --color-black-a3: var(--black-a3);

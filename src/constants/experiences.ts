@@ -22,7 +22,7 @@ export const GOLABS_EXPERIENCE = {
   title: "Fullstack Software Engineer",
   description: "",
   skills: [],
-  to: PRESENT,
+  to: date(2026, MONTH.JANUARY),
   from: date(2025, MONTH.MARCH),
 } as const satisfies TExperience
 
