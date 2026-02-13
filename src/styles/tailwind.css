@@ -34,7 +34,7 @@
   --color-white-a9: oklch(100% 0 none / 0.7);
   --color-white-a10: oklch(100% 0 none / 0.8);
   --color-white-a11: oklch(100% 0 none / 0.9);
-  --color-white-a12: oklch(100% 0 none / 0.95);
+  --color-white-a12: oklch(100% 0 none);
 
   /* Blue Dark */
   --color-blue-1: oklch(19.361% 0.0255 256.49);
