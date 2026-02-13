@@ -2,7 +2,6 @@
 import About from "~/components/about.astro"
 import Entitled from "~/components/entitled.astro"
 import Experience from "~/components/experience.astro"
-import Footer from "~/components/footer.astro"
 import Heading from "~/components/heading.astro"
 import { SECTIONS } from "~/constants/sections"
 import DefaultLayout from "~/layouts/default.astro"
@@ -41,8 +40,6 @@ function idToContent(id: (typeof SECTIONS)[number]["ID"]) {
               )
             })
           }
-
-          <Footer />
         </div>
       </main>
     </div>
