@@ -1,5 +1,5 @@
 ---
-import tailwindURL from "~/styles/tailwind.css?url"
+import cssURL from "~/styles/index.css?url"
 import faviconURL from "~/icons/favicon.svg?url"
 import { AUTHOR, JOB_TITLE, DESCRIPTION } from "~/constants/seo"
 import { LINKS } from "~/constants/links"
@@ -49,8 +49,8 @@ const CANONICAL_URL = env.getCanonicalUrl(Astro.site!, Astro.request.url)
 
     <!-- Assets -->
     <link rel="icon" type="image/svg+xml" href={faviconURL} />
-    <link rel="preload" as="style" href={tailwindURL} />
-    <link rel="stylesheet" href={tailwindURL} />
+    <link rel="preload" as="style" href={cssURL} />
+    <link rel="stylesheet" href={cssURL} />
   </head>
 
   <body>

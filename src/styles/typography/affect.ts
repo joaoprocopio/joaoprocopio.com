@@ -1,4 +1,4 @@
-import type { TVariantAffect } from "~/constants/typography/types"
+import type { TVariantAffect } from "~/styles/typography/types"
 
 export const VARIANT_AFFECT_WEIGHT = {
   largeTitle: {

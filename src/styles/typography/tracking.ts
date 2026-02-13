@@ -1,4 +1,4 @@
-import type { TSizeTracking } from "~/constants/typography/types"
+import type { TSizeTracking } from "~/styles/typography/types"
 
 export const TRACKING = {
   6: 41,

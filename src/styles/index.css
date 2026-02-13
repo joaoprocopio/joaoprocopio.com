@@ -1,0 +1,46 @@
+@import "tailwindcss";
+
+@import "@fontsource-variable/geist/index.css";
+
+@import "~/styles/purge.css";
+@import "~/styles/sizing.css";
+@import "~/styles/theme.css";
+@import "~/styles/typography/typography.css";
+
+@layer base {
+  * {
+    @apply border-border ring-ring outline-outline;
+  }
+
+  body {
+    @apply bg-background text-foreground antialiased;
+    font-synthesis-weight: none;
+    text-rendering: optimizeLegibility;
+  }
+
+  html,
+  body {
+    @apply h-full min-h-full scroll-smooth;
+  }
+
+  ::-webkit-scrollbar {
+    width: 5px;
+  }
+  ::-webkit-scrollbar-track {
+    background: transparent;
+  }
+  ::-webkit-scrollbar-thumb {
+    background: var(--color-border);
+    border-radius: 5px;
+  }
+  * {
+    scrollbar-width: thin;
+    scrollbar-color: var(--color-border) transparent;
+  }
+}
+
+@layer utilities {
+  .container {
+    @apply mx-auto;
+  }
+}
