@@ -39,15 +39,17 @@ const props = Astro.props
   </hgroup>
 
   <nav class="mt-16 hidden lg:block">
-    <ol class="[&>li+li]:mt-2">
+    <ol class="list-disc [&>li+li]:mt-2">
       {
         SECTIONS.map((section) => (
-          <li id={section.LINK_ID} data-active="false" class="group">
+          <li
+            id={section.LINK_ID}
+            class="text-muted-foreground marker:text-muted-foreground data-[active=true]:marker:text-foreground data-[active=true]:text-foreground data-[active=false]:hover:text-accent-foreground data-[active=false]:active:text-secondary-foreground data-[active=false]:focus-visible:text-accent-foreground marker:content-['‣_']">
             <Typography
               variant="subheadline"
               affect="emphasized"
               element="a"
-              class="text-muted-foreground group-data-[active=true]:text-foreground group-data-[active=false]:hover:text-accent-foreground group-data-[active=false]:active:text-secondary-foreground group-data-[active=false]:focus-visible:text-accent-foreground uppercase"
+              class="uppercase"
               href={section.HREF}>
               {section.TITLE}
             </Typography>
