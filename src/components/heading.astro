@@ -1,4 +1,5 @@
 ---
+import { env } from "~/env"
 import Typography from "~/components/typography.astro"
 import { SECTIONS } from "~/constants/sections"
 import { LINKS } from "~/constants/links"
@@ -12,10 +13,16 @@ const props = Astro.props
 ---
 
 <header {...props}>
-  <section>
-    <Typography variant="largeTitle" affect="emphasized" element="h1">
-      João Procópio
-    </Typography>
+  <hgroup>
+    <h1>
+      <Typography
+        variant="largeTitle"
+        affect="emphasized"
+        element="a"
+        href={env.getCanonicalUrl(Astro)}>
+        João Procópio
+      </Typography>
+    </h1>
 
     <Typography
       variant="headline"
@@ -32,7 +39,7 @@ const props = Astro.props
       class="text-foreground-secondary mt-6 max-w-2xs">
       I'll help you turn your product into something special.
     </Typography>
-  </section>
+  </hgroup>
 
   <nav class="mt-16 hidden lg:block">
     <ol class="[&>li+li]:mt-2">

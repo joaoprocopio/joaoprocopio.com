@@ -3,6 +3,7 @@ import { defineConfig } from "astro/config"
 import { fileURLToPath, URL } from "node:url"
 
 export default defineConfig({
+  site: "https://joaoprocopio.com",
   vite: {
     plugins: [tailwindcss()],
     build: {
