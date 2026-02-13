@@ -42,10 +42,7 @@ const props = Astro.props
     <ol class="[&>li+li]:mt-2">
       {
         SECTIONS.map((section) => (
-          <li
-            id={section.LINK_ID}
-            data-active="false"
-            class="group data-[active=true]:list-disc">
+          <li id={section.LINK_ID} data-active="false" class="group">
             <Typography
               variant="subheadline"
               affect="emphasized"
