@@ -4,8 +4,8 @@ import { fileURLToPath } from "node:url"
 import * as compat from "@eslint/compat"
 import js from "@eslint/js"
 import astro from "eslint-plugin-astro"
-import prettier from "eslint-plugin-prettier/recommended"
 import tseslint from "typescript-eslint"
+import prettier from "eslint-config-prettier/flat"
 
 const __filename = fileURLToPath(import.meta.url)
 const __dirname = dirname(__filename)
