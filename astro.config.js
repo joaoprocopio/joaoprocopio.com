@@ -7,9 +7,7 @@ import reactCompiler from "babel-plugin-react-compiler"
 import { fileURLToPath, URL } from "node:url"
 
 /** @type {import("babel-plugin-react-compiler").PluginOptions} */
-const reactCompilerOptions = {
-  target: "19",
-}
+const reactCompilerOptions = {}
 
 export default defineConfig({
   site: "https://joaoprocopio.com",

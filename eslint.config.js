@@ -11,23 +11,50 @@ import tseslint from "typescript-eslint"
 
 const filename = url.fileURLToPath(import.meta.url)
 const dirname = path.dirname(filename)
-const gitignore = path.resolve(dirname, ".gitignore")
 
-const __config = config.defineConfig(
-  compat.includeIgnoreFile(gitignore),
-  js.configs.recommended,
-  tseslint.configs.recommended,
-  astro.configs["flat/recommended"],
-  astro.configs["flat/jsx-a11y-recommended"],
-  /** @type {import("eslint-plugin-react").ReactFlatConfig} */ (
-    react.configs.flat["recommended"]
-  ),
-  /** @type {import("eslint-plugin-react").ReactFlatConfig} */ (
-    react.configs.flat["jsx-runtime"]
-  ),
-  hooks.configs.flat["recommended-latest"],
-  prettier,
-  { settings: { react: { version: "detect" } } },
+function withIgnore() {
+  const gitignore = path.resolve(dirname, ".gitignore")
+
+  return [compat.includeIgnoreFile(gitignore)]
+}
+
+function withJS() {
+  return [js.configs.recommended]
+}
+
+function withTS() {
+  return tseslint.configs.recommended
+}
+
+function withAstro() {
+  return [
+    astro.configs["flat/recommended"],
+    astro.configs["flat/jsx-a11y-recommended"],
+  ]
+}
+
+function withReact() {
+  return [
+    /** @type {import("eslint-plugin-react").ReactFlatConfig} */ (
+      react.configs.flat["recommended"]
+    ),
+    /** @type {import("eslint-plugin-react").ReactFlatConfig} */ (
+      react.configs.flat["jsx-runtime"]
+    ),
+    hooks.configs.flat["recommended-latest"],
+    { settings: { react: { version: "detect" } } },
+  ]
+}
+
+function withPrettier() {
+  return [prettier]
+}
+
+export default config.defineConfig(
+  ...withIgnore(),
+  ...withJS(),
+  ...withTS(),
+  ...withAstro(),
+  ...withReact(),
+  ...withPrettier(),
 )
-
-export default __config
