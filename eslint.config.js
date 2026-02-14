@@ -9,10 +9,18 @@ import * as path from "node:path"
 import * as url from "node:url"
 import tseslint from "typescript-eslint"
 
-const filename = url.fileURLToPath(import.meta.url)
-const dirname = path.dirname(filename)
+export default config.defineConfig(
+  ...withIgnore(),
+  ...withJS(),
+  ...withTS(),
+  ...withAstro(),
+  ...withReact(),
+  ...withPrettier(),
+)
 
 function withIgnore() {
+  const filename = url.fileURLToPath(import.meta.url)
+  const dirname = path.dirname(filename)
   const gitignore = path.resolve(dirname, ".gitignore")
 
   return [compat.includeIgnoreFile(gitignore)]
@@ -30,31 +38,44 @@ function withAstro() {
   return [
     astro.configs["flat/recommended"],
     astro.configs["flat/jsx-a11y-recommended"],
+    /** @type {import("eslint").Linter.Config} */ ({
+      files: ["**/*.astro"],
+      languageOptions: {
+        globals: {
+          astroHTML: true,
+        },
+      },
+    }),
   ]
 }
 
 function withReact() {
+  const files = ["**/*.{jsx,tsx}"]
+
   return [
-    /** @type {import("eslint-plugin-react").ReactFlatConfig} */ (
-      react.configs.flat["recommended"]
-    ),
-    /** @type {import("eslint-plugin-react").ReactFlatConfig} */ (
-      react.configs.flat["jsx-runtime"]
-    ),
-    hooks.configs.flat["recommended-latest"],
-    { settings: { react: { version: "detect" } } },
+    {
+      files,
+      .../** @type {import("eslint-plugin-react").ReactFlatConfig} */ (
+        react.configs.flat["recommended"]
+      ),
+    },
+    {
+      files,
+      .../** @type {import("eslint-plugin-react").ReactFlatConfig} */ (
+        react.configs.flat["jsx-runtime"]
+      ),
+    },
+    {
+      files,
+      ...hooks.configs.flat["recommended-latest"],
+    },
+    {
+      files,
+      settings: { react: { version: "detect" } },
+    },
   ]
 }
 
 function withPrettier() {
   return [prettier]
 }
-
-export default config.defineConfig(
-  ...withIgnore(),
-  ...withJS(),
-  ...withTS(),
-  ...withAstro(),
-  ...withReact(),
-  ...withPrettier(),
-)
