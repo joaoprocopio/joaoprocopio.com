@@ -3,11 +3,16 @@ import { defineConfig } from "astro/config"
 import { fileURLToPath, URL } from "node:url"
 import sitemap from "@astrojs/sitemap"
 
+import react from "@astrojs/react"
+
+import mdx from "@astrojs/mdx"
+
 export default defineConfig({
   site: "https://joaoprocopio.com",
   integrations: [
-    // TODO: integrar o sitemap com o blog
-    sitemap(),
+    sitemap() /* TODO: integrar o sitemap com o blog  */,
+    react(),
+    mdx(),
   ],
   vite: {
     plugins: [tailwindcss()],
