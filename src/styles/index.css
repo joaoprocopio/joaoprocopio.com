@@ -7,7 +7,7 @@
 
 @layer base {
   * {
-    @apply border-border ring-ring outline-outline;
+    @apply border-border ring-ring outline-outline transition transition-discrete ease-in-out;
   }
 
   body {

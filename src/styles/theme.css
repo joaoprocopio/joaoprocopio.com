@@ -128,16 +128,16 @@
   --gray-a12: oklch(100% 0 none / 0.92941);
 
   --background: var(--black-a12);
-  --foreground: var(--white-a10);
+  --foreground: var(--white-a11);
 
   --secondary: var(--gray-3);
   --secondary-foreground: var(--white-a9);
 
   --accent: var(--gray-2);
-  --accent-foreground: var(--white-a8);
+  --accent-foreground: var(--white-a7);
 
   --muted: var(--gray-1);
-  --muted-foreground: var(--white-a7);
+  --muted-foreground: var(--white-a5);
 
   --link: var(--blue-8);
   --border: var(--gray-a3);
