@@ -1,8 +1,8 @@
 ---
 import Typography from "~/components/typography.astro"
+import { formatDate } from "~/utils/date"
 import type { TExperience } from "~/constants/experiences"
 import { EXPERIENCES } from "~/constants/experiences"
-import { formatDate } from "~/utils/date"
 
 type Props = {
   experiences?: TExperience[]

@@ -10,7 +10,9 @@
     "clean": "git clean -xdf .astro node_modules dist && pnpm store prune --force && pnpm cache delete",
     "dev": "astro dev",
     "build": "astro build",
-    "preview": "astro preview"
+    "preview": "astro preview",
+    "lint": "eslint src/",
+    "format": "prettier --write src/"
   },
   "dependencies": {
     "@astrojs/mdx": "^4.3.13",
@@ -26,6 +28,7 @@
     "@eslint/compat": "^2.0.2",
     "@eslint/js": "^10.0.1",
     "@tailwindcss/vite": "^4.1.18",
+    "@trivago/prettier-plugin-sort-imports": "^6.0.2",
     "@types/node": "^25.2.3",
     "@types/react": "^19.2.14",
     "@types/react-dom": "^19.2.3",

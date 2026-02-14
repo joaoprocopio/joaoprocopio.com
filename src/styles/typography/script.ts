@@ -1,10 +1,10 @@
 #!/usr/bin/env -S npx tsx
 
+import { VARIANT_SIZING } from "./sizing"
+import { TRACKING } from "./tracking"
 import fs from "node:fs"
 import path from "node:path"
 import postcss from "postcss"
-import { VARIANT_SIZING } from "./sizing"
-import { TRACKING } from "./tracking"
 import type { TVariant } from "~/styles/typography/types"
 
 const css = postcss.root({
