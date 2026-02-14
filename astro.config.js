@@ -6,15 +6,21 @@ import { defineConfig } from "astro/config"
 import reactCompiler from "babel-plugin-react-compiler"
 import { fileURLToPath, URL } from "node:url"
 
-/** @type {import("babel-plugin-react-compiler").PluginOptions} */
-const reactCompilerOptions = {}
-
 export default defineConfig({
   site: "https://joaoprocopio.com",
   integrations: [
     sitemap() /* TODO: integrar o sitemap com o blog  */,
     mdx(),
-    react({ babel: { plugins: [[reactCompiler, reactCompilerOptions]] } }),
+    react({
+      babel: {
+        plugins: [
+          [
+            reactCompiler,
+            /** @type {import("babel-plugin-react-compiler").PluginOptions} */ ({}),
+          ],
+        ],
+      },
+    }),
   ],
   vite: {
     plugins: [tailwindcss()],
