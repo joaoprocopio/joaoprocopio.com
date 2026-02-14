@@ -1,18 +1,18 @@
-import { dirname, resolve } from "node:path"
-import { fileURLToPath } from "node:url"
-
 import * as compat from "@eslint/compat"
 import js from "@eslint/js"
-import astro from "eslint-plugin-astro"
-import tseslint from "typescript-eslint"
 import prettier from "eslint-config-prettier/flat"
+import astro from "eslint-plugin-astro"
+import * as config from "eslint/config"
+import * as path from "node:path"
+import * as url from "node:url"
+import tseslint from "typescript-eslint"
 
-const __filename = fileURLToPath(import.meta.url)
-const __dirname = dirname(__filename)
-const __gitignore = resolve(__dirname, ".gitignore")
+const filename = url.fileURLToPath(import.meta.url)
+const dirname = path.dirname(filename)
+const gitignore = path.resolve(dirname, ".gitignore")
 
-export default tseslint.config(
-  compat.includeIgnoreFile(__gitignore),
+const __eslint_config__ = config.defineConfig(
+  compat.includeIgnoreFile(gitignore),
   {
     languageOptions: {
       parserOptions: {
@@ -35,6 +35,8 @@ export default tseslint.config(
   prettier,
 )
 
+export default __eslint_config__
+
 /**
  * @typedef   {import("typescript-eslint").ConfigArray} ConfigArray
  * @param     {ConfigArray | ConfigArray[number]} config
@@ -43,7 +45,9 @@ export default tseslint.config(
 function withAstroFiles(config) {
   if (Array.isArray(config)) {
     config?.forEach((config) => {
-      if (!config.files) return config
+      if (!config.files) {
+        return undefined
+      }
 
       config.files = config.files.concat("**.astro")
     })
