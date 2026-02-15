@@ -6,6 +6,9 @@ import { defineConfig } from "astro/config"
 import reactCompiler from "babel-plugin-react-compiler"
 import { fileURLToPath, URL } from "node:url"
 
+const GOOGLE_DOCS_RESUME_URL =
+  "https://docs.google.com/document/d/1zAKtQi5Jh-v9ATaq2QNfp0nj--TC6rGe7YTJdSLViFY/edit?usp=sharing"
+
 export default defineConfig({
   site: "https://joaoprocopio.com",
   integrations: [
@@ -22,6 +25,12 @@ export default defineConfig({
       },
     }),
   ],
+  redirects: {
+    "/resume": GOOGLE_DOCS_RESUME_URL,
+    "/resume.md": GOOGLE_DOCS_RESUME_URL,
+    "/resume.pdf": GOOGLE_DOCS_RESUME_URL,
+    "/resume.docx": GOOGLE_DOCS_RESUME_URL,
+  },
   vite: {
     plugins: [tailwindcss()],
     build: {
