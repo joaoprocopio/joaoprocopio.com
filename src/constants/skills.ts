@@ -37,11 +37,11 @@ export const HARD_SKILLS = {
   RABBIT_MQ: "RabbitMQ",
 
   // DevOps
-  AWS: "AWS (Amazon Web Services)",
+  AWS: "AWS",
   DOCKER: "Docker",
   CI_CD: "CI/CD",
 
   // Other
-  PWA: "PWA (Progressive Web App)",
+  PWA: "PWA",
   FIREBASE: "Firebase",
 } as const

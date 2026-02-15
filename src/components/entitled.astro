@@ -9,7 +9,7 @@ const { title: titleProp, class: classProp, ...props } = Astro.props
 <div class:list={["scroll-mt-y-container", classProp]} {...props}>
   <div
     class="-mx-x-container px-x-container sticky top-0 flex h-12 items-center backdrop-blur lg:sr-only">
-    <p class="text-secondary-foreground text-xs font-semibold uppercase">
+    <p class="text-foreground text-xs font-semibold uppercase">
       {titleProp}
     </p>
   </div>
