@@ -10,3 +10,4 @@
 - ao fazer hover em um dos cards (experiência, projeto, artigo, etc.), diminuir a opacidade dos outros cards
 - ter uma página com a listagem completa pra cada uma das partes (experiência, projeto, artigo, etc.)
 - colocar as datas em iso on hover
+- criar um componente ExternalLink e InternalLink
