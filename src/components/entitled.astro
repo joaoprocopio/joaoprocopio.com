@@ -1,6 +1,4 @@
 ---
-import Typography from "~/components/typography.astro"
-
 type Props = {
   title: string
 } & astroHTML.JSX.HTMLAttributes
@@ -11,12 +9,9 @@ const { title: titleProp, class: classProp, ...props } = Astro.props
 <div class:list={["scroll-mt-y-container", classProp]} {...props}>
   <div
     class="-mx-x-container px-x-container sticky top-0 flex h-14 items-center backdrop-blur lg:sr-only">
-    <Typography
-      variant="subheadline"
-      affect="emphasized"
-      class="text-secondary-foreground uppercase">
+    <p class="text-base font-semibold text-secondary-foreground uppercase">
       {titleProp}
-    </Typography>
+    </p>
   </div>
 
   <slot />

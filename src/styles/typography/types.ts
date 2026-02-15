@@ -3,18 +3,14 @@ export type TTracking = number
 export type TLeading = number
 export type TSizeTracking = Record<TSize, TTracking>
 export type TVariant =
-  | "largeTitle"
-  | "title1"
-  | "title2"
-  | "title3"
-  | "headline"
-  | "body"
-  | "callout"
-  | "subheadline"
-  | "footnote"
-  | "caption1"
-  | "caption2"
-export type TAffect = "regular" | "emphasized"
-export type TWeight = "bold" | "semibold" | "medium"
-export type TVariantAffect = Record<TVariant, Partial<Record<TAffect, TWeight>>>
+  | "2xs"
+  | "xs"
+  | "sm"
+  | "base"
+  | "lg"
+  | "xl"
+  | "2xl"
+  | "3xl"
+  | "4xl"
+  | "5xl"
 export type TSizing = Record<TVariant, { size: TSize; leading: TLeading }>

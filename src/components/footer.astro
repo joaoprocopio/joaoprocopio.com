@@ -1,6 +1,4 @@
 ---
-import Typography from "~/components/typography.astro"
-
 type Content =
   | {
       type: "text"
@@ -61,10 +59,7 @@ const contents: Content[] = [
 ---
 
 <footer>
-  <Typography
-    class="text-muted-foreground"
-    variant="subheadline"
-    affect="regular">
+  <p class="text-muted-foreground text-base">
     {
       contents.map((content) => {
         switch (content.type) {
@@ -82,5 +77,5 @@ const contents: Content[] = [
         }
       })
     }
-  </Typography>
+  </p>
 </footer>

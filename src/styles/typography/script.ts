@@ -20,25 +20,21 @@ const theme = postcss.atRule({
 })
 
 for (const variant in VARIANT_SIZING) {
-  const casedVariant = variant
-    .replace(/([a-z])(?=[A-Z\d])/g, "$1-")
-    .toLowerCase()
-
   const { size: fontSize, leading: lineHeight } =
     VARIANT_SIZING[variant as TVariant]
 
   const letterSpacing = TRACKING[fontSize]
 
   theme.append({
-    prop: `--text-${casedVariant}`,
+    prop: `--text-${variant}`,
     value: `${fontSize / 16}rem`,
   })
   theme.append({
-    prop: `--text-${casedVariant}--line-height`,
+    prop: `--text-${variant}--line-height`,
     value: `${lineHeight / 16}rem`,
   })
   theme.append({
-    prop: `--text-${casedVariant}--letter-spacing`,
+    prop: `--text-${variant}--letter-spacing`,
     value: `${letterSpacing / 1000}em`,
   })
 }
