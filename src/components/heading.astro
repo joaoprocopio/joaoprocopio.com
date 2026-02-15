@@ -6,7 +6,7 @@ import GitHub from "~/icons/github.astro"
 import Gmail from "~/icons/gmail.astro"
 import LinkedIn from "~/icons/linkedin.astro"
 import { AUTHOR, DESCRIPTION, JOB_TITLE } from "~/constants/seo"
-import InternalLink from "~/components/internal-link.astro"
+import Link from "~/components/link.astro"
 
 type Props = astroHTML.JSX.HTMLAttributes
 
@@ -16,11 +16,11 @@ const props = Astro.props
 <header {...props}>
   <hgroup>
     <h1>
-      <InternalLink
+      <Link
         class="text-foreground text-3xl font-semibold"
         href={env.getCanonicalUrl(Astro.site!, Astro.request.url)}>
         {AUTHOR}
-      </InternalLink>
+      </Link>
     </h1>
 
     <h2 class="text-secondary-foreground mt-1">
@@ -39,9 +39,9 @@ const props = Astro.props
           <li
             id={section.LINK_ID}
             class="text-muted-foreground data-[active=true]:text-foreground data-[active=false]:hover:text-accent-foreground data-[active=false]:active:text-secondary-foreground data-[active=false]:focus-visible:text-accent-foreground">
-            <a class="text-xs font-semibold uppercase" href={section.HREF}>
+            <Link class="text-xs font-semibold uppercase" href={section.HREF}>
               {section.TITLE}
-            </a>
+            </Link>
           </li>
         ))
       }

@@ -3,18 +3,18 @@ function isURL(value: unknown): value is URL {
 }
 
 export class Env {
-  dev() {
+  dev(): boolean {
     return import.meta.env.DEV
   }
-  prod() {
+  prod(): boolean {
     return import.meta.env.PROD
   }
-  getCanonicalUrl(site: string | URL, fallback: string | URL) {
+  getCanonicalUrl(site: string | URL, fallback: string | URL): URL {
     if (env.dev()) {
-      return isURL(fallback) ? fallback.origin : fallback
+      return isURL(fallback) ? fallback : new URL(fallback)
     }
 
-    return isURL(site) ? site.origin : site
+    return isURL(site) ? site : new URL(site)
   }
 }
 

@@ -1,5 +1,5 @@
 ---
-import ExternalLink from "~/components/external-link.astro"
+import Link from "~/components/link.astro"
 
 type Content =
   | {
@@ -69,7 +69,7 @@ const contents: Content[] = [
             return <span set:text={content.text} />
           case "link":
             return (
-              <ExternalLink
+              <Link
                 class="text-accent-foreground"
                 href={content.href}
                 set:text={content.text}

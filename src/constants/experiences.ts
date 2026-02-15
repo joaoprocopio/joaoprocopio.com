@@ -58,7 +58,7 @@ export const MORAY_EXPERIENCE = {
 
 export const BUSER_EXPERIENCE = {
   company: "Buser",
-  url: "https://www.buser.com.br",
+  url: "https://buser.com.br",
   title: "Full Stack Software Engineer",
   description:
     "Delivered full stack features across a hybrid mobile application, backend services, and data pipelines for one of Brazil's largest intercity bus travel platforms. Built Airflow DAGs, optimized reporting pipelines on Databricks, and partnered with operations to fix critical bugs and improve daily workflows.",
