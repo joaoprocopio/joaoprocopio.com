@@ -9,3 +9,4 @@
 - ao fazer hover na habilidade, destacar todos os outros lugares aonde essa habilidade foi usada também
 - ao fazer hover em um dos cards (experiência, projeto, artigo, etc.), diminuir a opacidade dos outros cards
 - ter uma página com a listagem completa pra cada uma das partes (experiência, projeto, artigo, etc.)
+- colocar as datas em iso on hover
