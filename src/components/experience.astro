@@ -20,7 +20,7 @@ const props = Astro.props
           experiences={experience.experiences as unknown as TExperience[]}
         />
       ) : (
-        <div class="space-y-3.5">
+        <div class="flex flex-col gap-y-3.5">
           <div class="flex flex-col justify-between sm:flex-row sm:items-center">
             <p class="text-foreground font-semibold">
               {experience.title} · {props.company ?? experience.company}
@@ -35,9 +35,9 @@ const props = Astro.props
 
           <p>{experience.description}</p>
 
-          <div>
+          <div class="flex flex-wrap gap-2">
             {experience.skills.map((skill) => (
-              <span class="text-3xs bg-accent text-accent-foreground mt-2 mr-2 inline-block rounded-full px-2.5 py-1.5 font-medium">
+              <span class="text-3xs bg-accent text-accent-foreground inline-block shrink-0 rounded-full px-2.5 py-1.5 font-medium">
                 {skill}
               </span>
             ))}
