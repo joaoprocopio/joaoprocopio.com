@@ -1,13 +1,16 @@
-@import "tailwindcss";
+@layer theme, base, components, utilities;
+
+@import "tailwindcss/preflight" layer(base);
+@import "tailwindcss/utilities" layer(utilities);
+
 @import "@fontsource-variable/geist/index.css";
 
-@import "~/styles/purge.css";
 @import "~/styles/theme.css";
 @import "~/styles/typography/typography.css";
 
 @layer base {
   * {
-    @apply border-border ring-ring outline-outline transition transition-discrete ease-in-out;
+    @apply border-border ring-ring outline-outline transition transition-discrete;
   }
 
   body {
