@@ -1,3 +1,12 @@
+---
+import {
+  BUSER_EXPERIENCE,
+  MORAY_EXPERIENCE,
+  VILLAFACT_EXPERIENCE,
+} from "~/constants/experiences"
+import ExternalLink from "~/components/external-link.astro"
+---
+
 <p>
   I'm a product-minded engineer focused on building software that makes a real
   impact. I like working across the full stack, but I'm most at home on the
@@ -7,16 +16,20 @@
 
 <p>
   Most recently, I was the third engineer at
-  <a class="text-foreground" href="https://villafact.com">Villafact</a>, an
-  early-stage startup where I worked directly with the CEO to translate business
-  vision into shipped products. Before that, I built AI-driven agricultural
-  platforms at
-  <a class="text-foreground" href="https://moray.ai">Moray</a> and shipped features
-  across a hybrid mobile app serving millions of travelers at
-  <a class="text-foreground" href="https://www.buser.com.br">Buser</a>. These
-  experiences — from startups to high-growth companies — shaped how I think
-  about building products: with full ownership, close collaboration, and a bias
-  toward impact.
+  <ExternalLink class="text-foreground" href={VILLAFACT_EXPERIENCE.url}
+    >Villafact</ExternalLink
+  >, an early-stage startup where I worked directly with the CEO to translate
+  business vision into shipped products. Before that, I built AI-driven
+  agricultural platforms at
+  <ExternalLink class="text-foreground" href={MORAY_EXPERIENCE.url}
+    >Moray</ExternalLink
+  > and shipped features across a hybrid mobile app serving millions of travelers
+  at
+  <ExternalLink class="text-foreground" href={BUSER_EXPERIENCE.url}
+    >Buser</ExternalLink
+  >. These experiences — from startups to high-growth companies — shaped how I
+  think about building products: with full ownership, close collaboration, and a
+  bias toward impact.
 </p>
 
 <p>
