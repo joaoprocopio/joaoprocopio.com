@@ -1,4 +1,6 @@
 ---
+import ExternalLink from "~/components/external-link.astro"
+
 type Content =
   | {
       type: "text"
@@ -67,9 +69,8 @@ const contents: Content[] = [
             return <span set:text={content.text} />
           case "link":
             return (
-              <a
+              <ExternalLink
                 class="text-accent-foreground"
-                target="_blank"
                 href={content.href}
                 set:text={content.text}
               />
