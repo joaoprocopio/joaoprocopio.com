@@ -114,10 +114,10 @@
   --color-gray-a12: oklch(100% 0 none / 0.92941);
 
   --color-background: var(--color-black-a12);
-  --color-foreground: var(--color-white-a11);
+  --color-foreground: var(--color-white-a12);
 
   --color-secondary: var(--color-gray-3);
-  --color-secondary-foreground: var(--color-white-a10);
+  --color-secondary-foreground: var(--color-white-a9);
 
   --color-accent: var(--color-gray-2);
   --color-accent-foreground: var(--color-white-a8);
