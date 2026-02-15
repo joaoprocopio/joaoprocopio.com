@@ -1,10 +1,8 @@
 @theme {
-  /* Font */
   --font-sans:
     "Geist Variable", "Geist", system-ui, -apple-system, BlinkMacSystemFont,
     "Segoe UI", "Roboto", "Helvetica Neue", Arial, "Noto Sans", sans-serif;
 
-  /* Font Weight */
   --font-weight-thin: 100;
   --font-weight-extralight: 200;
   --font-weight-light: 300;
@@ -15,14 +13,12 @@
   --font-weight-extrabold: 800;
   --font-weight-black: 900;
 
-  /* Breakpoints */
   --breakpoint-xs: 30rem;
   --breakpoint-sm: 40rem;
   --breakpoint-md: 48rem;
   --breakpoint-lg: 64rem;
   --breakpoint-xl: 80rem;
 
-  /* Containers */
   --container-3xs: 16rem;
   --container-2xs: 18rem;
   --container-xs: 20rem;
@@ -37,13 +33,10 @@
   --container-6xl: 72rem;
   --container-7xl: 80rem;
 
-  /* Sizing */
   --spacing: 0.25rem;
 
-  /* Blur */
   --blur: 0.8rem;
 
-  /* Radii */
   --radius: 0.5rem;
   --radius-sm: calc(var(--radius) - 4px);
   --radius-md: var(--radius);
@@ -62,145 +55,77 @@
     --x-container: calc(var(--spacing) * 12);
     --y-container: calc(var(--spacing) * 24);
   }
-
-  --black-a1: oklch(0% 0 none / 0.05);
-  --black-a2: oklch(0% 0 none / 0.1);
-  --black-a3: oklch(0% 0 none / 0.15);
-  --black-a4: oklch(0% 0 none / 0.2);
-  --black-a5: oklch(0% 0 none / 0.3);
-  --black-a6: oklch(0% 0 none / 0.4);
-  --black-a7: oklch(0% 0 none / 0.5);
-  --black-a8: oklch(0% 0 none / 0.6);
-  --black-a9: oklch(0% 0 none / 0.7);
-  --black-a10: oklch(0% 0 none / 0.8);
-  --black-a11: oklch(0% 0 none / 0.9);
-  --black-a12: oklch(0% 0 none / 0.95);
-
-  --white-a1: oklch(100% 0 none / 0.05);
-  --white-a2: oklch(100% 0 none / 0.1);
-  --white-a3: oklch(100% 0 none / 0.15);
-  --white-a4: oklch(100% 0 none / 0.2);
-  --white-a5: oklch(100% 0 none / 0.3);
-  --white-a6: oklch(100% 0 none / 0.4);
-  --white-a7: oklch(100% 0 none / 0.5);
-  --white-a8: oklch(100% 0 none / 0.6);
-  --white-a9: oklch(100% 0 none / 0.7);
-  --white-a10: oklch(100% 0 none / 0.8);
-  --white-a11: oklch(100% 0 none / 0.9);
-  --white-a12: oklch(100% 0 none / 0.95);
-
-  --gray-1: oklch(17.764% 0 none);
-  --gray-2: oklch(21.342% 0 none);
-  --gray-3: oklch(25.196% 0 none);
-  --gray-4: oklch(28.502% 0 none);
-  --gray-5: oklch(31.317% 0 none);
-  --gray-6: oklch(34.846% 0 none);
-  --gray-7: oklch(40.167% 0 none);
-  --gray-8: oklch(48.906% 0 none);
-  --gray-9: oklch(53.824% 0 none);
-  --gray-10: oklch(58.292% 0 none);
-  --gray-11: oklch(76.993% 0 none);
-  --gray-12: oklch(94.912% 0 none);
-
-  --gray-a1: oklch(0% 0 none / 0);
-  --gray-a2: oklch(100% 0 none / 0.03529);
-  --gray-a3: oklch(100% 0 none / 0.07059);
-  --gray-a4: oklch(100% 0 none / 0.10588);
-  --gray-a5: oklch(100% 0 none / 0.13333);
-  --gray-a6: oklch(100% 0 none / 0.17255);
-  --gray-a7: oklch(100% 0 none / 0.23137);
-  --gray-a8: oklch(100% 0 none / 0.33333);
-  --gray-a9: oklch(100% 0 none / 0.39216);
-  --gray-a10: oklch(100% 0 none / 0.44706);
-  --gray-a11: oklch(100% 0 none / 0.68627);
-  --gray-a12: oklch(100% 0 none / 0.92941);
-
-  --background: var(--black-a12);
-  --foreground: var(--white-a11);
-
-  --secondary: var(--gray-3);
-  --secondary-foreground: var(--white-a10);
-
-  --accent: var(--gray-2);
-  --accent-foreground: var(--white-a8);
-
-  --muted: var(--gray-1);
-  --muted-foreground: var(--white-a6);
-
-  --border: var(--gray-a3);
-  --ring: var(--gray-5);
-  --outline: oklch(from var(--ring) l c h / 0.5);
 }
 
-@theme inline {
+@theme {
   --spacing-x-container: var(--x-container);
   --spacing-y-container: var(--y-container);
 
-  --color-black-a1: var(--black-a1);
-  --color-black-a2: var(--black-a2);
-  --color-black-a3: var(--black-a3);
-  --color-black-a4: var(--black-a4);
-  --color-black-a5: var(--black-a5);
-  --color-black-a6: var(--black-a6);
-  --color-black-a7: var(--black-a7);
-  --color-black-a8: var(--black-a8);
-  --color-black-a9: var(--black-a9);
-  --color-black-a10: var(--black-a10);
-  --color-black-a11: var(--black-a11);
-  --color-black-a12: var(--black-a12);
+  --color-black-a1: oklch(0% 0 none / 0.05);
+  --color-black-a2: oklch(0% 0 none / 0.1);
+  --color-black-a3: oklch(0% 0 none / 0.15);
+  --color-black-a4: oklch(0% 0 none / 0.2);
+  --color-black-a5: oklch(0% 0 none / 0.3);
+  --color-black-a6: oklch(0% 0 none / 0.4);
+  --color-black-a7: oklch(0% 0 none / 0.5);
+  --color-black-a8: oklch(0% 0 none / 0.6);
+  --color-black-a9: oklch(0% 0 none / 0.7);
+  --color-black-a10: oklch(0% 0 none / 0.8);
+  --color-black-a11: oklch(0% 0 none / 0.9);
+  --color-black-a12: oklch(0% 0 none / 0.95);
 
-  --color-white-a1: var(--white-a1);
-  --color-white-a2: var(--white-a2);
-  --color-white-a3: var(--white-a3);
-  --color-white-a4: var(--white-a4);
-  --color-white-a5: var(--white-a5);
-  --color-white-a6: var(--white-a6);
-  --color-white-a7: var(--white-a7);
-  --color-white-a8: var(--white-a8);
-  --color-white-a9: var(--white-a9);
-  --color-white-a10: var(--white-a10);
-  --color-white-a11: var(--white-a11);
-  --color-white-a12: var(--white-a12);
+  --color-white-a1: oklch(100% 0 none / 0.05);
+  --color-white-a2: oklch(100% 0 none / 0.1);
+  --color-white-a3: oklch(100% 0 none / 0.15);
+  --color-white-a4: oklch(100% 0 none / 0.2);
+  --color-white-a5: oklch(100% 0 none / 0.3);
+  --color-white-a6: oklch(100% 0 none / 0.4);
+  --color-white-a7: oklch(100% 0 none / 0.5);
+  --color-white-a8: oklch(100% 0 none / 0.6);
+  --color-white-a9: oklch(100% 0 none / 0.7);
+  --color-white-a10: oklch(100% 0 none / 0.8);
+  --color-white-a11: oklch(100% 0 none / 0.9);
+  --color-white-a12: oklch(100% 0 none / 0.95);
 
-  --color-gray-1: var(--gray-1);
-  --color-gray-2: var(--gray-2);
-  --color-gray-3: var(--gray-3);
-  --color-gray-4: var(--gray-4);
-  --color-gray-5: var(--gray-5);
-  --color-gray-6: var(--gray-6);
-  --color-gray-7: var(--gray-7);
-  --color-gray-8: var(--gray-8);
-  --color-gray-9: var(--gray-9);
-  --color-gray-10: var(--gray-10);
-  --color-gray-11: var(--gray-11);
-  --color-gray-12: var(--gray-12);
+  --color-gray-1: oklch(17.764% 0 none);
+  --color-gray-2: oklch(21.342% 0 none);
+  --color-gray-3: oklch(25.196% 0 none);
+  --color-gray-4: oklch(28.502% 0 none);
+  --color-gray-5: oklch(31.317% 0 none);
+  --color-gray-6: oklch(34.846% 0 none);
+  --color-gray-7: oklch(40.167% 0 none);
+  --color-gray-8: oklch(48.906% 0 none);
+  --color-gray-9: oklch(53.824% 0 none);
+  --color-gray-10: oklch(58.292% 0 none);
+  --color-gray-11: oklch(76.993% 0 none);
+  --color-gray-12: oklch(94.912% 0 none);
 
-  --color-gray-a1: var(--gray-a1);
-  --color-gray-a2: var(--gray-a2);
-  --color-gray-a3: var(--gray-a3);
-  --color-gray-a4: var(--gray-a4);
-  --color-gray-a5: var(--gray-a5);
-  --color-gray-a6: var(--gray-a6);
-  --color-gray-a7: var(--gray-a7);
-  --color-gray-a8: var(--gray-a8);
-  --color-gray-a9: var(--gray-a9);
-  --color-gray-a10: var(--gray-a10);
-  --color-gray-a11: var(--gray-a11);
-  --color-gray-a12: var(--gray-a12);
+  --color-gray-a1: oklch(0% 0 none / 0);
+  --color-gray-a2: oklch(100% 0 none / 0.03529);
+  --color-gray-a3: oklch(100% 0 none / 0.07059);
+  --color-gray-a4: oklch(100% 0 none / 0.10588);
+  --color-gray-a5: oklch(100% 0 none / 0.13333);
+  --color-gray-a6: oklch(100% 0 none / 0.17255);
+  --color-gray-a7: oklch(100% 0 none / 0.23137);
+  --color-gray-a8: oklch(100% 0 none / 0.33333);
+  --color-gray-a9: oklch(100% 0 none / 0.39216);
+  --color-gray-a10: oklch(100% 0 none / 0.44706);
+  --color-gray-a11: oklch(100% 0 none / 0.68627);
+  --color-gray-a12: oklch(100% 0 none / 0.92941);
 
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
+  --color-background: var(--color-black-a12);
+  --color-foreground: var(--color-white-a11);
 
-  --color-secondary: var(--secondary);
-  --color-secondary-foreground: var(--secondary-foreground);
+  --color-secondary: var(--color-gray-3);
+  --color-secondary-foreground: var(--color-white-a10);
 
-  --color-accent: var(--accent);
-  --color-accent-foreground: var(--accent-foreground);
+  --color-accent: var(--color-gray-2);
+  --color-accent-foreground: var(--color-white-a8);
 
-  --color-muted: var(--muted);
-  --color-muted-foreground: var(--muted-foreground);
+  --color-muted: var(--color-gray-1);
+  --color-muted-foreground: var(--color-white-a6);
 
-  --color-border: var(--border);
-  --color-ring: var(--ring);
-  --color-outline: var(--outline);
+  --color-border: var(--color-gray-a3);
+  --color-ring: var(--color-gray-5);
+  --color-outline: oklch(from var(--color-ring) l c h / 0.5);
 }
