@@ -1,6 +1,7 @@
 export const HARD_SKILLS = {
   // Frameworks
   REACT: "React",
+  REACT_NATIVE: "React Native",
   VUE: "Vue",
   NUXT: "Nuxt",
   DJANGO: "Django",
@@ -18,11 +19,14 @@ export const HARD_SKILLS = {
   SQL: "SQL",
 
   // Libraries and Tools
+  TANSTACK_QUERY: "Tanstack Query",
   MAPBOX: "Mapbox",
   CELERY: "Celery",
   GIT: "Git",
   LINUX: "Linux",
   NGINX: "NGINX",
+  CAPACITOR: "Capacitor",
+  NODE: "Node.js",
 
   // Data
   DBT: "DBT (Data Build Tool)",
