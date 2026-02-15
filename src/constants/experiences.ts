@@ -17,18 +17,18 @@ export type TExperienceGrouped<
   experiences: Omit<TExperience, CompanyKey>[]
 }
 
-export const GOLABS_EXPERIENCE = {
-  company: "Golabs",
-  title: "Software Engineer",
+export const VILLAFACT_EXPERIENCE = {
+  company: "Villafact",
+  title: "Senior Full Stack Software Engineer",
   description: "",
   skills: [HARD_SKILLS.VUE, HARD_SKILLS.FIREBASE, HARD_SKILLS.PWA],
-  to: date(2026, MONTH.JANUARY),
   from: date(2025, MONTH.MARCH),
+  to: date(2026, MONTH.JANUARY),
 } as const satisfies TExperience
 
 export const MORAY_EXPERIENCE = {
   company: "Moray",
-  title: "Software Engineer",
+  title: "Frontend Software Engineer",
   description:
     "Spearheaded frontend innovation at Moray by modernizing interfaces, slashing load times by 40%, cutting costs with Docker optimizations (~96% smaller), and driving cross-functional collaboration to deliver scalable AI solutions for agriculture, while elevating team talent and code reliability through strategic leadership and performance-first practices.",
   skills: [
@@ -41,13 +41,13 @@ export const MORAY_EXPERIENCE = {
     HARD_SKILLS.DOCKER,
     HARD_SKILLS.CI_CD,
   ],
-  to: date(2025, MONTH.MARCH),
   from: date(2023, MONTH.JUNE),
+  to: date(2025, MONTH.MARCH),
 } as const satisfies TExperience
 
 export const BUSER_EXPERIENCE = {
   company: "Buser",
-  title: "Software Engineer",
+  title: "Full Stack Software Engineer",
   description:
     "I joined the team responsible for the Driver's mobile app, a hybrid application with a native shell for Flutter API access (e.g., background geolocation) and a Nuxt-based PWA handling business logic. I participated in agile ceremonies, implemented driver-focused features, refactored the CSS system for better reusability, and fixed user-impacting bugs.",
   skills: [
@@ -74,12 +74,12 @@ export const BUSER_EXPERIENCE = {
     HARD_SKILLS.CSS,
     HARD_SKILLS.NGINX,
   ],
-  to: date(2022, MONTH.APRIL),
-  from: date(2023, MONTH.JUNE),
+  from: date(2022, MONTH.OCTOBER),
+  to: date(2023, MONTH.JUNE),
 } as const satisfies TExperience
 
 export const EXPERIENCES = [
-  GOLABS_EXPERIENCE,
+  VILLAFACT_EXPERIENCE,
   MORAY_EXPERIENCE,
   BUSER_EXPERIENCE,
 ]
