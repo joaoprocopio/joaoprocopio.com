@@ -22,17 +22,15 @@ const props = Astro.props
       ) : (
         <div>
           <div>
-            <p class="text-foreground text-xl font-semibold">
-              {experience.title} – {props.company ?? experience.company}
+            <p class="text-foreground font-semibold">
+              {experience.title} @ {props.company ?? experience.company}
             </p>
 
-            <p class="text-accent-foreground mt-0.5 text-lg">
+            <p class="text-accent-foreground mt-1">
               <span>{formatDate(experience.from)}</span>
               <span> — </span>
               <span>{formatDate(experience.to!)}</span>
             </p>
-
-            <p class="text-accent-foreground mt-0.5 text-lg" />
           </div>
 
           <p class="mt-4">{experience.description}</p>
