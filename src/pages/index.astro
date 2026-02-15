@@ -27,7 +27,7 @@ function idToContent(id: (typeof SECTIONS)[number]["ID"]) {
       />
 
       <main class="pt-y-container lg:col-start-3 lg:col-end-6 lg:pt-0">
-        <div class="[&>*+*]:mt-y-container">
+        <div class="[&>*+*]:mt-y-container text-secondary-foreground">
           {
             SECTIONS.map((SECTION) => {
               const Content = idToContent(SECTION.ID)
