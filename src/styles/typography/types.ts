@@ -3,7 +3,6 @@ export type TTracking = number
 export type TLeading = number
 export type TSizeTracking = Record<TSize, TTracking>
 export type TVariant =
-  | "4xl"
   | "3xl"
   | "2xl"
   | "xl"

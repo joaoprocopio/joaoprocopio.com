@@ -1,11 +1,10 @@
 import type { TSizing } from "~/styles/typography/types"
 
 export const VARIANT_SIZING = {
-  "4xl": { size: 34, leading: 41 },
-  "3xl": { size: 28, leading: 34 },
-  "2xl": { size: 22, leading: 28 },
-  "xl": { size: 20, leading: 25 },
-  "lg": { size: 17, leading: 22 },
+  "3xl": { size: 34, leading: 41 },
+  "2xl": { size: 28, leading: 34 },
+  "xl": { size: 22, leading: 28 },
+  "lg": { size: 20, leading: 25 },
   "base": { size: 17, leading: 22 },
   "sm": { size: 16, leading: 21 },
   "xs": { size: 15, leading: 20 },
