@@ -120,10 +120,10 @@
   --color-secondary-foreground: var(--color-white-a9);
 
   --color-accent: var(--color-gray-2);
-  --color-accent-foreground: var(--color-white-a8);
+  --color-accent-foreground: var(--color-white-a7);
 
   --color-muted: var(--color-gray-1);
-  --color-muted-foreground: var(--color-white-a6);
+  --color-muted-foreground: var(--color-white-a5);
 
   --color-border: var(--color-gray-a3);
   --color-ring: var(--color-gray-5);
