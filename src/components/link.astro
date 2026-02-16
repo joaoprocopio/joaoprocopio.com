@@ -1,7 +1,10 @@
 ---
 import { env } from "~/env"
+import { cn } from "~/lib/ui/utils"
 
 type Props = astroHTML.JSX.AnchorHTMLAttributes
+
+const { class: classProp, ...props } = Astro.props
 
 const canonicalURL = env.getCanonicalURL(Astro.site!, Astro.url)
 const target = (Astro.props.target ??
@@ -10,4 +13,4 @@ const target = (Astro.props.target ??
     : "_blank")) satisfies Props["target"]
 ---
 
-<a {...Astro.props} target={target}><slot /></a>
+<a {...props} class={cn("inline-block", classProp)} target={target}><slot /></a>
