@@ -1,7 +1,5 @@
 ---
-import About from "~/components/about.astro"
 import Entitled from "~/components/entitled.astro"
-import Experience from "~/components/experience.astro"
 import Footer from "~/components/footer.astro"
 import Heading from "~/components/heading.astro"
 import { SECTIONS } from "~/constants/sections"
@@ -12,15 +10,6 @@ import { SOCIAL } from "~/constants/social"
 import { env } from "~/env"
 
 const CANONICAL_URL = env.getCanonicalURL(Astro.site!, Astro.url)
-
-function idToContent(id: (typeof SECTIONS)[number]["ID"]) {
-  switch (id) {
-    case "about":
-      return About
-    case "experience":
-      return Experience
-  }
-}
 ---
 
 <!doctype html>
@@ -79,13 +68,11 @@ function idToContent(id: (typeof SECTIONS)[number]["ID"]) {
         <main class="pt-y-container lg:col-start-3 lg:col-end-6 lg:pt-0">
           <div class="[&>*+*]:mt-y-container text-secondary-foreground">
             {
-              SECTIONS.map((SECTION) => {
-                const Content = idToContent(SECTION.ID)
-
+              SECTIONS.map((section) => {
                 return (
-                  <Entitled id={SECTION.ID} title={SECTION.TITLE}>
+                  <Entitled id={section.ID} title={section.TITLE}>
                     <section class="[&>*+*]:mt-6">
-                      <Content />
+                      <section.component />
                     </section>
                   </Entitled>
                 )
