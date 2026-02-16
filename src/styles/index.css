@@ -1,9 +1,11 @@
+@custom-variant dark (&:is(.dark *));
+
 @layer theme, base, components, utilities;
 
 @import "tailwindcss/preflight" layer(base);
 @import "tailwindcss/utilities" layer(utilities);
 
-@import "@fontsource-variable/geist/index.css";
+@import "@fontsource-variable/geist";
 
 @import "~/styles/theme.css";
 @import "~/styles/typography/typography.css";
@@ -14,7 +16,7 @@
   }
 
   body {
-    @apply bg-background text-foreground text-base antialiased;
+    @apply bg-background text-foreground font-sans text-base antialiased;
     font-synthesis-weight: none;
     text-rendering: optimizeLegibility;
   }
