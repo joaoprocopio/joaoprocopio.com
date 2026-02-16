@@ -118,6 +118,32 @@
   --color-gray-a11: oklch(100% 0 none / 0.68627);
   --color-gray-a12: oklch(100% 0 none / 0.92941);
 
+  --color-blue-1: oklch(19.361% 0.0255 256.49);
+  --color-blue-2: oklch(21.293% 0.03034 261.25);
+  --color-blue-3: oklch(27.447% 0.06629 253.93);
+  --color-blue-4: oklch(32.014% 0.09678 252.35);
+  --color-blue-5: oklch(36.71% 0.10588 250.7);
+  --color-blue-6: oklch(41.603% 0.11326 252.01);
+  --color-blue-7: oklch(47.411% 0.12187 253.09);
+  --color-blue-8: oklch(54.057% 0.13954 253.17);
+  --color-blue-9: oklch(64.929% 0.19304 251.78);
+  --color-blue-10: oklch(68.838% 0.16933 251.4);
+  --color-blue-11: oklch(76.422% 0.12575 249.46);
+  --color-blue-12: oklch(90.712% 0.05104 238.45);
+
+  --color-blue-a1: oklch(50.709% 0.25297 262.9 / 0.06667);
+  --color-blue-a2: oklch(56.16% 0.23461 261.37 / 0.09412);
+  --color-blue-a3: oklch(59.666% 0.22118 258.03 / 0.22745);
+  --color-blue-a4: oklch(59.263% 0.2235 258.41 / 0.34118);
+  --color-blue-a5: oklch(61.581% 0.20722 255.61 / 0.41961);
+  --color-blue-a6: oklch(63.388% 0.19713 254.06 / 0.49804);
+  --color-blue-a7: oklch(65.562% 0.18565 253.83 / 0.59608);
+  --color-blue-a8: oklch(66.337% 0.18114 253.5 / 0.72549);
+  --color-blue-a9: oklch(64.929% 0.19304 251.78);
+  --color-blue-a10: oklch(68.838% 0.16933 251.4);
+  --color-blue-a11: oklch(76.422% 0.12575 249.46);
+  --color-blue-a12: oklch(90.712% 0.05104 238.45);
+
   --color-background: var(--color-black-a12);
   --color-foreground: var(--color-white-a12);
 
