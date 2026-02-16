@@ -5,7 +5,7 @@ import { AUTHOR, JOB_TITLE, DESCRIPTION } from "~/constants/seo"
 import { LINKS } from "~/constants/links"
 import { env } from "~/env"
 
-const CANONICAL_URL = env.getCanonicalUrl(Astro.site!, Astro.request.url)
+const CANONICAL_URL = env.getCanonicalURL(Astro.site!, Astro.url)
 ---
 
 <!doctype html>

@@ -3,14 +3,11 @@ import { env } from "~/env"
 
 type Props = astroHTML.JSX.AnchorHTMLAttributes
 
-const canonicalURL = env.getCanonicalUrl(Astro.site!, Astro.request.url)
-
-const target = (
-  (Astro.props.target ??
-  canonicalURL.origin === URL.parse(Astro.props.href!, canonicalURL)?.origin)
+const canonicalURL = env.getCanonicalURL(Astro.site!, Astro.url)
+const target = (Astro.props.target ??
+  (canonicalURL.origin === URL.parse(Astro.props.href!, canonicalURL)?.origin
     ? "_self"
-    : "_blank"
-) satisfies Props["target"]
+    : "_blank")) satisfies Props["target"]
 ---
 
 <a {...Astro.props} target={target}><slot /></a>
