@@ -34,10 +34,10 @@ const props = Astro.props
       {
         SECTIONS.map((section) => (
           <li
-            id={section.LINK_ID}
+            id={section.linkId}
             class="text-muted-foreground data-[active=true]:text-foreground data-[active=false]:hover:text-accent-foreground data-[active=false]:active:text-secondary-foreground data-[active=false]:focus-visible:text-accent-foreground">
-            <Link class="text-xs font-semibold uppercase" href={section.HREF}>
-              {section.TITLE}
+            <Link class="text-xs font-semibold uppercase" href={section.href}>
+              {section.title}
             </Link>
           </li>
         ))

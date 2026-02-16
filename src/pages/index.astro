@@ -70,7 +70,7 @@ const CANONICAL_URL = env.getCanonicalURL(Astro.site!, Astro.url)
             {
               SECTIONS.map((section) => {
                 return (
-                  <Entitled id={section.ID} title={section.TITLE}>
+                  <Entitled id={section.id} title={section.title}>
                     <section class="[&>*+*]:mt-6">
                       <section.component />
                     </section>

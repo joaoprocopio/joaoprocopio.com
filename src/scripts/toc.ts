@@ -4,8 +4,8 @@ const EL_DATA_ACTIVE = "data-active"
 
 const linkElBySection = new Map<HTMLElement, HTMLElement>(
   SECTIONS.map((section) => {
-    const sectionEl = document.getElementById(section.ID)
-    const linkEl = document.getElementById(section.LINK_ID)
+    const sectionEl = document.getElementById(section.id)
+    const linkEl = document.getElementById(section.linkId)
 
     if (!linkEl || !sectionEl) {
       throw new Error(`Missing element for section ${section}`)

@@ -2,26 +2,26 @@ import About from "~/components/about.astro"
 import Experience from "~/components/experience.astro"
 
 export type TSection<S extends string> = {
-  ID: S
-  LINK_ID: `@${S}`
-  HREF: `#${S}`
-  TITLE: Capitalize<S>
+  id: S
+  linkId: `@${S}`
+  href: `#${S}`
+  title: Capitalize<S>
   component: astroHTML.JSX.Element
 }
 
 export const SECTION_ABOUT = {
-  ID: "about",
-  LINK_ID: "@about",
-  HREF: "#about",
-  TITLE: "About",
+  id: "about",
+  linkId: "@about",
+  href: "#about",
+  title: "About",
   component: About,
 } as const satisfies TSection<"about">
 
 export const SECTION_EXPERIENCE = {
-  ID: "experience",
-  LINK_ID: "@experience",
-  HREF: "#experience",
-  TITLE: "Experience",
+  id: "experience",
+  linkId: "@experience",
+  href: "#experience",
+  title: "Experience",
   component: Experience,
 } as const satisfies TSection<"experience">
 
