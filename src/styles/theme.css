@@ -144,6 +144,32 @@
   --color-blue-a11: oklch(76.422% 0.12575 249.46);
   --color-blue-a12: oklch(90.712% 0.05104 238.45);
 
+  --color-red-1: oklch(18.803% 0.01345 18.42);
+  --color-red-2: oklch(20.458% 0.02168 14.064);
+  --color-red-3: oklch(25.105% 0.06494 12.692);
+  --color-red-4: oklch(28.929% 0.09511 14.33);
+  --color-red-5: oklch(33.211% 0.10667 15.526);
+  --color-red-6: oklch(38.144% 0.11082 16.803);
+  --color-red-7: oklch(45.018% 0.12106 18.774);
+  --color-red-8: oklch(54.356% 0.14576 21.762);
+  --color-red-9: oklch(62.557% 0.19334 23.026);
+  --color-red-10: oklch(66.338% 0.17739 22.851);
+  --color-red-11: oklch(78.041% 0.12812 22.139);
+  --color-red-12: oklch(90.236% 0.05268 6.4541);
+
+  --color-red-a1: oklch(61.153% 0.24494 28.705 / 0.03529);
+  --color-red-a2: oklch(62.466% 0.22694 23.589 / 0.06667);
+  --color-red-a3: oklch(63.682% 0.24918 21.918 / 0.17647);
+  --color-red-a4: oklch(63.141% 0.25183 22.213 / 0.26667);
+  --color-red-a5: oklch(64.112% 0.24541 20.56 / 0.33725);
+  --color-red-a6: oklch(66.125% 0.22643 19.733 / 0.40784);
+  --color-red-a7: oklch(68.211% 0.20722 20.072 / 0.51765);
+  --color-red-a8: oklch(69.292% 0.19715 22.461 / 0.6902);
+  --color-red-a9: oklch(67.334% 0.21195 23.148 / 0.89412);
+  --color-red-a10: oklch(70.183% 0.18943 22.963 / 0.92157);
+  --color-red-a11: oklch(78.041% 0.12812 22.139);
+  --color-red-a12: oklch(90.236% 0.05268 6.4541);
+
   --color-background: var(--color-black-a12);
   --color-foreground: var(--color-white-a12);
 
