@@ -1,16 +1,30 @@
 ---
+import { ArrowRight, ArrowUpRight } from "lucide-react"
 import { env } from "~/env"
 import { cn } from "~/lib/ui/utils"
 
-type Props = astroHTML.JSX.AnchorHTMLAttributes
+type Props = { icon?: boolean } & astroHTML.JSX.AnchorHTMLAttributes
 
-const { class: classProp, ...props } = Astro.props
+const { class: classProp, icon = true, ...props } = Astro.props
 
 const canonicalURL = env.getCanonicalURL(Astro.site!, Astro.url)
+const isInternal =
+  canonicalURL.origin === URL.parse(Astro.props.href!, canonicalURL)?.origin
 const target = (Astro.props.target ??
-  (canonicalURL.origin === URL.parse(Astro.props.href!, canonicalURL)?.origin
-    ? "_self"
-    : "_blank")) satisfies Props["target"]
+  (isInternal ? "_self" : "_blank")) satisfies Props["target"]
 ---
 
-<a {...props} class={cn("inline-block", classProp)} target={target}><slot /></a>
+<a
+  {...props}
+  class={cn("inline-flex items-center gap-0.5", classProp)}
+  target={target}
+  ><slot />
+  {
+    icon &&
+      (isInternal ? (
+        <ArrowRight className="size-4" />
+      ) : (
+        <ArrowUpRight className="size-4" />
+      ))
+  }</a
+>
