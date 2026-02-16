@@ -1,4 +1,4 @@
-import type { TSizing } from "~/styles/typography/types"
+import type { TSizing } from "./types"
 
 export const VARIANT_SIZING = {
   "3xl": { size: 34, leading: 41 },

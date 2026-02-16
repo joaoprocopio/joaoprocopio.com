@@ -5,7 +5,13 @@ import Experience from "~/components/experience.astro"
 import Footer from "~/components/footer.astro"
 import Heading from "~/components/heading.astro"
 import { SECTIONS } from "~/constants/sections"
-import DefaultLayout from "~/layouts/default.astro"
+import tailwindURL from "~/lib/tailwind/tailwind.css?url"
+import { AUTHOR, JOB_TITLE, DESCRIPTION } from "~/constants/seo"
+import faviconURL from "~/assets/favicon.svg?url"
+import { LINKS } from "~/constants/links"
+import { env } from "~/env"
+
+const CANONICAL_URL = env.getCanonicalURL(Astro.site!, Astro.url)
 
 function idToContent(id: (typeof SECTIONS)[number]["ID"]) {
   switch (id) {
@@ -17,34 +23,79 @@ function idToContent(id: (typeof SECTIONS)[number]["ID"]) {
 }
 ---
 
-<DefaultLayout>
-  <script src="~/scripts/toc.ts"></script>
+<!doctype html>
+<html lang="en" dir="ltr">
+  <head>
+    <title>{AUTHOR}</title>
 
-  <div class="px-x-container py-y-container mx-auto lg:container">
-    <div class="lg:grid lg:grid-cols-5 lg:gap-x-4">
-      <Heading
-        class="lg:py-y-container lg:fixed lg:inset-y-0 lg:grid lg:grid-rows-[auto_auto_1fr]"
-      />
+    <link rel="sitemap" href="/sitemap-index.xml" />
+    <link rel="canonical" href={CANONICAL_URL} />
+    <meta name="robots" content="index, follow" />
 
-      <main class="pt-y-container lg:col-start-3 lg:col-end-6 lg:pt-0">
-        <div class="[&>*+*]:mt-y-container text-secondary-foreground">
-          {
-            SECTIONS.map((SECTION) => {
-              const Content = idToContent(SECTION.ID)
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content={DESCRIPTION} />
+    <meta name="author" content={AUTHOR} />
+    <meta name="theme-color" content="#ffffff" />
 
-              return (
-                <Entitled id={SECTION.ID} title={SECTION.TITLE}>
-                  <section class="[&>*+*]:mt-6">
-                    <Content />
-                  </section>
-                </Entitled>
-              )
-            })
-          }
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content={AUTHOR} />
+    <meta property="og:description" content={DESCRIPTION} />
+    <meta property="og:url" content={CANONICAL_URL} />
+    <meta property="og:site_name" content={AUTHOR} />
+    <meta property="og:locale" content="en_US" />
+    <!-- TODO: og:image -->
 
-          <Footer />
-        </div>
-      </main>
+    <script
+      type="application/ld+json"
+      is:inline
+      set:html={JSON.stringify({
+        "@context": "https://schema.org",
+        "@type": "Person",
+        "url": CANONICAL_URL,
+        "name": AUTHOR,
+        "jobTitle": JOB_TITLE,
+        "sameAs": LINKS.filter((link) => link.HREF.startsWith("https://")).map(
+          (link) => link.HREF,
+        ),
+      })}
+    />
+
+    <!-- Assets -->
+    <link rel="icon" type="image/svg+xml" href={faviconURL} />
+    <link rel="preload" as="style" href={tailwindURL} />
+    <link rel="stylesheet" href={tailwindURL} />
+  </head>
+
+  <body>
+    <script src="~/scripts/toc.ts"></script>
+
+    <div class="px-x-container py-y-container mx-auto lg:container">
+      <div class="lg:grid lg:grid-cols-5 lg:gap-x-4">
+        <Heading
+          class="lg:py-y-container lg:fixed lg:inset-y-0 lg:grid lg:grid-rows-[auto_auto_1fr]"
+        />
+
+        <main class="pt-y-container lg:col-start-3 lg:col-end-6 lg:pt-0">
+          <div class="[&>*+*]:mt-y-container text-secondary-foreground">
+            {
+              SECTIONS.map((SECTION) => {
+                const Content = idToContent(SECTION.ID)
+
+                return (
+                  <Entitled id={SECTION.ID} title={SECTION.TITLE}>
+                    <section class="[&>*+*]:mt-6">
+                      <Content />
+                    </section>
+                  </Entitled>
+                )
+              })
+            }
+
+            <Footer />
+          </div>
+        </main>
+      </div>
     </div>
-  </div>
-</DefaultLayout>
+  </body>
+</html>

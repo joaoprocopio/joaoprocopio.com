@@ -9,8 +9,8 @@
 @import "tw-animate-css";
 @import "shadcn/tailwind.css";
 
-@import "~/styles/theme.css";
-@import "~/styles/typography/typography.css";
+@import "./theme.css";
+@import "./typography/typography.css";
 
 @layer base {
   * {

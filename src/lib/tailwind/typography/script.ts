@@ -2,10 +2,10 @@
 
 import { VARIANT_SIZING } from "./sizing"
 import { TRACKING } from "./tracking"
+import type { TVariant } from "./types"
 import fs from "node:fs"
 import path from "node:path"
 import postcss from "postcss"
-import type { TVariant } from "~/styles/typography/types"
 
 const css = postcss.root({
   nodes: [
