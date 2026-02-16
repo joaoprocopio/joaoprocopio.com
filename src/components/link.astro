@@ -17,8 +17,8 @@ const target = (Astro.props.target ??
 <a
   {...props}
   class={cn("inline-flex items-center gap-0.5", classProp)}
-  target={target}
-  ><slot />
+  target={target}>
+  <slot />
   {
     icon &&
       (isInternal ? (

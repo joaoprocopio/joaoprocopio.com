@@ -54,13 +54,14 @@ const props = Astro.props
       {
         SOCIAL.map((social) => {
           return (
-            <a
+            <Link
+              icon={false}
               href={social.href}
               aria-label={social.label}
               target="_blank"
               class="text-muted-foreground hover:text-accent-foreground focus-visible:text-accent-foreground active:text-secondary-foreground inline-block">
               <social.icon class="h-6" />
-            </a>
+            </Link>
           )
         })
       }
