@@ -12,7 +12,7 @@
 
 @layer base {
   * {
-    @apply border-border ring-ring outline-outline transition transition-discrete;
+    @apply border-border ring-ring outline-outline transition transition-discrete duration-150;
   }
 
   body {

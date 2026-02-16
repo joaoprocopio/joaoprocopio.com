@@ -121,6 +121,11 @@
   --color-background: var(--color-black-a12);
   --color-foreground: var(--color-white-a12);
 
+  --color-destructive: var(--destructive);
+
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+
   --color-secondary: var(--color-gray-3);
   --color-secondary-foreground: var(--color-white-a9);
 
@@ -130,7 +135,30 @@
   --color-muted: var(--color-gray-1);
   --color-muted-foreground: var(--color-white-a5);
 
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+
+  --color-input: var(--input);
+
   --color-border: var(--color-gray-a3);
   --color-ring: var(--color-gray-5);
   --color-outline: oklch(from var(--color-ring) l c h / 0.5);
+
+  --color-sidebar-ring: var(--sidebar-ring);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar: var(--sidebar);
+
+  --color-chart-1: var(--chart-1);
+  --color-chart-2: var(--chart-2);
+  --color-chart-3: var(--chart-3);
+  --color-chart-4: var(--chart-4);
+  --color-chart-5: var(--chart-5);
 }
