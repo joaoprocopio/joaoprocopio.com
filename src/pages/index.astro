@@ -8,7 +8,7 @@ import { SECTIONS } from "~/constants/sections"
 import tailwindURL from "~/lib/tailwind/tailwind.css?url"
 import { AUTHOR, JOB_TITLE, DESCRIPTION } from "~/constants/seo"
 import faviconURL from "~/assets/favicon.svg?url"
-import { LINKS } from "~/constants/links"
+import { SOCIAL } from "~/constants/social"
 import { env } from "~/env"
 
 const CANONICAL_URL = env.getCanonicalURL(Astro.site!, Astro.url)
@@ -55,9 +55,9 @@ function idToContent(id: (typeof SECTIONS)[number]["ID"]) {
         "url": CANONICAL_URL,
         "name": AUTHOR,
         "jobTitle": JOB_TITLE,
-        "sameAs": LINKS.filter((link) => link.HREF.startsWith("https://")).map(
-          (link) => link.HREF,
-        ),
+        "sameAs": SOCIAL.filter(
+          (social) => URL.parse(social.href)?.protocol === "https:",
+        ).map((social) => social.href),
       })}
     />
 

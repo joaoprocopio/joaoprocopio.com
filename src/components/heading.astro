@@ -1,10 +1,7 @@
 ---
 import { env } from "~/env"
 import { SECTIONS } from "~/constants/sections"
-import { LINKS } from "~/constants/links"
-import GitHub from "~/icons/github.astro"
-import Gmail from "~/icons/gmail.astro"
-import LinkedIn from "~/icons/linkedin.astro"
+import { SOCIAL } from "~/constants/social"
 import { AUTHOR, DESCRIPTION, JOB_TITLE } from "~/constants/seo"
 import Link from "~/components/link.astro"
 
@@ -51,28 +48,14 @@ const props = Astro.props
   <div class="mt-6 place-content-end lg:mt-0">
     <nav class="flex gap-3">
       {
-        LINKS.map((LINK) => {
-          let Icon: astroHTML.JSX.Element
-
-          switch (LINK.ID) {
-            case "github":
-              Icon = GitHub
-              break
-            case "gmail":
-              Icon = Gmail
-              break
-            case "linkedin":
-              Icon = LinkedIn
-              break
-          }
-
+        SOCIAL.map((social) => {
           return (
             <a
-              href={LINK.HREF}
-              aria-label={LINK.LABEL}
+              href={social.href}
+              aria-label={social.label}
               target="_blank"
               class="text-muted-foreground hover:text-accent-foreground focus-visible:text-accent-foreground active:text-secondary-foreground inline-block">
-              <Icon class="h-6" />
+              <social.icon class="h-6" />
             </a>
           )
         })
