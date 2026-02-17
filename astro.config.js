@@ -7,7 +7,7 @@ import reactCompiler from "babel-plugin-react-compiler"
 import { fileURLToPath, URL } from "node:url"
 
 const GOOGLE_DOCS_RESUME_URL =
-  "https://docs.google.com/document/d/1zAKtQi5Jh-v9ATaq2QNfp0nj--TC6rGe7YTJdSLViFY/edit?usp=sharing"
+  "https://docs.google.com/document/d/1Zyc6JFGPVfEC3cXRTnx44ExETdle8AbWihFW4_de4W0/edit?usp=sharing"
 
 export default defineConfig({
   site: "https://joaoprocopio.com",
