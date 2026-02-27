@@ -1,16 +1,15 @@
-import type { Config } from "prettier";
+import type { Config } from 'prettier'
 
 export default {
-  quoteProps: "consistent",
+  quoteProps: 'consistent',
   singleQuote: true,
-  trailingComma: "all",
-  arrowParens: "always",
-  vueIndentScriptAndStyle: true,
+  trailingComma: 'all',
+  arrowParens: 'always',
   bracketSameLine: true,
-  endOfLine: "auto",
+  endOfLine: 'auto',
   semi: false,
   plugins: [
-    "@trivago/prettier-plugin-sort-imports",
-    "prettier-plugin-tailwindcss",
+    '@trivago/prettier-plugin-sort-imports',
+    'prettier-plugin-tailwindcss',
   ],
 } as const satisfies Config
