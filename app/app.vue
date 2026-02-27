@@ -1,3 +1,9 @@
+<script setup lang="ts">
+import { useColorMode } from '#imports'
+</script>
+
 <template>
-  <NuxtPage />
+  <ColorScheme>
+    <NuxtPage />
+  </ColorScheme>
 </template>
