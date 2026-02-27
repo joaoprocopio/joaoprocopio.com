@@ -2,7 +2,6 @@
   "private": true,
   "type": "module",
   "name": "joaoprocopio.com",
-  "packageManager": "pnpm@10.29.2",
   "engines": {
     "node": ">=24.11.0"
   },
