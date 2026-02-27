@@ -5,19 +5,19 @@ export default defineNuxtConfig({
   devtools: { enabled: true },
   modules: ['@nuxt/eslint', '@vueuse/nuxt'],
   css: ['~/styles/index.css'],
-  eslint: {
-    config: {
-      nuxt: {
-        sortConfigKeys: true,
-      },
-    },
-  },
   typescript: {
     tsConfig: {
       compilerOptions: {
         skipLibCheck: true,
       },
     },
+  },
+  imports: {
+    scan: false,
+    autoImport: false,
+  },
+  components: {
+    dirs: [],
   },
   vite: {
     plugins: [tailwindcss() as any],
