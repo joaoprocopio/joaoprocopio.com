@@ -1,6 +1,6 @@
 import type { Config } from "prettier";
 
-export default <Config>{
+export default {
   quoteProps: "consistent",
   singleQuote: true,
   trailingComma: "all",
@@ -13,4 +13,4 @@ export default <Config>{
     "@trivago/prettier-plugin-sort-imports",
     "prettier-plugin-tailwindcss",
   ],
-};
+} as const satisfies Config

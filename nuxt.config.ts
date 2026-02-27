@@ -1,9 +1,10 @@
-import tailwindcss from "@tailwindcss/vite";
+import tailwindcss from '@tailwindcss/vite'
 
 export default defineNuxtConfig({
-  compatibilityDate: "latest",
+  compatibilityDate: 'latest',
   devtools: { enabled: true },
-  modules: ["@nuxt/eslint"],
+  modules: ['@nuxt/eslint'],
+  css: ['~/styles/index.css'],
   eslint: {
     config: {
       nuxt: {
@@ -11,7 +12,15 @@ export default defineNuxtConfig({
       },
     },
   },
-  vite: {
-    plugins: [tailwindcss()],
+  typescript: {
+    tsConfig: {
+      compilerOptions: {
+        skipLibCheck: true,
+      },
+    },
   },
-});
+  vite: {
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    plugins: [tailwindcss() as any],
+  },
+})
