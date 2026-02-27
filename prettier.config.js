@@ -4,4 +4,4 @@ export default {
     "@trivago/prettier-plugin-sort-imports",
     "prettier-plugin-tailwindcss",
   ],
-}
+};
