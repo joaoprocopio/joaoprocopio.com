@@ -36,6 +36,9 @@ export default defineNuxtConfig({
     componentDir: '~/lib/ui/components',
     prefix: '',
   },
+  colorMode: {
+    storage: 'cookie',
+  },
   vite: {
     plugins: [tailwindcss() as any],
   },

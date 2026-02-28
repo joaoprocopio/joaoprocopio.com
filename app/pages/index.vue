@@ -1,7 +1,13 @@
 <script setup lang="ts">
-const value = ref<string[]>([])
+const colorMode = useColorMode()
 </script>
 
 <template>
-  <div>portfolio!</div>
+  <div>{{ colorMode }}</div>
+  <Button
+    @click="
+      colorMode.preference = colorMode.value === 'dark' ? 'light' : 'dark'
+    ">
+    toggle
+  </Button>
 </template>
