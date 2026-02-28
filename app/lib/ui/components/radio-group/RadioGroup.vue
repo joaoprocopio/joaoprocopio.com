@@ -1,5 +1,4 @@
 <script setup lang="ts">
-import { cn } from '@/lib/ui/utils'
 import type { RadioGroupRootEmits, RadioGroupRootProps } from 'reka-ui'
 import { RadioGroupRoot, useForwardPropsEmits } from 'reka-ui'
 import type { HTMLAttributes } from 'vue'

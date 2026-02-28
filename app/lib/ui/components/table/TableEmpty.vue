@@ -1,7 +1,6 @@
 <script setup lang="ts">
 import TableCell from './TableCell.vue'
 import TableRow from './TableRow.vue'
-import { cn } from '@/lib/ui/utils'
 import type { HTMLAttributes } from 'vue'
 
 const props = withDefaults(

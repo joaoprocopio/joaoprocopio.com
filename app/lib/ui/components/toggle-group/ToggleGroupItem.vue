@@ -1,6 +1,5 @@
 <script setup lang="ts">
 import { toggleVariants } from '@/lib/ui/components/toggle'
-import { cn } from '@/lib/ui/utils'
 import type { VariantProps } from 'class-variance-authority'
 import type { ToggleGroupItemProps } from 'reka-ui'
 import { ToggleGroupItem, useForwardProps } from 'reka-ui'

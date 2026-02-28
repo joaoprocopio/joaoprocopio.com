@@ -1,5 +1,4 @@
 <script setup lang="ts">
-import { cn } from '@/lib/ui/utils'
 import type { AccordionTriggerProps } from 'reka-ui'
 import { AccordionHeader, AccordionTrigger } from 'reka-ui'
 import type { HTMLAttributes } from 'vue'

@@ -1,6 +1,5 @@
 <script lang="ts" setup>
 import { FORM_ITEM_INJECTION_KEY } from './injectionKeys'
-import { cn } from '@/lib/ui/utils'
 import { useId } from 'reka-ui'
 import type { HTMLAttributes } from 'vue'
 import { provide } from 'vue'

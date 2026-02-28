@@ -7,7 +7,6 @@ import {
   SIDEBAR_WIDTH,
   SIDEBAR_WIDTH_ICON,
 } from './utils'
-import { cn } from '@/lib/ui/utils'
 import { defaultDocument } from '@vueuse/core'
 import { TooltipProvider } from 'reka-ui'
 import type { HTMLAttributes, Ref } from 'vue'

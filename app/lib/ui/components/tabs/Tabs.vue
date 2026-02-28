@@ -1,5 +1,4 @@
 <script setup lang="ts">
-import { cn } from '@/lib/ui/utils'
 import type { TabsRootEmits, TabsRootProps } from 'reka-ui'
 import { TabsRoot, useForwardPropsEmits } from 'reka-ui'
 import type { HTMLAttributes } from 'vue'

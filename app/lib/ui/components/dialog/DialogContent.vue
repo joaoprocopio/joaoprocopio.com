@@ -1,6 +1,5 @@
 <script setup lang="ts">
 import DialogOverlay from './DialogOverlay.vue'
-import { cn } from '@/lib/ui/utils'
 import type { DialogContentEmits, DialogContentProps } from 'reka-ui'
 import {
   DialogClose,

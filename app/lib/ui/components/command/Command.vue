@@ -1,6 +1,5 @@
 <script setup lang="ts">
 import { provideCommandContext } from '.'
-import { cn } from '@/lib/ui/utils'
 import type { ListboxRootEmits, ListboxRootProps } from 'reka-ui'
 import { ListboxRoot, useFilter, useForwardPropsEmits } from 'reka-ui'
 import type { HTMLAttributes } from 'vue'

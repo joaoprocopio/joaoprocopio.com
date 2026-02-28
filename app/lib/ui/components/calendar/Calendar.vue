@@ -1,6 +1,5 @@
 <script lang="ts" setup>
 import type { LayoutTypes } from '.'
-import { cn } from '@/lib/ui/utils'
 import { getLocalTimeZone, today } from '@internationalized/date'
 import type { CalendarRootEmits, CalendarRootProps, DateValue } from 'reka-ui'
 import { CalendarRoot, useDateFormatter, useForwardPropsEmits } from 'reka-ui'

@@ -1,5 +1,4 @@
 <script setup lang="ts">
-import { cn } from '@/lib/ui/utils'
 import type { NavigationMenuLinkEmits, NavigationMenuLinkProps } from 'reka-ui'
 import { NavigationMenuLink, useForwardPropsEmits } from 'reka-ui'
 import type { HTMLAttributes } from 'vue'

@@ -1,5 +1,4 @@
 <script setup lang="ts">
-import { cn } from '@/lib/ui/utils'
 import type { DialogOverlayProps } from 'reka-ui'
 import { DialogOverlay } from 'reka-ui'
 import type { HTMLAttributes } from 'vue'

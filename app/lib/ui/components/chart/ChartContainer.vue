@@ -2,7 +2,6 @@
 import type { ChartConfig } from '.'
 import { provideChartContext } from '.'
 import ChartStyle from './ChartStyle.vue'
-import { cn } from '@/lib/ui/utils'
 import { useId } from 'reka-ui'
 import type { HTMLAttributes } from 'vue'
 import { computed, toRefs } from 'vue'

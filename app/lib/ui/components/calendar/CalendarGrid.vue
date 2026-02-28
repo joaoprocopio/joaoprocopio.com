@@ -1,5 +1,4 @@
 <script lang="ts" setup>
-import { cn } from '@/lib/ui/utils'
 import type { CalendarGridProps } from 'reka-ui'
 import { CalendarGrid, useForwardProps } from 'reka-ui'
 import type { HTMLAttributes } from 'vue'

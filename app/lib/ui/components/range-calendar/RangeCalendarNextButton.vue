@@ -1,6 +1,5 @@
 <script lang="ts" setup>
 import { buttonVariants } from '@/lib/ui/components/button'
-import { cn } from '@/lib/ui/utils'
 import type { RangeCalendarNextProps } from 'reka-ui'
 import { RangeCalendarNext, useForwardProps } from 'reka-ui'
 import type { HTMLAttributes } from 'vue'

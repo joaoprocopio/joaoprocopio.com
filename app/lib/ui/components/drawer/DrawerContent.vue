@@ -1,6 +1,5 @@
 <script lang="ts" setup>
 import DrawerOverlay from './DrawerOverlay.vue'
-import { cn } from '@/lib/ui/utils'
 import type { DialogContentEmits, DialogContentProps } from 'reka-ui'
 import { useForwardPropsEmits } from 'reka-ui'
 import { DrawerContent, DrawerPortal } from 'vaul-vue'

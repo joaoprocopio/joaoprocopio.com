@@ -1,5 +1,4 @@
 <script setup lang="ts">
-import { cn } from '@/lib/ui/utils'
 import type { AccordionItemProps } from 'reka-ui'
 import { AccordionItem, useForwardProps } from 'reka-ui'
 import type { HTMLAttributes } from 'vue'

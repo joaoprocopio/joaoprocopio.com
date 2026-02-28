@@ -1,5 +1,4 @@
 <script lang="ts" setup>
-import { cn } from '@/lib/ui/utils'
 import type { StepperItemProps } from 'reka-ui'
 import { StepperItem, useForwardProps } from 'reka-ui'
 import type { HTMLAttributes } from 'vue'

@@ -1,5 +1,4 @@
 <script setup lang="ts">
-import { cn } from '@/lib/ui/utils'
 import type { ComboboxContentEmits, ComboboxContentProps } from 'reka-ui'
 import { ComboboxContent, ComboboxPortal, useForwardPropsEmits } from 'reka-ui'
 import type { HTMLAttributes } from 'vue'

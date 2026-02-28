@@ -1,6 +1,5 @@
 <script setup lang="ts">
 import { provideCommandGroupContext, useCommand } from '.'
-import { cn } from '@/lib/ui/utils'
 import type { ListboxGroupProps } from 'reka-ui'
 import { ListboxGroup, ListboxGroupLabel, useId } from 'reka-ui'
 import type { HTMLAttributes } from 'vue'

@@ -1,5 +1,4 @@
 <script lang="ts" setup>
-import { cn } from '@/lib/ui/utils'
 import type { RangeCalendarRootEmits, RangeCalendarRootProps } from 'reka-ui'
 import { RangeCalendarRoot, useForwardPropsEmits } from 'reka-ui'
 import type { HTMLAttributes } from 'vue'

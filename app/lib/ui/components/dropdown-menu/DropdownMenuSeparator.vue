@@ -1,5 +1,4 @@
 <script setup lang="ts">
-import { cn } from '@/lib/ui/utils'
 import type { DropdownMenuSeparatorProps } from 'reka-ui'
 import { DropdownMenuSeparator } from 'reka-ui'
 import type { HTMLAttributes } from 'vue'

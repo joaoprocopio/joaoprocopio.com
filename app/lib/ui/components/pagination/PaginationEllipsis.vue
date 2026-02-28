@@ -1,5 +1,4 @@
 <script setup lang="ts">
-import { cn } from '@/lib/ui/utils'
 import type { PaginationEllipsisProps } from 'reka-ui'
 import { PaginationEllipsis } from 'reka-ui'
 import type { HTMLAttributes } from 'vue'

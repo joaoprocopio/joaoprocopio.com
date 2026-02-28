@@ -1,7 +1,6 @@
 <script setup lang="ts">
 import type { ToggleVariants } from '.'
 import { toggleVariants } from '.'
-import { cn } from '@/lib/ui/utils'
 import type { ToggleEmits, ToggleProps } from 'reka-ui'
 import { Toggle, useForwardPropsEmits } from 'reka-ui'
 import type { HTMLAttributes } from 'vue'

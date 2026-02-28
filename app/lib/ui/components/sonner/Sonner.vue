@@ -1,5 +1,4 @@
 <script lang="ts" setup>
-import { cn } from '@/lib/ui/utils'
 import type { ToasterProps } from 'vue-sonner'
 import { Toaster as Sonner } from 'vue-sonner'
 

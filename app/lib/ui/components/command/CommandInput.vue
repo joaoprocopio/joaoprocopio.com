@@ -1,6 +1,5 @@
 <script setup lang="ts">
 import { useCommand } from '.'
-import { cn } from '@/lib/ui/utils'
 import type { ListboxFilterProps } from 'reka-ui'
 import { ListboxFilter, useForwardProps } from 'reka-ui'
 import type { HTMLAttributes } from 'vue'

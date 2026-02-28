@@ -1,6 +1,5 @@
 <script setup lang="ts">
 import NavigationMenuViewport from './NavigationMenuViewport.vue'
-import { cn } from '@/lib/ui/utils'
 import type { NavigationMenuRootEmits, NavigationMenuRootProps } from 'reka-ui'
 import { NavigationMenuRoot, useForwardPropsEmits } from 'reka-ui'
 import type { HTMLAttributes } from 'vue'

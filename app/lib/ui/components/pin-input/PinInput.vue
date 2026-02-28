@@ -1,5 +1,4 @@
 <script setup lang="ts" generic="Type extends 'text' | 'number' = 'text'">
-import { cn } from '@/lib/ui/utils'
 import type { PinInputRootEmits, PinInputRootProps } from 'reka-ui'
 import { PinInputRoot, useForwardPropsEmits } from 'reka-ui'
 import type { HTMLAttributes } from 'vue'

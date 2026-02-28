@@ -1,5 +1,5 @@
 import { HARD_SKILLS } from '~/constants/skills'
-import type { PRESENT } from '~/utils/date';
+import type { PRESENT } from '~/utils/date'
 import { date, MONTH } from '~/utils/date'
 
 export type TExperience = {

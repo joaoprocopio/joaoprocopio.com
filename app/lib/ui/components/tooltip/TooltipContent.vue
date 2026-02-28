@@ -1,5 +1,4 @@
 <script setup lang="ts">
-import { cn } from '@/lib/ui/utils'
 import type { TooltipContentEmits, TooltipContentProps } from 'reka-ui'
 import {
   TooltipArrow,

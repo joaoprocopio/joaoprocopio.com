@@ -1,5 +1,4 @@
 <script setup lang="ts">
-import { cn } from '@/lib/ui/utils'
 import type { SplitterGroupEmits, SplitterGroupProps } from 'reka-ui'
 import { SplitterGroup, useForwardPropsEmits } from 'reka-ui'
 import type { HTMLAttributes } from 'vue'

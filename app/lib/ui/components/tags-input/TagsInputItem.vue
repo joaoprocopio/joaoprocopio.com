@@ -1,5 +1,4 @@
 <script setup lang="ts">
-import { cn } from '@/lib/ui/utils'
 import type { TagsInputItemProps } from 'reka-ui'
 import { TagsInputItem, useForwardProps } from 'reka-ui'
 import type { HTMLAttributes } from 'vue'

@@ -1,5 +1,4 @@
 <script setup lang="ts">
-import { cn } from '@/lib/ui/utils'
 import type { DialogDescriptionProps } from 'reka-ui'
 import { DialogDescription, useForwardProps } from 'reka-ui'
 import type { HTMLAttributes } from 'vue'

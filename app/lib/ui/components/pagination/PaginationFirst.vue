@@ -1,7 +1,6 @@
 <script setup lang="ts">
 import type { ButtonVariants } from '@/lib/ui/components/button'
 import { buttonVariants } from '@/lib/ui/components/button'
-import { cn } from '@/lib/ui/utils'
 import type { PaginationFirstProps } from 'reka-ui'
 import { PaginationFirst, useForwardProps } from 'reka-ui'
 import type { HTMLAttributes } from 'vue'

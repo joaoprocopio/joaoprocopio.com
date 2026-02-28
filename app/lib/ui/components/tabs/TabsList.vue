@@ -1,5 +1,4 @@
 <script setup lang="ts">
-import { cn } from '@/lib/ui/utils'
 import type { TabsListProps } from 'reka-ui'
 import { TabsList } from 'reka-ui'
 import type { HTMLAttributes } from 'vue'

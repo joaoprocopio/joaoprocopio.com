@@ -1,6 +1,5 @@
 <script setup lang="ts">
 import { useChart } from '.'
-import { cn } from '@/lib/ui/utils'
 import type { HTMLAttributes } from 'vue'
 import { computed, onMounted, ref } from 'vue'
 
