@@ -38,6 +38,7 @@ export default defineNuxtConfig({
   },
   colorMode: {
     storage: 'cookie',
+    disableTransition: true,
   },
   vite: {
     plugins: [tailwindcss() as any],
