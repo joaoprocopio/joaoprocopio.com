@@ -1,4 +1,1 @@
-<template>
-  <Input />
-  <LazyInput />
-</template>
+<template></template>
