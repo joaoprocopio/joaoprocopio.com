@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { buttonVariants } from '@/lib/ui/button'
+import { buttonVariants } from '@/components/ui/button'
 import { cn } from '@/lib/ui/utils'
 import { reactiveOmit } from '@vueuse/core'
 import type { AlertDialogActionProps } from 'reka-ui'

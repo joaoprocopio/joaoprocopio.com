@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import { cn } from '@/lib/ui/utils'
 import { reactiveOmit } from '@vueuse/core'
+import { X } from 'lucide-vue-next'
 import type { TagsInputItemDeleteProps } from 'reka-ui'
 import { TagsInputItemDelete, useForwardProps } from 'reka-ui'
 import type { HTMLAttributes } from 'vue'
@@ -19,7 +20,7 @@ const forwardedProps = useForwardProps(delegatedProps)
     v-bind="forwardedProps"
     :class="cn('mr-1 flex rounded bg-transparent', props.class)">
     <slot>
-      <Icon name="lucide:x" class="h-4 w-4" />
+      <X class="h-4 w-4" />
     </slot>
   </TagsInputItemDelete>
 </template>

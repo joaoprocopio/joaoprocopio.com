@@ -1,5 +1,5 @@
 <script lang="ts" setup>
-import { buttonVariants } from '@/lib/ui/button'
+import { buttonVariants } from '@/components/ui/button'
 import { cn } from '@/lib/ui/utils'
 import { reactiveOmit } from '@vueuse/core'
 import { ChevronRight } from 'lucide-vue-next'

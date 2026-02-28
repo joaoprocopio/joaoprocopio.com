@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { useSidebar } from './utils'
-import { Button } from '@/lib/ui/button'
+import { Button } from '@/components/ui/button'
 import { cn } from '@/lib/ui/utils'
 import { PanelLeft } from 'lucide-vue-next'
 import type { HTMLAttributes } from 'vue'
