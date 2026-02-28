@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { Textarea } from '@/components/ui/textarea'
+import { Textarea } from '@/lib/ui/textarea'
 import { cn } from '@/lib/ui/utils'
 import type { HTMLAttributes } from 'vue'
 

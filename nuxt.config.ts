@@ -3,7 +3,7 @@ import tailwindcss from '@tailwindcss/vite'
 export default defineNuxtConfig({
   compatibilityDate: 'latest',
   devtools: { enabled: true },
-  modules: ['@nuxtjs/color-mode', '@nuxt/eslint'],
+  modules: ['@nuxtjs/color-mode', '@nuxt/eslint', '@nuxt/icon'],
   css: ['~/assets/index.css'],
   typescript: {
     tsConfig: {
@@ -13,11 +13,23 @@ export default defineNuxtConfig({
     },
   },
   imports: {
-    scan: false,
+    scan: true,
     autoImport: false,
   },
   components: {
-    dirs: [],
+    dirs: [
+      {
+        path: '~/components',
+        extensions: ['vue'],
+      },
+      {
+        path: '~/lib/ui',
+        extensions: ['vue'],
+      },
+    ],
+  },
+  icon: {
+    mode: 'svg',
   },
   vite: {
     plugins: [tailwindcss() as any],

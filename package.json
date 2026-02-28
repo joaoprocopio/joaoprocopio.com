@@ -22,7 +22,6 @@
     "class-variance-authority": "^0.7.1",
     "clsx": "^2.1.1",
     "embla-carousel-vue": "^8.6.0",
-    "lucide-vue-next": "^0.575.0",
     "nuxt": "^4.3.1",
     "reka-ui": "^2.8.2",
     "tailwind-merge": "^3.5.0",
@@ -32,10 +31,12 @@
     "vue-input-otp": "^0.3.2",
     "vue-router": "^4.6.4",
     "vue-sonner": "^2.0.9",
-    "zod": "3.25.76"
+    "zod": "^3.25.76"
   },
   "devDependencies": {
+    "@iconify-json/lucide": "^1.2.95",
     "@nuxt/eslint": "1.15.2",
+    "@nuxt/icon": "^2.2.1",
     "@nuxtjs/color-mode": "^4.0.0",
     "@tailwindcss/vite": "^4.2.1",
     "@trivago/prettier-plugin-sort-imports": "^6.0.2",

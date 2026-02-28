@@ -1,3 +1,4 @@
 <template>
-  <h1>abc</h1>
+  <Input />
+  <LazyInput />
 </template>

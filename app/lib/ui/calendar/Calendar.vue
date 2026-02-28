@@ -13,7 +13,7 @@ import {
   CalendarNextButton,
   CalendarPrevButton,
 } from '.'
-import { NativeSelect, NativeSelectOption } from '@/components/ui/native-select'
+import { NativeSelect, NativeSelectOption } from '@/lib/ui/native-select'
 import { cn } from '@/lib/ui/utils'
 import { getLocalTimeZone, today } from '@internationalized/date'
 import { createReusableTemplate, reactiveOmit, useVModel } from '@vueuse/core'
