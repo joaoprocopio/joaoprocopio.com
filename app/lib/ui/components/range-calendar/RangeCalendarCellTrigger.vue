@@ -1,5 +1,5 @@
 <script lang="ts" setup>
-import { buttonVariants } from '@/components/ui/button'
+import { buttonVariants } from '@/lib/ui/components/button'
 import { cn } from '@/lib/ui/utils'
 import { reactiveOmit } from '@vueuse/core'
 import type { RangeCalendarCellTriggerProps } from 'reka-ui'

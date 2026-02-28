@@ -6,7 +6,7 @@ import {
   Tooltip,
   TooltipContent,
   TooltipTrigger,
-} from '@/components/ui/tooltip'
+} from '@/lib/ui/components/tooltip'
 import { reactiveOmit } from '@vueuse/core'
 import type { Component } from 'vue'
 

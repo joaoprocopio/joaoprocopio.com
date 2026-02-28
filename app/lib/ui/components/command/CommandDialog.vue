@@ -6,7 +6,7 @@ import {
   DialogDescription,
   DialogHeader,
   DialogTitle,
-} from '@/components/ui/dialog'
+} from '@/lib/ui/components/dialog'
 import type { DialogRootEmits, DialogRootProps } from 'reka-ui'
 import { useForwardPropsEmits } from 'reka-ui'
 

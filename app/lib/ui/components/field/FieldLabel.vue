@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { Label } from '@/components/ui/label'
+import { Label } from '@/lib/ui/components/label'
 import { cn } from '@/lib/ui/utils'
 import type { HTMLAttributes } from 'vue'
 
