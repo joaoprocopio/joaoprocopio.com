@@ -2,7 +2,6 @@
 import { useSidebar } from './utils'
 import { Button } from '@/components/ui/button'
 import { cn } from '@/lib/ui/utils'
-import { PanelLeft } from 'lucide-vue-next'
 import type { HTMLAttributes } from 'vue'
 
 const props = defineProps<{
@@ -20,7 +19,7 @@ const { toggleSidebar } = useSidebar()
     size="icon"
     :class="cn('h-7 w-7', props.class)"
     @click="toggleSidebar">
-    <PanelLeft />
+    <Icon name="lucide:panel-left" />
     <span class="sr-only">Toggle Sidebar</span>
   </Button>
 </template>

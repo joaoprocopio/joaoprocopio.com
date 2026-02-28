@@ -1,7 +1,6 @@
 <script setup lang="ts">
 import { cn } from '@/lib/ui/utils'
 import { reactiveOmit } from '@vueuse/core'
-import { CircleIcon } from 'lucide-vue-next'
 import type { RadioGroupItemProps } from 'reka-ui'
 import { RadioGroupIndicator, RadioGroupItem, useForwardProps } from 'reka-ui'
 import type { HTMLAttributes } from 'vue'
@@ -29,7 +28,8 @@ const forwardedProps = useForwardProps(delegatedProps)
       data-slot="radio-group-indicator"
       class="relative flex items-center justify-center">
       <slot>
-        <CircleIcon
+        <Icon
+          name="lucide:circle"
           class="fill-primary absolute top-1/2 left-1/2 size-2 -translate-x-1/2 -translate-y-1/2" />
       </slot>
     </RadioGroupIndicator>

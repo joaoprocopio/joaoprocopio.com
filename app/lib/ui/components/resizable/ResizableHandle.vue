@@ -1,7 +1,6 @@
 <script setup lang="ts">
 import { cn } from '@/lib/ui/utils'
 import { reactiveOmit } from '@vueuse/core'
-import { GripVertical } from 'lucide-vue-next'
 import type {
   SplitterResizeHandleEmits,
   SplitterResizeHandleProps,
@@ -35,7 +34,7 @@ const forwarded = useForwardPropsEmits(delegatedProps, emits)
       <div
         class="bg-border z-10 flex h-4 w-3 items-center justify-center rounded-xs border">
         <slot>
-          <GripVertical class="size-2.5" />
+          <Icon name="lucide:grip-vertical" class="size-2.5" />
         </slot>
       </div>
     </template>

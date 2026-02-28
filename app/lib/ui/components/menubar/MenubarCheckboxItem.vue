@@ -1,7 +1,6 @@
 <script setup lang="ts">
 import { cn } from '@/lib/ui/utils'
 import { reactiveOmit } from '@vueuse/core'
-import { Check } from 'lucide-vue-next'
 import type {
   MenubarCheckboxItemEmits,
   MenubarCheckboxItemProps,
@@ -37,7 +36,7 @@ const forwarded = useForwardPropsEmits(delegatedProps, emits)
       class="pointer-events-none absolute left-2 flex size-3.5 items-center justify-center">
       <MenubarItemIndicator>
         <slot name="indicator-icon">
-          <Check class="size-4" />
+          <Icon name="lucide:check" class="size-4" />
         </slot>
       </MenubarItemIndicator>
     </span>
