@@ -1,4 +1,4 @@
 onlyBuiltDependencies:
-  - "@parcel/watcher"
-  - "esbuild"
-  - "unrs-resolver"
+  - '@parcel/watcher'
+  - 'esbuild'
+  - 'unrs-resolver'

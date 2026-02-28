@@ -1,4 +1,4 @@
-import type { TSizeTracking } from "./types"
+import type { TSizeTracking } from './types'
 
 export const TRACKING = {
   6: 41,

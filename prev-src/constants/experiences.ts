@@ -1,5 +1,6 @@
-import { HARD_SKILLS } from "~/constants/skills"
-import { date, MONTH, PRESENT } from "~/utils/date"
+import { HARD_SKILLS } from '~/constants/skills'
+import type { PRESENT } from '~/utils/date';
+import { date, MONTH } from '~/utils/date'
 
 export type TExperience = {
   company: string
@@ -12,18 +13,18 @@ export type TExperience = {
 }
 
 export type TExperienceGrouped<
-  CompanyKey extends keyof TExperience = "company",
+  CompanyKey extends keyof TExperience = 'company',
 > = {
   company: string
   experiences: Omit<TExperience, CompanyKey>[]
 }
 
 export const VILLAFACT_EXPERIENCE = {
-  company: "Villafact",
-  url: "https://villafact.com",
-  title: "Senior Full Stack Software Engineer",
+  company: 'Villafact',
+  url: 'https://villafact.com',
+  title: 'Senior Full Stack Software Engineer',
   description:
-    "Third engineer at an early-stage startup, working directly with the CEO to translate business vision into technical solutions with full end-to-end ownership. Architected a Vue component system, built a hybrid mobile app with Capacitor and real-time data sync via Firebase, and led product UI/UX decisions across web and mobile.",
+    'Third engineer at an early-stage startup, working directly with the CEO to translate business vision into technical solutions with full end-to-end ownership. Architected a Vue component system, built a hybrid mobile app with Capacitor and real-time data sync via Firebase, and led product UI/UX decisions across web and mobile.',
   skills: [
     HARD_SKILLS.VUE,
     HARD_SKILLS.NODE,
@@ -35,11 +36,11 @@ export const VILLAFACT_EXPERIENCE = {
 } as const satisfies TExperience
 
 export const MORAY_EXPERIENCE = {
-  company: "Moray",
-  url: "https://www.moray.ai",
-  title: "Frontend Software Engineer",
+  company: 'Moray',
+  url: 'https://www.moray.ai',
+  title: 'Frontend Software Engineer',
   description:
-    "Second frontend engineer at a joint venture building AI-driven agricultural platforms. Built an offline-first React Native app for crop monitoring across remote areas with unreliable connectivity, led the Nuxt to React migration, and optimized infrastructure — cutting load times by 40% and Docker image sizes by 96%.",
+    'Second frontend engineer at a joint venture building AI-driven agricultural platforms. Built an offline-first React Native app for crop monitoring across remote areas with unreliable connectivity, led the Nuxt to React migration, and optimized infrastructure — cutting load times by 40% and Docker image sizes by 96%.',
   skills: [
     HARD_SKILLS.TYPE_SCRIPT,
     HARD_SKILLS.REACT,
@@ -57,9 +58,9 @@ export const MORAY_EXPERIENCE = {
 } as const satisfies TExperience
 
 export const BUSER_EXPERIENCE = {
-  company: "Buser",
-  url: "https://buser.com.br",
-  title: "Full Stack Software Engineer",
+  company: 'Buser',
+  url: 'https://buser.com.br',
+  title: 'Full Stack Software Engineer',
   description:
     "Delivered full stack features across a hybrid mobile application, backend services, and data pipelines for one of Brazil's largest intercity bus travel platforms. Built Airflow DAGs, optimized reporting pipelines on Databricks, and partnered with operations to fix critical bugs and improve daily workflows.",
   skills: [

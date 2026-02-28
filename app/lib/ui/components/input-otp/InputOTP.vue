@@ -18,8 +18,8 @@ const forwarded = useForwardPropsEmits(delegatedProps, emits)
 
 <template>
   <PinInputRoot
-    data-slot="input-otp"
     v-slot="slotProps"
+    data-slot="input-otp"
     v-bind="forwarded"
     :container-class="
       cn('flex items-center gap-2 has-disabled:opacity-50', props.class)

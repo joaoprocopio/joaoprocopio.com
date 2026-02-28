@@ -2,15 +2,15 @@
 
 @layer theme, base, components, utilities;
 
-@import "tailwindcss/preflight" layer(base);
-@import "tailwindcss/utilities" layer(utilities);
+@import 'tailwindcss/preflight' layer(base);
+@import 'tailwindcss/utilities' layer(utilities);
 
-@import "@fontsource-variable/geist";
-@import "tw-animate-css";
-@import "shadcn/tailwind.css";
+@import '@fontsource-variable/geist';
+@import 'tw-animate-css';
+@import 'shadcn/tailwind.css';
 
-@import "./theme.css";
-@import "./typography/typography.css";
+@import './theme.css';
+@import './typography/typography.css';
 
 @layer base {
   * {

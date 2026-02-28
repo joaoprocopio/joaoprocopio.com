@@ -1,6 +1,6 @@
-import { SECTIONS } from "~/constants/sections"
+import { SECTIONS } from '~/constants/sections'
 
-const EL_DATA_ACTIVE = "data-active"
+const EL_DATA_ACTIVE = 'data-active'
 
 const linkElBySection = new Map<HTMLElement, HTMLElement>(
   SECTIONS.map((section) => {
