@@ -1,6 +1,5 @@
 <script setup lang="ts">
 import { cn } from '@/lib/ui/utils'
-import { reactiveOmit, useVModel } from '@vueuse/core'
 import type { AcceptableValue } from 'reka-ui'
 import type { HTMLAttributes } from 'vue'
 

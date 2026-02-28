@@ -1,6 +1,5 @@
 <script setup lang="ts">
 import { cn } from '@/lib/ui/utils'
-import { reactiveOmit } from '@vueuse/core'
 import type { ContextMenuSubTriggerProps } from 'reka-ui'
 import { ContextMenuSubTrigger, useForwardProps } from 'reka-ui'
 import type { HTMLAttributes } from 'vue'

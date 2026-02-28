@@ -1,6 +1,5 @@
 <script setup lang="ts">
 import { cn } from '@/lib/ui/utils'
-import { reactiveOmit } from '@vueuse/core'
 import type { ComboboxSeparatorProps } from 'reka-ui'
 import { ComboboxSeparator } from 'reka-ui'
 import type { HTMLAttributes } from 'vue'

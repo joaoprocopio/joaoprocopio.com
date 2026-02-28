@@ -2,12 +2,6 @@
 import type { SidebarMenuButtonProps } from './SidebarMenuButtonChild.vue'
 import SidebarMenuButtonChild from './SidebarMenuButtonChild.vue'
 import { useSidebar } from './utils'
-import {
-  Tooltip,
-  TooltipContent,
-  TooltipTrigger,
-} from '@/lib/ui/components/tooltip'
-import { reactiveOmit } from '@vueuse/core'
 import type { Component } from 'vue'
 
 defineOptions({

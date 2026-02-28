@@ -1,7 +1,6 @@
 <script setup lang="ts">
 import SheetOverlay from './SheetOverlay.vue'
 import { cn } from '@/lib/ui/utils'
-import { reactiveOmit } from '@vueuse/core'
 import type { DialogContentEmits, DialogContentProps } from 'reka-ui'
 import {
   DialogClose,

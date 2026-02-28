@@ -1,6 +1,5 @@
 <script setup lang="ts">
 import { cn } from '@/lib/ui/utils'
-import { reactiveOmit } from '@vueuse/core'
 import type { NavigationMenuItemProps } from 'reka-ui'
 import { NavigationMenuItem } from 'reka-ui'
 import type { HTMLAttributes } from 'vue'

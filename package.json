@@ -13,11 +13,15 @@
     "dev": "nuxt dev",
     "generate": "nuxt generate",
     "preview": "nuxt preview",
+    "typecheck": "nuxt typecheck",
     "lint": "eslint --fix .",
     "format": "prettier --write ."
   },
   "dependencies": {
     "@internationalized/date": "^3.11.0",
+    "@unovis/ts": "^1.6.4",
+    "@unovis/vue": "^1.6.4",
+    "@vueuse/core": "^14.2.1",
     "class-variance-authority": "^0.7.1",
     "clsx": "^2.1.1",
     "embla-carousel-vue": "^8.6.0",

@@ -3,7 +3,6 @@ import type {
   CarouselEmits,
   CarouselProps,
 } from './interface'
-import { createInjectionState } from '@vueuse/core'
 import emblaCarouselVue from 'embla-carousel-vue'
 import { onMounted, ref } from 'vue'
 

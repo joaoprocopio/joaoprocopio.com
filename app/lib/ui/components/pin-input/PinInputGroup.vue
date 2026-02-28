@@ -1,6 +1,5 @@
 <script setup lang="ts">
 import { cn } from '@/lib/ui/utils'
-import { reactiveOmit } from '@vueuse/core'
 import type { PrimitiveProps } from 'reka-ui'
 import { Primitive, useForwardProps } from 'reka-ui'
 import type { HTMLAttributes } from 'vue'

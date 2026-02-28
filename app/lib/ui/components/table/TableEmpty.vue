@@ -2,7 +2,6 @@
 import TableCell from './TableCell.vue'
 import TableRow from './TableRow.vue'
 import { cn } from '@/lib/ui/utils'
-import { reactiveOmit } from '@vueuse/core'
 import type { HTMLAttributes } from 'vue'
 
 const props = withDefaults(

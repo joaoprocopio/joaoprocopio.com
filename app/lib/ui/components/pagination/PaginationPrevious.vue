@@ -2,7 +2,6 @@
 import type { ButtonVariants } from '@/lib/ui/components/button'
 import { buttonVariants } from '@/lib/ui/components/button'
 import { cn } from '@/lib/ui/utils'
-import { reactiveOmit } from '@vueuse/core'
 import type { PaginationPrevProps } from 'reka-ui'
 import { PaginationPrev, useForwardProps } from 'reka-ui'
 import type { HTMLAttributes } from 'vue'

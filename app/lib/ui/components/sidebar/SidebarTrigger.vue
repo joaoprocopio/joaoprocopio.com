@@ -1,6 +1,5 @@
 <script setup lang="ts">
 import { useSidebar } from './utils'
-import { Button } from '@/lib/ui/components/button'
 import { cn } from '@/lib/ui/utils'
 import type { HTMLAttributes } from 'vue'
 

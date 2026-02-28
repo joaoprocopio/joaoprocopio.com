@@ -1,6 +1,5 @@
 <script setup lang="ts">
 import { cn } from '@/lib/ui/utils'
-import { reactiveOmit } from '@vueuse/core'
 import type { PopoverContentEmits, PopoverContentProps } from 'reka-ui'
 import { PopoverContent, PopoverPortal, useForwardPropsEmits } from 'reka-ui'
 import type { HTMLAttributes } from 'vue'

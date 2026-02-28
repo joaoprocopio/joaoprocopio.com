@@ -11,6 +11,9 @@ export default defineNuxtConfig({
     'shadcn-nuxt',
   ],
   css: ['~/assets/index.css'],
+  imports: {
+    dirs: ['~/lib/ui'],
+  },
   typescript: {
     tsConfig: {
       compilerOptions: {

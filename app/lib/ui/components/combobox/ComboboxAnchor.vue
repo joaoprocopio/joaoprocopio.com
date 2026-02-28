@@ -1,6 +1,5 @@
 <script setup lang="ts">
 import { cn } from '@/lib/ui/utils'
-import { reactiveOmit } from '@vueuse/core'
 import type { ComboboxAnchorProps } from 'reka-ui'
 import { ComboboxAnchor, useForwardProps } from 'reka-ui'
 import type { HTMLAttributes } from 'vue'

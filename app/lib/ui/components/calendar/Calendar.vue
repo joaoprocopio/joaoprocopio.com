@@ -1,25 +1,7 @@
 <script lang="ts" setup>
 import type { LayoutTypes } from '.'
-import {
-  CalendarCell,
-  CalendarCellTrigger,
-  CalendarGrid,
-  CalendarGridBody,
-  CalendarGridHead,
-  CalendarGridRow,
-  CalendarHeadCell,
-  CalendarHeader,
-  CalendarHeading,
-  CalendarNextButton,
-  CalendarPrevButton,
-} from '.'
-import {
-  NativeSelect,
-  NativeSelectOption,
-} from '@/lib/ui/components/native-select'
 import { cn } from '@/lib/ui/utils'
 import { getLocalTimeZone, today } from '@internationalized/date'
-import { createReusableTemplate, reactiveOmit, useVModel } from '@vueuse/core'
 import type { CalendarRootEmits, CalendarRootProps, DateValue } from 'reka-ui'
 import { CalendarRoot, useDateFormatter, useForwardPropsEmits } from 'reka-ui'
 import { createYear, createYearRange, toDate } from 'reka-ui/date'

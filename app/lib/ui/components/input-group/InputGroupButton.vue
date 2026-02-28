@@ -2,7 +2,6 @@
 import type { InputGroupButtonVariants } from '.'
 import { inputGroupButtonVariants } from '.'
 import type { ButtonVariants } from '@/lib/ui/components/button'
-import { Button } from '@/lib/ui/components/button'
 import { cn } from '@/lib/ui/utils'
 import type { HTMLAttributes } from 'vue'
 

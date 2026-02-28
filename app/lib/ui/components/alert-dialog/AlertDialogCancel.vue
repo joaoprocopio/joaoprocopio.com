@@ -1,7 +1,6 @@
 <script setup lang="ts">
 import { buttonVariants } from '@/lib/ui/components/button'
 import { cn } from '@/lib/ui/utils'
-import { reactiveOmit } from '@vueuse/core'
 import type { AlertDialogCancelProps } from 'reka-ui'
 import { AlertDialogCancel } from 'reka-ui'
 import type { HTMLAttributes } from 'vue'

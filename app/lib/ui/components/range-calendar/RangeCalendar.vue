@@ -1,19 +1,5 @@
 <script lang="ts" setup>
-import {
-  RangeCalendarCell,
-  RangeCalendarCellTrigger,
-  RangeCalendarGrid,
-  RangeCalendarGridBody,
-  RangeCalendarGridHead,
-  RangeCalendarGridRow,
-  RangeCalendarHeadCell,
-  RangeCalendarHeader,
-  RangeCalendarHeading,
-  RangeCalendarNextButton,
-  RangeCalendarPrevButton,
-} from '.'
 import { cn } from '@/lib/ui/utils'
-import { reactiveOmit } from '@vueuse/core'
 import type { RangeCalendarRootEmits, RangeCalendarRootProps } from 'reka-ui'
 import { RangeCalendarRoot, useForwardPropsEmits } from 'reka-ui'
 import type { HTMLAttributes } from 'vue'
