@@ -7,6 +7,7 @@ export default defineNuxtConfig({
     '@nuxtjs/color-mode',
     '@nuxt/eslint',
     '@nuxt/icon',
+    '@nuxt/fonts',
     '@vueuse/nuxt',
     'shadcn-nuxt',
   ],
@@ -21,6 +22,13 @@ export default defineNuxtConfig({
       },
     },
   },
+  eslint: {
+    config: {
+      nuxt: {
+        sortConfigKeys: true,
+      },
+    },
+  },
   icon: {
     mode: 'svg',
   },
@@ -30,5 +38,10 @@ export default defineNuxtConfig({
   },
   vite: {
     plugins: [tailwindcss() as any],
+  },
+  nitro: {
+    prerender: {
+      crawlLinks: true,
+    },
   },
 })
