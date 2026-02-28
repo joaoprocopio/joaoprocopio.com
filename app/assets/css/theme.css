@@ -1,11 +1,11 @@
 @import 'tailwindcss';
 @import 'tw-animate-css';
 
-@custom-variant dark (&:is(.dark *));
+@import './typography.css';
+@import './colors/gray.css';
+@import './colors/red.css';
 
-@theme {
-  --font-mono: 'Geist Mono', monospace;
-}
+@custom-variant dark (&:is(.dark *));
 
 @theme inline {
   --radius-sm: calc(var(--radius) - 4px);
@@ -123,7 +123,7 @@
   html,
   body,
   #__nuxt {
-    @apply min-h-full;
+    @apply h-full min-h-full;
   }
 
   html {

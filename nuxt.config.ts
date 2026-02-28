@@ -11,7 +11,7 @@ export default defineNuxtConfig({
     '@vueuse/nuxt',
     'shadcn-nuxt',
   ],
-  css: ['~/assets/index.css'],
+  css: ['~/assets/css/theme.css'],
   imports: {
     dirs: ['~/lib/ui'],
   },
