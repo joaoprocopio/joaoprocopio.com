@@ -1,3 +1,3 @@
 <template>
-  <div>abc</div>
+  <TresCanvas ref="canvas"> <Cube /> </TresCanvas>
 </template>

@@ -48,9 +48,9 @@
 :root {
   --radius: 0.25rem;
 
-  --background: var(--gray-2);
+  --background: var(--gray-1);
   --foreground: var(--gray-12);
-  --card: var(--gray-1);
+  --card: var(--gray-2);
   --card-foreground: var(--gray-12);
   --popover: var(--gray-2);
   --popover-foreground: var(--gray-12);
@@ -82,9 +82,9 @@
 }
 
 .dark {
-  --background: var(--gray-2);
+  --background: var(--gray-1);
   --foreground: var(--gray-12);
-  --card: var(--gray-1);
+  --card: var(--gray-2);
   --card-foreground: var(--gray-12);
   --popover: var(--gray-2);
   --popover-foreground: var(--gray-12);
