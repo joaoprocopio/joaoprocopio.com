@@ -4,13 +4,15 @@ import * as THREE from 'three'
 const containerRef = useTemplateRef('container')
 
 const scene = new THREE.Scene()
+scene.background = new THREE.Color(0x111111)
+
 const camera = new THREE.PerspectiveCamera(
   75,
   window.innerWidth / window.innerHeight,
-  0.1,
-  1000,
+  1,
+  5,
 )
-camera.position.set(2, 1, 3)
+camera.position.set(1, 1, 2)
 camera.lookAt(0, 0, 0)
 
 const renderer = new THREE.WebGLRenderer()
@@ -21,7 +23,7 @@ renderer.setAnimationLoop((timestamp: DOMHighResTimeStamp) => {
 
   const elapsed = timer.getElapsed()
 
-  cube.position.y = Math.sin(elapsed)
+  cube.position.y = 0.33 * Math.sin(elapsed)
   cube.rotation.y = elapsed * 0.6
   cube.rotation.x = elapsed * 0.3
   cube.rotation.z = elapsed * 0.2
@@ -31,12 +33,12 @@ renderer.setAnimationLoop((timestamp: DOMHighResTimeStamp) => {
 
 const cube = new THREE.Mesh(
   new THREE.BoxGeometry(),
-  new THREE.MeshBasicMaterial({ color: 0xffffff }),
+  new THREE.MeshDepthMaterial(),
 )
 scene.add(cube)
 
-scene.add(new THREE.AxesHelper(5))
-scene.add(new THREE.GridHelper(10, 10))
+// scene.add(new THREE.AxesHelper(5))
+// scene.add(new THREE.GridHelper(10, 10))
 
 const timer = new THREE.Timer()
 
