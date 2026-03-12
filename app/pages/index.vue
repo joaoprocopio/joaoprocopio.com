@@ -12,7 +12,7 @@ const camera = new THREE.PerspectiveCamera(
   1,
   5,
 )
-camera.position.set(1, 1, 2)
+camera.position.set(2, 2, 3)
 camera.lookAt(0, 0, 0)
 
 const renderer = new THREE.WebGLRenderer()
@@ -32,7 +32,7 @@ renderer.setAnimationLoop((timestamp: DOMHighResTimeStamp) => {
 })
 
 const cube = new THREE.Mesh(
-  new THREE.BoxGeometry(),
+  new THREE.TorusKnotGeometry(),
   new THREE.MeshDepthMaterial(),
 )
 scene.add(cube)
