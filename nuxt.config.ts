@@ -15,6 +15,11 @@ export default defineNuxtConfig({
   imports: {
     dirs: ['~/lib/ui'],
   },
+  app: {
+    head: {
+      title: 'Work in Progress...',
+    },
+  },
   typescript: {
     tsConfig: {
       compilerOptions: {

@@ -13,9 +13,21 @@ const camera = new THREE.PerspectiveCamera(
 camera.position.set(2, 1, 3)
 camera.lookAt(0, 0, 0)
 
-const renderer = new THREE.WebGLRenderer({ antialias: true })
+const renderer = new THREE.WebGLRenderer()
 renderer.setSize(window.innerWidth, window.innerHeight)
 renderer.setPixelRatio(window.devicePixelRatio)
+renderer.setAnimationLoop((timestamp: DOMHighResTimeStamp) => {
+  timer.update(timestamp)
+
+  const elapsed = timer.getElapsed()
+
+  cube.position.y = Math.sin(elapsed)
+  cube.rotation.y = elapsed * 0.6
+  cube.rotation.x = elapsed * 0.3
+  cube.rotation.z = elapsed * 0.2
+
+  renderer.render(scene, camera)
+})
 
 const cube = new THREE.Mesh(
   new THREE.BoxGeometry(),
@@ -27,21 +39,6 @@ scene.add(new THREE.AxesHelper(5))
 scene.add(new THREE.GridHelper(10, 10))
 
 const timer = new THREE.Timer()
-let animationId: number
-
-function animate(timestamp: DOMHighResTimeStamp) {
-  animationId = requestAnimationFrame(animate)
-  timer.update(timestamp)
-
-  const elapsed = timer.getElapsed()
-
-  cube.position.y = Math.sin(elapsed)
-  cube.rotation.y = elapsed * 0.6
-  cube.rotation.x = elapsed * 0.3
-  cube.rotation.z = elapsed * 0.2
-
-  renderer.render(scene, camera)
-}
 
 function onResize() {
   camera.aspect = window.innerWidth / window.innerHeight
@@ -50,14 +47,12 @@ function onResize() {
 }
 
 onMounted(() => {
-  containerRef.value?.appendChild(renderer.domElement)
+  containerRef.value!.appendChild(renderer.domElement)
   timer.connect(document)
   window.addEventListener('resize', onResize)
-  animationId = requestAnimationFrame(animate)
 })
 
 onUnmounted(() => {
-  cancelAnimationFrame(animationId)
   window.removeEventListener('resize', onResize)
   timer.dispose()
   renderer.dispose()
