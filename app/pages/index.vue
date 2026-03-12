@@ -1,10 +1,10 @@
 <script setup lang="ts">
 import * as THREE from 'three'
+import { EffectComposer, RenderPass } from 'three/examples/jsm/Addons.js'
 
 const containerRef = useTemplateRef('container')
 
 const scene = new THREE.Scene()
-scene.background = new THREE.Color(0x111111)
 
 const camera = new THREE.PerspectiveCamera(
   75,
@@ -28,8 +28,15 @@ renderer.setAnimationLoop((timestamp: DOMHighResTimeStamp) => {
   cube.rotation.x = elapsed * 0.3
   cube.rotation.z = elapsed * 0.2
 
-  renderer.render(scene, camera)
+  composer.render()
 })
+
+const composer = new EffectComposer(renderer)
+composer.setSize(window.innerWidth, window.innerHeight)
+composer.setPixelRatio(window.devicePixelRatio)
+
+const renderPass = new RenderPass(scene, camera)
+composer.addPass(renderPass)
 
 const cube = new THREE.Mesh(
   new THREE.TorusKnotGeometry(),
@@ -37,15 +44,13 @@ const cube = new THREE.Mesh(
 )
 scene.add(cube)
 
-// scene.add(new THREE.AxesHelper(5))
-// scene.add(new THREE.GridHelper(10, 10))
-
 const timer = new THREE.Timer()
 
 function onResize() {
   camera.aspect = window.innerWidth / window.innerHeight
   camera.updateProjectionMatrix()
   renderer.setSize(window.innerWidth, window.innerHeight)
+  composer.setSize(window.innerWidth, window.innerHeight)
 }
 
 onMounted(() => {
@@ -57,6 +62,7 @@ onMounted(() => {
 onUnmounted(() => {
   window.removeEventListener('resize', onResize)
   timer.dispose()
+  composer.dispose()
   renderer.dispose()
 })
 </script>
