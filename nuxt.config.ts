@@ -9,7 +9,6 @@ export default defineNuxtConfig({
     '@nuxt/icon',
     '@nuxt/fonts',
     '@vueuse/nuxt',
-    '@tresjs/nuxt',
     'shadcn-nuxt',
   ],
   css: ['~/assets/css/theme.css'],
