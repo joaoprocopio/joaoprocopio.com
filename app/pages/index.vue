@@ -14,7 +14,7 @@ const camera = new THREE.PerspectiveCamera(
   2,
   30,
 )
-camera.position.set(3, 3, 3)
+camera.position.set(4, 4, 4)
 camera.lookAt(0, 0, 0)
 
 const renderer = new THREE.WebGLRenderer()
@@ -23,15 +23,21 @@ renderer.setPixelRatio(window.devicePixelRatio)
 renderer.setAnimationLoop((timestamp: DOMHighResTimeStamp) => {
   timer.update(timestamp)
 
-  const elapsed = timer.getElapsed()
-
-  cube.position.y = 0.33 * Math.sin(elapsed)
-  cube.rotation.y = elapsed * 0.6
-  cube.rotation.x = elapsed * 0.3
-  cube.rotation.z = elapsed * 0.2
+  rotate(knot)
+  rotate(cube)
+  rotate(torus)
 
   composer.render()
 })
+
+function rotate(object: THREE.Mesh) {
+  const elapsed = timer.getElapsed()
+
+  object.position.y = 0.33 * Math.sin(elapsed)
+  object.rotation.y = elapsed * 0.6
+  object.rotation.x = elapsed * 0.3
+  object.rotation.z = elapsed * 0.2
+}
 
 const composer = new EffectComposer(renderer)
 
@@ -41,11 +47,27 @@ composer.addPass(renderPass)
 const asciiPass = new AsciiPass()
 composer.addPass(asciiPass)
 
-const cube = new THREE.Mesh(
+const knot = new THREE.Mesh(
   new THREE.TorusKnotGeometry(),
   new THREE.MeshDepthMaterial(),
 )
+knot.position.set(1, 0, 1)
+
+const cube = new THREE.Mesh(
+  new THREE.BoxGeometry(),
+  new THREE.MeshDepthMaterial(),
+)
+cube.position.set(3, 1, -1)
+
+const torus = new THREE.Mesh(
+  new THREE.DodecahedronGeometry(),
+  new THREE.MeshDepthMaterial(),
+)
+torus.position.set(-1, 2, 3)
+
+scene.add(knot)
 scene.add(cube)
+scene.add(torus)
 
 const timer = new THREE.Timer()
 
