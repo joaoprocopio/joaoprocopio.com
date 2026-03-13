@@ -1,6 +1,8 @@
 <script setup lang="ts">
 import * as THREE from 'three'
-import { EffectComposer, RenderPass } from 'three/examples/jsm/Addons.js'
+import { EffectComposer } from 'three/addons/postprocessing/EffectComposer.js'
+import { RenderPass } from 'three/addons/postprocessing/RenderPass.js'
+import { AsciiPass } from '~/lib/three/ascii'
 
 const containerRef = useTemplateRef('container')
 
@@ -9,10 +11,10 @@ const scene = new THREE.Scene()
 const camera = new THREE.PerspectiveCamera(
   75,
   window.innerWidth / window.innerHeight,
-  1,
-  5,
+  2,
+  30,
 )
-camera.position.set(2, 2, 3)
+camera.position.set(3, 3, 3)
 camera.lookAt(0, 0, 0)
 
 const renderer = new THREE.WebGLRenderer()
@@ -32,11 +34,12 @@ renderer.setAnimationLoop((timestamp: DOMHighResTimeStamp) => {
 })
 
 const composer = new EffectComposer(renderer)
-composer.setSize(window.innerWidth, window.innerHeight)
-composer.setPixelRatio(window.devicePixelRatio)
 
 const renderPass = new RenderPass(scene, camera)
 composer.addPass(renderPass)
+
+const asciiPass = new AsciiPass()
+composer.addPass(asciiPass)
 
 const cube = new THREE.Mesh(
   new THREE.TorusKnotGeometry(),
@@ -50,7 +53,6 @@ function onResize() {
   camera.aspect = window.innerWidth / window.innerHeight
   camera.updateProjectionMatrix()
   renderer.setSize(window.innerWidth, window.innerHeight)
-  composer.setSize(window.innerWidth, window.innerHeight)
 }
 
 onMounted(() => {
