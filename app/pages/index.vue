@@ -2,6 +2,7 @@
 import * as THREE from 'three'
 import { EffectComposer } from 'three/addons/postprocessing/EffectComposer.js'
 import { RenderPass } from 'three/addons/postprocessing/RenderPass.js'
+import { AsciiPass } from '~/lib/three/ascii'
 
 const containerRef = useTemplateRef('container')
 
@@ -13,7 +14,7 @@ const camera = new THREE.PerspectiveCamera(
   2,
   30,
 )
-camera.position.set(3, 3, 3)
+camera.position.set(3, 2, 3)
 camera.lookAt(0, 0, 0)
 
 const renderer = new THREE.WebGLRenderer()
@@ -45,8 +46,8 @@ const composer = new EffectComposer(renderer)
 const renderPass = new RenderPass(scene, camera)
 composer.addPass(renderPass)
 
-// const asciiPass = new AsciiPass()
-// composer.addPass(asciiPass)
+const asciiPass = new AsciiPass()
+composer.addPass(asciiPass)
 
 const cone = new THREE.Mesh(
   new THREE.ConeGeometry(),
