@@ -2,7 +2,6 @@
 import * as THREE from 'three'
 import { EffectComposer } from 'three/addons/postprocessing/EffectComposer.js'
 import { RenderPass } from 'three/addons/postprocessing/RenderPass.js'
-import { AsciiPass } from '~/lib/three/ascii'
 
 const containerRef = useTemplateRef('container')
 
@@ -14,7 +13,7 @@ const camera = new THREE.PerspectiveCamera(
   2,
   30,
 )
-camera.position.set(4, 4, 4)
+camera.position.set(3, 3, 3)
 camera.lookAt(0, 0, 0)
 
 const renderer = new THREE.WebGLRenderer()
@@ -23,9 +22,11 @@ renderer.setPixelRatio(window.devicePixelRatio)
 renderer.setAnimationLoop((timestamp: DOMHighResTimeStamp) => {
   timer.update(timestamp)
 
-  rotate(knot)
+  rotate(cone)
   rotate(cube)
-  rotate(torus)
+  rotate(capsule)
+  rotate(cylinder)
+  rotate(abc)
 
   composer.render()
 })
@@ -44,32 +45,51 @@ const composer = new EffectComposer(renderer)
 const renderPass = new RenderPass(scene, camera)
 composer.addPass(renderPass)
 
-const asciiPass = new AsciiPass()
-composer.addPass(asciiPass)
+// const asciiPass = new AsciiPass()
+// composer.addPass(asciiPass)
 
-const knot = new THREE.Mesh(
-  new THREE.TorusKnotGeometry(),
+const cone = new THREE.Mesh(
+  new THREE.ConeGeometry(),
   new THREE.MeshDepthMaterial(),
 )
-knot.position.set(1, 0, 1)
+cone.position.set(-1.5, 0, 2)
 
 const cube = new THREE.Mesh(
   new THREE.BoxGeometry(),
   new THREE.MeshDepthMaterial(),
 )
-cube.position.set(3, 1, -1)
+cube.position.set(1, 0, 0.6)
 
-const torus = new THREE.Mesh(
-  new THREE.DodecahedronGeometry(),
+const capsule = new THREE.Mesh(
+  new THREE.CapsuleGeometry(),
   new THREE.MeshDepthMaterial(),
 )
-torus.position.set(-1, 2, 3)
+capsule.position.set(0, 0, -3)
 
-scene.add(knot)
+const cylinder = new THREE.Mesh(
+  new THREE.CylinderGeometry(),
+  new THREE.MeshDepthMaterial(),
+)
+cylinder.position.set(-2.5, 0, -1)
+
+const abc = new THREE.Mesh(
+  new THREE.SphereGeometry(),
+  new THREE.MeshDepthMaterial(),
+)
+abc.position.set(3, 0, -2)
+
+scene.add(cone)
 scene.add(cube)
-scene.add(torus)
+scene.add(capsule)
+scene.add(cylinder)
+scene.add(abc)
 
 const timer = new THREE.Timer()
+
+if (import.meta.env.DEV) {
+  scene.add(new THREE.AxesHelper())
+  scene.add(new THREE.GridHelper())
+}
 
 function onResize() {
   camera.aspect = window.innerWidth / window.innerHeight
