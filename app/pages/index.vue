@@ -27,7 +27,7 @@ renderer.setAnimationLoop((timestamp: DOMHighResTimeStamp) => {
   rotate(cube)
   rotate(capsule)
   rotate(cylinder)
-  rotate(abc)
+  rotate(sphere)
 
   composer.render()
 })
@@ -73,17 +73,17 @@ const cylinder = new THREE.Mesh(
 )
 cylinder.position.set(-2.5, 0, -1)
 
-const abc = new THREE.Mesh(
+const sphere = new THREE.Mesh(
   new THREE.SphereGeometry(),
   new THREE.MeshDepthMaterial(),
 )
-abc.position.set(3, 0, -2)
+sphere.position.set(3, 0, -2)
 
 scene.add(cone)
 scene.add(cube)
 scene.add(capsule)
 scene.add(cylinder)
-scene.add(abc)
+scene.add(sphere)
 
 const timer = new THREE.Timer()
 
