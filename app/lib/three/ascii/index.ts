@@ -11,6 +11,7 @@ export class AsciiPass extends Pass {
     super()
 
     this.#material = new THREE.ShaderMaterial({
+      glslVersion: THREE.GLSL3,
       uniforms: { tDiffuse: { value: null } },
       vertexShader,
       fragmentShader,
